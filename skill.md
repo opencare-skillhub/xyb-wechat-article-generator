@@ -44,6 +44,12 @@ font-size:14px;
 | 暖阳/晨曦 | xyb_template_dawn_warm.html | #e76f51 + #f4a261 | 暖调科普/行动清单 |
 | 雾蓝/学术增强 | xyb_template_clinical_blue.html | #3d6b8a + #6096b4 | 临床研究深度解读 |
 | 藕粉/人文 | xyb_template_soft_pink.html | #c98a8a + #8aa89a | 心理关怀/患者故事 |
+| 森林绿/方案 | xyb_template_oasis_green.html | #1f6f50 | 方案解读/药物科普 |
+| 赭红/警示 | xyb_template_emergency_red.html | #c0392b | 急症警示/误区辟谣 |
+| 深空蓝/AI | xyb_template_ai_tech.html | #0e1a2b + #4fd8e8 | 新技术/新药前沿 |
+| 亮橙/活动 | xyb_template_event_flash.html | #f4732c | 活动快讯/招募 |
+| 报告单/蓝灰 | xyb_template_lab_report.html | #34618e | 化验单/指标解读 |
+| 地铁蓝/旅程 | xyb_template_metro_journey.html | #2a7de1 | 治疗旅程/随访规划 |
 | Tiffany/活动 | xyb_template_tiffany.html | #0abab5 | 活动/节日 |
 
 ## 可用组件

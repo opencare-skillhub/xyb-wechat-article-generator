@@ -30,6 +30,12 @@ xyb-wechat-article-generator/
 │   │   ├── xyb_template_dawn_warm.html      # 🌅 晨曦暖阳（问答+清单）
 │   │   ├── xyb_template_clinical_blue.html  # 🌊 雾蓝学术（导航+灯塔+VS对照）
 │   │   ├── xyb_template_soft_pink.html      # 🌸 藕粉人文（信纸+树洞）
+│   │   ├── xyb_template_oasis_green.html    # 🌳 生命绿洲（方案+药物档案）
+│   │   ├── xyb_template_emergency_red.html  # 🚨 急症警示（信号灯+急救步骤）
+│   │   ├── xyb_template_ai_tech.html        # 🌌 AI前沿（深色霓虹科技）
+│   │   ├── xyb_template_event_flash.html    # 🎯 活动快讯（倒计时+报名）
+│   │   ├── xyb_template_lab_report.html     # 🧾 化验单（报告单表格解读）
+│   │   ├── xyb_template_metro_journey.html  # 🚇 胰路地铁（线路图+打卡）
 │   │   └── xyb_template_tiffany.html       # 💎 Tiffany蓝绿
 │   └── images/                  # 图片资源
 ├── examples/                    # 示例输出
@@ -74,6 +80,12 @@ xyb-wechat-article-generator/
 | 暖阳/晨曦 | 🌅 琥珀暖阳 | 暖调科普、行动清单、问答 |
 | 雾蓝/学术增强 | 🌊 雾霾蓝 | 临床研究深度解读、数据灯塔 |
 | 藕粉/人文 | 🌸 藕粉+灰绿 | 心理关怀、患者故事、纪念 |
+| 森林绿/方案 | 🌳 森林绿 | 治疗方案、指南解读、药物科普 |
+| 赭红/警示 | 🚨 赭红 | 急症识别、就医红线、误区辟谣 |
+| 深空蓝/AI | 🌌 深空蓝+霓虹青 | 新技术、新药、AI前沿（深色模式） |
+| 亮橙/活动 | 🎯 亮橙 | 直播预告、志愿者招募、活动回顾 |
+| 报告单/蓝灰 | 🧾 医师蓝 | 化验单解读、指标科普 |
+| 地铁蓝/旅程 | 🚇 地铁蓝 | 治疗旅程、随访规划、康复阶段 |
 | Tiffany/活动 | 💎 蒂芙尼蓝 | 活动推广、节日 |
 
 ## 在其他 AI 工具中使用
