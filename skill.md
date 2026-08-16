@@ -41,6 +41,9 @@ font-size:14px;
 | 紫色/胰腺癌 | xyb_template_morandi_purple.html | #5c4a7a | 胰腺癌宣传 |
 | 灰绿/营养 | xyb_template_morandi_green.html | #4a6a5a | 营养/自然 |
 | 翡翠绿/琥珀 | xyb_template_emerald_amber.html | #2d8c6e + #e76f51 | 治愈系/生命力 |
+| 暖阳/晨曦 | xyb_template_dawn_warm.html | #e76f51 + #f4a261 | 暖调科普/行动清单 |
+| 雾蓝/学术增强 | xyb_template_clinical_blue.html | #3d6b8a + #6096b4 | 临床研究深度解读 |
+| 藕粉/人文 | xyb_template_soft_pink.html | #c98a8a + #8aa89a | 心理关怀/患者故事 |
 | Tiffany/活动 | xyb_template_tiffany.html | #0abab5 | 活动/节日 |
 
 ## 可用组件
