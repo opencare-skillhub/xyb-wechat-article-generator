@@ -55,6 +55,9 @@ font-size:14px;
 | 米白/诊间 | xyb_template_expert.html | #46586b + #3a6ea5 | 专家访谈/指南解读 |
 | 靛紫/数据 | xyb_template_data_compare.html | #3b3f8f + #6b5fa8 | 药物横评/方案对比 |
 | 热搜/辟谣 | xyb_template_hotlist_rumor.html | #ff4d3a | 误区辟谣合集 |
+| 航空蓝/试验 | xyb_template_trial_boarding.html | #1b4f8a | 临床试验科普 |
+| 青绿/药盒 | xyb_template_pill_week.html | #1e7a6e | 用药管理/照护指引 |
+| 墨蓝/处方笺 | xyb_template_rx_prescription.html | #35506b | 用药科普/医嘱叮嘱 |
 | Tiffany/活动 | xyb_template_tiffany.html | #0abab5 | 活动/节日 |
 
 ## 可用组件

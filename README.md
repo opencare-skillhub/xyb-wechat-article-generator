@@ -41,6 +41,9 @@ xyb-wechat-article-generator/
 │   │   ├── xyb_template_expert.html         # 👨‍⚕️ 米白诊间（名片+对话体）
 │   │   ├── xyb_template_data_compare.html   # 📊 靛紫数据（对比矩阵+阶梯）
 │   │   ├── xyb_template_hotlist_rumor.html  # 🔥 热搜辟谣榜（拟物榜单）
+│   │   ├── xyb_template_trial_boarding.html # ✈️ 登机牌（临床试验拟物）
+│   │   ├── xyb_template_pill_week.html      # 💊 药盒周历（7格用药管理）
+│   │   ├── xyb_template_rx_prescription.html # ℞ 老式处方笺（复古拟物）
 │   │   └── xyb_template_tiffany.html       # 💎 Tiffany蓝绿
 │   └── images/                  # 图片资源
 ├── examples/                    # 示例输出
@@ -96,6 +99,9 @@ xyb-wechat-article-generator/
 | 米白/诊间 | 👨‍⚕️ 米白+医师蓝 | 名医访谈、指南解读、专家答疑 |
 | 靛紫/数据 | 📊 深靛+数据紫 | 药物横评、方案对比、决策辅助 |
 | 热搜/辟谣 | 🔥 热搜红橙 | 误区辟谣合集、传言盘点 |
+| 航空蓝/试验 | ✈️ 航空蓝 | 临床试验招募、入组流程 |
+| 青绿/药盒 | 💊 医药青绿 | 用药管理、化疗间期护理 |
+| 墨蓝/处方笺 | ℞ 米黄纸+蓝黑墨水 | 用药科普、医嘱叮嘱 |
 | Tiffany/活动 | 💎 蒂芙尼蓝 | 活动推广、节日 |
 
 ## 在其他 AI 工具中使用
