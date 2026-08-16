@@ -36,6 +36,11 @@ xyb-wechat-article-generator/
 │   │   ├── xyb_template_event_flash.html    # 🎯 活动快讯（倒计时+报名）
 │   │   ├── xyb_template_lab_report.html     # 🧾 化验单（报告单表格解读）
 │   │   ├── xyb_template_metro_journey.html  # 🚇 胰路地铁（线路图+打卡）
+│   │   ├── xyb_template_mindfulness.html    # 🧘 正念疗愈（呼吸引导+金句墙）
+│   │   ├── xyb_template_story_narrative.html # 📖 叙事长文（章节+首字下沉）
+│   │   ├── xyb_template_expert.html         # 👨‍⚕️ 米白诊间（名片+对话体）
+│   │   ├── xyb_template_data_compare.html   # 📊 靛紫数据（对比矩阵+阶梯）
+│   │   ├── xyb_template_hotlist_rumor.html  # 🔥 热搜辟谣榜（拟物榜单）
 │   │   └── xyb_template_tiffany.html       # 💎 Tiffany蓝绿
 │   └── images/                  # 图片资源
 ├── examples/                    # 示例输出
@@ -86,6 +91,11 @@ xyb-wechat-article-generator/
 | 亮橙/活动 | 🎯 亮橙 | 直播预告、志愿者招募、活动回顾 |
 | 报告单/蓝灰 | 🧾 医师蓝 | 化验单解读、指标科普 |
 | 地铁蓝/旅程 | 🚇 地铁蓝 | 治疗旅程、随访规划、康复阶段 |
+| 灰绿/正念 | 🧘 灰绿+雾紫 | 心理支持、正念练习、家属关怀 |
+| 暖棕/叙事 | 📖 奶油米白+暖棕 | 患者故事、深度报道、纪念专题 |
+| 米白/诊间 | 👨‍⚕️ 米白+医师蓝 | 名医访谈、指南解读、专家答疑 |
+| 靛紫/数据 | 📊 深靛+数据紫 | 药物横评、方案对比、决策辅助 |
+| 热搜/辟谣 | 🔥 热搜红橙 | 误区辟谣合集、传言盘点 |
 | Tiffany/活动 | 💎 蒂芙尼蓝 | 活动推广、节日 |
 
 ## 在其他 AI 工具中使用

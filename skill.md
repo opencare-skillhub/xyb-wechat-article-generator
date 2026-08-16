@@ -50,6 +50,11 @@ font-size:14px;
 | 亮橙/活动 | xyb_template_event_flash.html | #f4732c | 活动快讯/招募 |
 | 报告单/蓝灰 | xyb_template_lab_report.html | #34618e | 化验单/指标解读 |
 | 地铁蓝/旅程 | xyb_template_metro_journey.html | #2a7de1 | 治疗旅程/随访规划 |
+| 灰绿/正念 | xyb_template_mindfulness.html | #7d9282 + #9a8fa8 | 心理支持/情绪调节 |
+| 暖棕/叙事 | xyb_template_story_narrative.html | #8a6242 | 患者故事/深度报道 |
+| 米白/诊间 | xyb_template_expert.html | #46586b + #3a6ea5 | 专家访谈/指南解读 |
+| 靛紫/数据 | xyb_template_data_compare.html | #3b3f8f + #6b5fa8 | 药物横评/方案对比 |
+| 热搜/辟谣 | xyb_template_hotlist_rumor.html | #ff4d3a | 误区辟谣合集 |
 | Tiffany/活动 | xyb_template_tiffany.html | #0abab5 | 活动/节日 |
 
 ## 可用组件
