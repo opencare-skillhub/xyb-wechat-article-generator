@@ -40,6 +40,7 @@ font-size:14px;
 | 红色 | xyb_template_morandi_red.html | #7a4a4a | 重要警示 |
 | 紫色/胰腺癌 | xyb_template_morandi_purple.html | #5c4a7a | 胰腺癌宣传 |
 | 灰绿/营养 | xyb_template_morandi_green.html | #4a6a5a | 营养/自然 |
+| 翡翠绿/琥珀 | xyb_template_emerald_amber.html | #2d8c6e + #e76f51 | 治愈系/生命力 |
 | Tiffany/活动 | xyb_template_tiffany.html | #0abab5 | 活动/节日 |
 
 ## 可用组件

@@ -26,6 +26,7 @@ xyb-wechat-article-generator/
 │   │   ├── xyb_template_morandi_red.html  # 🔴 莫兰迪红
 │   │   ├── xyb_template_morandi_purple.html # 🟣 莫兰迪紫
 │   │   ├── xyb_template_morandi_green.html  # 🟢 莫兰迪绿
+│   │   ├── xyb_template_emerald_amber.html  # 💚🧡 翡翠绿+琥珀（治愈系）
 │   │   └── xyb_template_tiffany.html       # 💎 Tiffany蓝绿
 │   └── images/                  # 图片资源
 ├── examples/                    # 示例输出
@@ -66,6 +67,7 @@ xyb-wechat-article-generator/
 | 红色 | 🔴 赭红 | 重要警示 |
 | 紫色/胰腺癌 | 🟣 烟紫 | 胰腺癌宣传月（11月） |
 | 灰绿/营养 | 🟢 灰绿 | 营养科普 |
+| 翡翠绿/琥珀 | 💚🧡 翡翠绿+琥珀暖阳 | 治愈系、生命力、医疗人文 |
 | Tiffany/活动 | 💎 蒂芙尼蓝 | 活动推广、节日 |
 
 ## 在其他 AI 工具中使用
