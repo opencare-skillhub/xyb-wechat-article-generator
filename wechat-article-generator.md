@@ -40,6 +40,24 @@ font-size:14px;
 | 红色 | xyb_template_morandi_red.html | #7a4a4a | 重要警示 |
 | 紫色/胰腺癌 | xyb_template_morandi_purple.html | #5c4a7a | 胰腺癌宣传 |
 | 灰绿/营养 | xyb_template_morandi_green.html | #4a6a5a | 营养/自然 |
+| 翡翠绿/琥珀 | xyb_template_emerald_amber.html | #2d8c6e + #e76f51 | 治愈系/生命力 |
+| 暖阳/晨曦 | xyb_template_dawn_warm.html | #e76f51 + #f4a261 | 暖调科普/行动清单 |
+| 雾蓝/学术增强 | xyb_template_clinical_blue.html | #3d6b8a + #6096b4 | 临床研究深度解读 |
+| 藕粉/人文 | xyb_template_soft_pink.html | #c98a8a + #8aa89a | 心理关怀/患者故事 |
+| 森林绿/方案 | xyb_template_oasis_green.html | #1f6f50 | 方案解读/药物科普 |
+| 赭红/警示 | xyb_template_emergency_red.html | #c0392b | 急症警示/误区辟谣 |
+| 深空蓝/AI | xyb_template_ai_tech.html | #0e1a2b + #4fd8e8 | 新技术/新药前沿 |
+| 亮橙/活动 | xyb_template_event_flash.html | #f4732c | 活动快讯/招募 |
+| 报告单/蓝灰 | xyb_template_lab_report.html | #34618e | 化验单/指标解读 |
+| 地铁蓝/旅程 | xyb_template_metro_journey.html | #2a7de1 | 治疗旅程/随访规划 |
+| 灰绿/正念 | xyb_template_mindfulness.html | #7d9282 + #9a8fa8 | 心理支持/情绪调节 |
+| 暖棕/叙事 | xyb_template_story_narrative.html | #8a6242 | 患者故事/深度报道 |
+| 米白/诊间 | xyb_template_expert.html | #46586b + #3a6ea5 | 专家访谈/指南解读 |
+| 靛紫/数据 | xyb_template_data_compare.html | #3b3f8f + #6b5fa8 | 药物横评/方案对比 |
+| 热搜/辟谣 | xyb_template_hotlist_rumor.html | #ff4d3a | 误区辟谣合集 |
+| 航空蓝/试验 | xyb_template_trial_boarding.html | #1b4f8a | 临床试验科普 |
+| 青绿/药盒 | xyb_template_pill_week.html | #1e7a6e | 用药管理/照护指引 |
+| 墨蓝/处方笺 | xyb_template_rx_prescription.html | #35506b | 用药科普/医嘱叮嘱 |
 | Tiffany/活动 | xyb_template_tiffany.html | #0abab5 | 活动/节日 |
 
 ## 可用组件

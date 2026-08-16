@@ -26,6 +26,24 @@ xyb-wechat-article-generator/
 │   │   ├── xyb_template_morandi_red.html  # 🔴 莫兰迪红
 │   │   ├── xyb_template_morandi_purple.html # 🟣 莫兰迪紫
 │   │   ├── xyb_template_morandi_green.html  # 🟢 莫兰迪绿
+│   │   ├── xyb_template_emerald_amber.html  # 💚🧡 翡翠绿+琥珀（治愈系）
+│   │   ├── xyb_template_dawn_warm.html      # 🌅 晨曦暖阳（问答+清单）
+│   │   ├── xyb_template_clinical_blue.html  # 🌊 雾蓝学术（导航+灯塔+VS对照）
+│   │   ├── xyb_template_soft_pink.html      # 🌸 藕粉人文（信纸+树洞）
+│   │   ├── xyb_template_oasis_green.html    # 🌳 生命绿洲（方案+药物档案）
+│   │   ├── xyb_template_emergency_red.html  # 🚨 急症警示（信号灯+急救步骤）
+│   │   ├── xyb_template_ai_tech.html        # 🌌 AI前沿（深色霓虹科技）
+│   │   ├── xyb_template_event_flash.html    # 🎯 活动快讯（倒计时+报名）
+│   │   ├── xyb_template_lab_report.html     # 🧾 化验单（报告单表格解读）
+│   │   ├── xyb_template_metro_journey.html  # 🚇 胰路地铁（线路图+打卡）
+│   │   ├── xyb_template_mindfulness.html    # 🧘 正念疗愈（呼吸引导+金句墙）
+│   │   ├── xyb_template_story_narrative.html # 📖 叙事长文（章节+首字下沉）
+│   │   ├── xyb_template_expert.html         # 👨‍⚕️ 米白诊间（名片+对话体）
+│   │   ├── xyb_template_data_compare.html   # 📊 靛紫数据（对比矩阵+阶梯）
+│   │   ├── xyb_template_hotlist_rumor.html  # 🔥 热搜辟谣榜（拟物榜单）
+│   │   ├── xyb_template_trial_boarding.html # ✈️ 登机牌（临床试验拟物）
+│   │   ├── xyb_template_pill_week.html      # 💊 药盒周历（7格用药管理）
+│   │   ├── xyb_template_rx_prescription.html # ℞ 老式处方笺（复古拟物）
 │   │   └── xyb_template_tiffany.html       # 💎 Tiffany蓝绿
 │   └── images/                  # 图片资源
 ├── examples/                    # 示例输出
@@ -66,6 +84,24 @@ xyb-wechat-article-generator/
 | 红色 | 🔴 赭红 | 重要警示 |
 | 紫色/胰腺癌 | 🟣 烟紫 | 胰腺癌宣传月（11月） |
 | 灰绿/营养 | 🟢 灰绿 | 营养科普 |
+| 翡翠绿/琥珀 | 💚🧡 翡翠绿+琥珀暖阳 | 治愈系、生命力、医疗人文 |
+| 暖阳/晨曦 | 🌅 琥珀暖阳 | 暖调科普、行动清单、问答 |
+| 雾蓝/学术增强 | 🌊 雾霾蓝 | 临床研究深度解读、数据灯塔 |
+| 藕粉/人文 | 🌸 藕粉+灰绿 | 心理关怀、患者故事、纪念 |
+| 森林绿/方案 | 🌳 森林绿 | 治疗方案、指南解读、药物科普 |
+| 赭红/警示 | 🚨 赭红 | 急症识别、就医红线、误区辟谣 |
+| 深空蓝/AI | 🌌 深空蓝+霓虹青 | 新技术、新药、AI前沿（深色模式） |
+| 亮橙/活动 | 🎯 亮橙 | 直播预告、志愿者招募、活动回顾 |
+| 报告单/蓝灰 | 🧾 医师蓝 | 化验单解读、指标科普 |
+| 地铁蓝/旅程 | 🚇 地铁蓝 | 治疗旅程、随访规划、康复阶段 |
+| 灰绿/正念 | 🧘 灰绿+雾紫 | 心理支持、正念练习、家属关怀 |
+| 暖棕/叙事 | 📖 奶油米白+暖棕 | 患者故事、深度报道、纪念专题 |
+| 米白/诊间 | 👨‍⚕️ 米白+医师蓝 | 名医访谈、指南解读、专家答疑 |
+| 靛紫/数据 | 📊 深靛+数据紫 | 药物横评、方案对比、决策辅助 |
+| 热搜/辟谣 | 🔥 热搜红橙 | 误区辟谣合集、传言盘点 |
+| 航空蓝/试验 | ✈️ 航空蓝 | 临床试验招募、入组流程 |
+| 青绿/药盒 | 💊 医药青绿 | 用药管理、化疗间期护理 |
+| 墨蓝/处方笺 | ℞ 米黄纸+蓝黑墨水 | 用药科普、医嘱叮嘱 |
 | Tiffany/活动 | 💎 蒂芙尼蓝 | 活动推广、节日 |
 
 ## 在其他 AI 工具中使用
