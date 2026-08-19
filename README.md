@@ -5,8 +5,10 @@
 ## 功能
 
 - 将 Markdown/文本素材自动转换为微信公众号兼容的 inline style HTML
-- 支持 9 套配色方案（莫兰迪色系 + Tiffany蓝绿）
-- 内置 10 种排版组件（标题卡片、数据卡片、信息框、时间线等）
+- **三套版式系列**：v3.1 生机微光（默认，卡片错落 + 高对比阅读优化）、莫兰迪柔和卡片风、中国风/特展版式风
+- 每系列 9 套配色（8 套莫兰迪色系 + Tiffany蓝绿）
+- v3.1 可读性铁律：正文用深色 token，浅色仅用于边框/装饰，杜绝"浅字叠浅底"
+- 内置多种排版组件（错位标题卡、胶囊标签、大字号数据卡、气泡时间轴、CSS几何分隔线等）
 - 自动附加固定底部区域（组织介绍、社交媒体、签名卡片）
 - 输出可直接粘贴到135编辑器使用
 
@@ -17,6 +19,17 @@ xyb-wechat-article-generator/
 ├── README.md                    # 项目说明
 ├── skill.md                     # Kiro Skill 定义文件
 ├── assets/
+│   ├── template3/               # 模板系列3：生机微光 v3.1（默认，10套配色）
+│   │   ├── xyb3_template.html               # 🌿 治愈翡翠绿+琥珀暖阳（默认旗舰）
+│   │   ├── foot_template.html               # 📌 v3 foot 母版（深色卡片版基准）
+│   │   ├── xyb3_template_morandi.html       # 🤎 莫兰迪暖棕+陶土暖阳
+│   │   ├── xyb3_template_morandi_blue.html  # 🔵 雾霾蓝+琥珀暖阳
+│   │   ├── xyb3_template_morandi_gray.html  # ⚪ 高级灰+琥珀暖阳
+│   │   ├── xyb3_template_morandi_pink.html  # 🩷 豆沙粉+蜜桃暖阳
+│   │   ├── xyb3_template_morandi_red.html   # 🔴 赭红+鎏金暖阳
+│   │   ├── xyb3_template_morandi_purple.html # 🟣 烟紫+琥珀暖阳
+│   │   ├── xyb3_template_morandi_green.html  # 🟢 灰绿自然+琥珀暖阳
+│   │   └── xyb3_template_tiffany.html        # 💎 蒂芙尼蓝绿+珊瑚暖阳
 │   ├── template1/               # 模板系列1：莫兰迪柔和卡片风（9套配色 + foot母版）
 │   │   ├── foot_template.html              # 📌 foot 强调版母版（固定footer基准）
 │   │   ├── xyb_template.html              # 🌿 森林绿（默认）
