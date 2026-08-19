@@ -17,7 +17,8 @@ xyb-wechat-article-generator/
 ├── README.md                    # 项目说明
 ├── skill.md                     # Kiro Skill 定义文件
 ├── assets/
-│   ├── templates/               # HTML 模板文件（9套配色）
+│   ├── template1/               # 模板系列1：莫兰迪柔和卡片风（9套配色 + foot母版）
+│   │   ├── foot_template.html              # 📌 foot 强调版母版（固定footer基准）
 │   │   ├── xyb_template.html              # 🌿 森林绿（默认）
 │   │   ├── xyb_template_morandi.html      # 🤎 莫兰迪暖棕
 │   │   ├── xyb_template_morandi_blue.html # 🔵 莫兰迪蓝
@@ -27,6 +28,16 @@ xyb-wechat-article-generator/
 │   │   ├── xyb_template_morandi_purple.html # 🟣 莫兰迪紫
 │   │   ├── xyb_template_morandi_green.html  # 🟢 莫兰迪绿
 │   │   └── xyb_template_tiffany.html       # 💎 Tiffany蓝绿
+│   ├── template2/               # 模板系列2：中国风/特展版式风（10套配色）
+│   │   ├── xyb2_template.html              # 🏮 朱砂深红（默认，中国风）
+│   │   ├── xyb2_template_morandi.html      # 🤎 莫兰迪暖棕
+│   │   ├── xyb2_template_morandi_blue.html # 🔵 莫兰迪蓝
+│   │   ├── xyb2_template_morandi_gray.html # ⚪ 莫兰迪灰
+│   │   ├── xyb2_template_morandi_pink.html # 🩷 莫兰迪粉
+│   │   ├── xyb2_template_morandi_red.html  # 🔴 莫兰迪红
+│   │   ├── xyb2_template_morandi_purple.html # 🟣 莫兰迪紫
+│   │   ├── xyb2_template_morandi_green.html  # 🟢 莫兰迪绿
+│   │   └── xyb2_template_tiffany.html       # 💎 Tiffany蓝绿
 │   └── images/                  # 图片资源
 ├── examples/                    # 示例输出
 │   ├── 云南白药_公众号_blue.html
@@ -106,7 +117,7 @@ xyb-wechat-article-generator/
 - 字体：PingFangSC-light, letter-spacing:1px, line-height:2, font-size:14px
 
 模板参考：
-[粘贴 assets/templates/xyb_template_morandi_blue.html 的内容]
+[粘贴 assets/template1/xyb_template_morandi_blue.html 的内容]
 
 素材内容：
 [粘贴你的素材]
@@ -118,7 +129,7 @@ xyb-wechat-article-generator/
 
 1. 在 ChatGPT 中创建一个 GPT
 2. 将 `skill.md` 作为 Instructions
-3. 上传 `assets/templates/` 下的模板文件作为 Knowledge
+3. 上传 `assets/template1/` 和 `assets/template2/` 下的模板文件作为 Knowledge
 4. 用户只需说"使用蓝色模板生成文章"即可
 
 ### OpenClaw
@@ -126,7 +137,7 @@ xyb-wechat-article-generator/
 在 OpenClaw 中创建 Agent 时：
 
 1. **System Prompt**：粘贴 `skill.md` 全文
-2. **Knowledge Base**：上传 `assets/templates/` 目录下的所有模板文件
+2. **Knowledge Base**：上传 `assets/template1/` 和 `assets/template2/` 目录下的所有模板文件
 3. **使用时**：直接输入素材内容和配色选择
 
 ```yaml
@@ -135,9 +146,11 @@ name: 小胰宝公众号生成器
 system_prompt: |
   [skill.md 内容]
 knowledge_files:
-  - assets/templates/xyb_template.html
-  - assets/templates/xyb_template_morandi_blue.html
-  # ... 其他模板
+  - assets/template1/xyb_template.html
+  - assets/template1/xyb_template_morandi_blue.html
+  - assets/template2/xyb2_template.html          # 中国风/特展版式
+  - assets/template2/xyb2_template_morandi_purple.html
+  # ... 其他模板（两个系列共 19 个文件）
 ```
 
 ### Hermes (Nous Research)
