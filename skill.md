@@ -44,6 +44,53 @@ line-height:2;
 font-size:14px;
 ```
 
+## 移动端分段与图文节奏（必须）
+
+1. **小段落规则**：正文每段控制在手机端约 **3–4 行**；通常为 1–3 句。超过约 80–100 个中文字符、或出现两个以上分号/并列观点时，必须拆段。
+2. **一段只传达一个意思**：背景、结论、方法、风险、行动等信息不得塞进同一长段；结论句可以单独成段并用主色加粗。
+3. **章节节奏（少而精）**：每个一级模块使用「标题胶囊 → 细分隔线 → 白底正文卡」结构；分隔符**只放在一级模块之间、流程转场或结论前等重要节点**，正文卡内不要为普通段落连续添加分隔符。优先保留留白（段后 `margin-bottom:18px`）来建立呼吸感。
+4. **自然元素分隔符**：需要章节分隔时，默认使用克制的自然元素图标，如 `🌿　🌱`，居中、字号约 15px、上下 margin 约 30px；不要使用连续菱形、随机 emoji 或过密装饰。严肃医疗内容只在重要节点使用，避免装饰抢占信息层级。
+5. **图文配合**：长文每 2–3 个核心观点，至少使用一种视觉载体打断阅读：已有配图、数据卡、时间线、信息卡或流程图。没有可靠图片时，优先使用 inline-style 的 CSS 流程图/关系图，禁止为装饰编造医学或事实性图片。
+5. **流程图规范**：流程必须对应文章真实逻辑；用 2–4 个短文本步骤、主色/暖阳交替节点、浅色连接线表达，避免长句塞进节点。微信公众号兼容场景使用 `<section>` + inline style，禁止 SVG、Canvas、`<style>` 标签与复杂脚本。
+
+## 代码块规范：mac Terminal（必须）
+
+涉及命令、代码片段、配置示例时，统一使用 **mac Terminal 风格**，不使用深绿、灰底、渐变底或低对比文字。
+
+- 容器：纯黑背景 `#000`、圆角 `12px`、内边距 `16px 18px`；
+- 标题栏：顶部三颗静态圆点，依次 `#ff5f57`（关闭）、`#febc2e`（最小化）、`#28c840`（全屏）；不使用图片或脚本；
+- 代码：纯白 `#fff`，等宽字体 `Menlo, Monaco, Consolas, 'Courier New', monospace`，12px，行高 1.8；
+- 可选语言标签：标题栏右侧以低对比灰 `#a8a8a8` 标记，如 `BASH`、`JSON`、`TS`；
+- 宽度：`overflow:auto`，代码一律 `white-space:pre-wrap`，确保手机端不会横向撑破版面。
+
+**标准组件：**
+```html
+<section style="margin:0 0 22px;background:#000;border-radius:12px;overflow:hidden;">
+  <section style="height:28px;padding:0 12px;display:flex;align-items:center;background:#151515;">
+    <span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#ff5f57;margin-right:6px;"></span>
+    <span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#febc2e;margin-right:6px;"></span>
+    <span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#28c840;"></span>
+    <span style="margin-left:auto;color:#a8a8a8;font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:10px;letter-spacing:1px;">BASH</span>
+  </section>
+  <pre style="margin:0;padding:16px 18px;color:#fff;font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;overflow:auto;">git clone git@github.com:example/project.git</pre>
+</section>
+```
+
+## 公共图片与 COS 素材配置
+
+- **小胰宝默认公共 COS 基址**：`https://gzh-1302991947.cos.ap-guangzhou.myqcloud.com/`
+- 当需要把截图、本地配图转换为公众号可访问链接时，建议上传到该 COS 的清晰路径，例如：
+  ```
+  https://gzh-1302991947.cos.ap-guangzhou.myqcloud.com/{项目名}/{图片文件名}
+  ```
+  示例：`https://gzh-1302991947.cos.ap-guangzhou.myqcloud.com/ca199-scaffold/flow-overview.png`
+- 上传后，在 HTML 中使用绝对 HTTPS 地址：
+  ```html
+  <img src="https://gzh-1302991947.cos.ap-guangzhou.myqcloud.com/{项目名}/{图片文件名}" alt="图片说明" style="width:100%;border-radius:12px;display:block;">
+  ```
+- **可替换性**：用户提供自己的 COS/CDN 公共地址时，必须优先替换默认基址；不要把默认 COS 地址硬编码进业务文案。建议通过变量记录：`ASSET_BASE_URL = 用户提供地址 || 小胰宝默认 COS 基址`。
+- 上传前确认对象权限符合实际用途；公众号正文图片须使用稳定、公开可读的 HTTPS 链接。严禁上传 `.env`、Token、患者隐私截图、身份证明、检查报告等敏感内容。
+
 ## 可用模板（三套版式 × 多配色）
 
 模板分三个系列，**foot 文案各系列完全一致**，仅色值随所选配色替换；版式风格不同。
