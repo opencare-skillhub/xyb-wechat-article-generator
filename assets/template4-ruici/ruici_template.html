@@ -1,42 +1,46 @@
-<!--
-  瑞慈 × 医疗机构公众号模板 v1.0
-  - 设计提取源：长海医院协手瑞慈体检胰腺癌筛查文章
-  - 风格：图文叙事 / 医疗主绿 / 薄荷转诊卡 / 蓝色附录
-  - 全部 inline style，可直接粘贴到135编辑器HTML源码模式
-  - renderer placeholders are injected at render time
--->
-<section style="margin:0 auto;max-width:100%;background:#fff;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;color:#3e3e3e;letter-spacing:.034em;line-height:1.9;font-size:16px;padding:0;">
+<!-- 瑞慈高保真微信文章模板 v2.0：基于原始瑞慈×长海文章的构图复刻 -->
+<!-- 仅输出发布正文片段时，可删除 rich_media 外层；保留标题/元信息/图文叙事/附录/尾部结构 -->
+<section style="margin:0 auto;max-width:100%;background:#fafafa;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;color:#333;letter-spacing:.034em;line-height:1.6;padding:20px 16px 12px;box-sizing:border-box;">
+  <section style="background:#fff;padding:20px 15px 15px;box-sizing:border-box;">
+    <!-- 平台式标题/元信息层 -->
+    <section style="padding-bottom:10px;margin-bottom:14px;border-bottom:1px solid #e7e7eb;">
+      <p style="margin:0;color:#333;font-size:22px;line-height:1.45;font-weight:400;">__TITLE__</p>
+    </section>
+    <section style="margin:0 0 22px;font-size:14px;line-height:1.7;color:rgba(0,0,0,.3);">
+      <span style="margin-right:8px;">__ACCOUNT__</span>
+      <span style="margin-right:8px;">__DATE__</span>
+      <span>__LOCATION__</span>
+    </section>
 
-<!-- ===== Hero：图片可选；无图片时删除本模块 ===== -->
-<section style="margin:0;line-height:0;">
-  __HERO_IMAGE__
-</section>
+    <!-- Hero：可选；图片文字不是模板文字 -->
+    <section style="margin:10px 0;line-height:0;text-align:center;">__HERO_IMAGE__</section>
+    <section style="height:24px;line-height:0;"></section>
+    <section style="display:flex;justify-content:flex-end;transform:translate3d(-16px,0,0);margin:10px 0 -16px;">
+      <section style="background:#fff;padding:0 6px 0 4px;line-height:0;"><span style="display:inline-block;width:38px;height:3px;background:#fff;"></span></section>
+    </section>
 
-<!-- ===== 标题：中文标题 + 可选英文副标题 ===== -->
-<section style="margin:25px 24px 18px;text-align:center;">
-  <p style="margin:0;color:#3a7945;font-size:12px;font-weight:700;letter-spacing:2px;line-height:1.6;">__EN_SUBTITLE__</p>
-  <p style="margin:10px 0 12px;color:#3e3e3e;font-size:24px;line-height:1.5;font-weight:700;letter-spacing:0;">__TITLE__</p>
-  <section style="margin:0 auto;width:42px;height:3px;background:#3a7945;border-radius:3px;"></section>
-  <p style="margin:14px 0 0;color:#666;font-size:14px;line-height:1.8;text-align:justify;">__SUMMARY__</p>
-</section>
+    <!-- 连续视觉叙事：有确认图片才输出，不插入通用卡片 -->
+    <section style="margin:0;">__VISUAL_STORY__</section>
 
-<!-- ===== 导语 ===== -->
-<section style="margin:0 20px 24px;padding:18px 18px;background:#f7fbf8;border-left:4px solid #3a7945;border-radius:0 10px 10px 0;color:#3e3e3e;font-size:16px;line-height:2;text-align:justify;">
-  __INTRO__
-</section>
+    <!-- 可编辑文本叙事 -->
+    <section style="margin:26px 0 18px;">__BODY__</section>
 
-<!-- ===== 正文：使用 RuiciSectionHeading + RuiciRichParagraph 组件 ===== -->
-<section style="margin:0 20px 26px;">
-  __BODY__
-</section>
+    <!-- 仅有真实服务事实时输出 -->
+    __REFERRAL_CARD__
 
-<!-- ===== 高危转诊/预约模块：没有事实数据时整体删除 ===== -->
-__REFERRAL_CARD__
+    <!-- 原稿蓝色圆点/中心图标分隔 -->
+    <section style="display:flex;justify-content:center;align-items:center;margin:10px 0;">__RUICI_DIVIDER__</section>
 
-<!-- ===== 可选附录：往期回顾，0–3 条链接 ===== -->
-__RELATED_READING__
+    <!-- 可选往期回顾，0–3条已确认链接 -->
+    __RELATED_READING__
 
-<!-- 静态互动提示为可选组件：需要时从 ruici_components.html 显式插入，不默认附加。 -->
+    <!-- 来源/引用作为正文收束，不混入机构 footer -->
+    <section style="margin:22px 0 10px;padding:14px 12px;border-left:3px solid #c7e1f7;background:#f8fbfd;">
+      <p style="margin:0;color:#666;font-size:12px;line-height:1.8;">__REFERENCES__</p>
+    </section>
 
-__XYB_FOOTER__
+    <!-- 原稿尾部：右对齐装饰位 + 静态互动视觉行 -->
+    <section style="margin:10px 0 4px;line-height:0;text-align:right;transform:translate3d(-4px,0,0);">__END_FLOURISH__</section>
+    <section style="display:flex;justify-content:flex-end;margin:0 0 10px;">__ENGAGEMENT_ROW__</section>
+  </section>
 </section>
