@@ -1,0 +1,45 @@
+<!--
+  瑞慈 × 医疗机构公众号模板 v1.0
+  - 设计提取源：长海医院协手瑞慈体检胰腺癌筛查文章
+  - 风格：图文叙事 / 医疗主绿 / 薄荷转诊卡 / 蓝色附录
+  - 全部 inline style，可直接粘贴到135编辑器HTML源码模式
+  - 占位符：__TITLE__ __EN_SUBTITLE__ __SUMMARY__ __HERO_IMAGE__ __BODY__ __REFERRAL_CARD__ __RELATED_READING__ __XYB_FOOTER__
+-->
+<section style="margin:0 auto;max-width:100%;background:#fff;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;color:#3e3e3e;letter-spacing:.034em;line-height:1.9;font-size:16px;padding:0;">
+
+<!-- ===== Hero：图片可选；无图片时删除本模块 ===== -->
+<section style="margin:0;line-height:0;">
+  __HERO_IMAGE__
+</section>
+
+<!-- ===== 标题：中文标题 + 可选英文副标题 ===== -->
+<section style="margin:25px 24px 18px;text-align:center;">
+  <p style="margin:0;color:#3a7945;font-size:12px;font-weight:700;letter-spacing:2px;line-height:1.6;">__EN_SUBTITLE__</p>
+  <p style="margin:10px 0 12px;color:#3e3e3e;font-size:24px;line-height:1.5;font-weight:700;letter-spacing:0;">__TITLE__</p>
+  <section style="margin:0 auto;width:42px;height:3px;background:#3a7945;border-radius:3px;"></section>
+  <p style="margin:14px 0 0;color:#666;font-size:14px;line-height:1.8;text-align:justify;">__SUMMARY__</p>
+</section>
+
+<!-- ===== 导语 ===== -->
+<section style="margin:0 20px 24px;padding:18px 18px;background:#f7fbf8;border-left:4px solid #3a7945;border-radius:0 10px 10px 0;color:#3e3e3e;font-size:16px;line-height:2;text-align:justify;">
+  __INTRO__
+</section>
+
+<!-- ===== 正文：使用 RuiciSectionHeading + RuiciRichParagraph 组件 ===== -->
+<section style="margin:0 20px 26px;">
+  __BODY__
+</section>
+
+<!-- ===== 高危转诊/预约模块：没有事实数据时整体删除 ===== -->
+__REFERRAL_CARD__
+
+<!-- ===== 可选附录：往期回顾，0–3 条链接 ===== -->
+__RELATED_READING__
+
+<!-- ===== 可选静态互动提示：不可模拟微信原生点击控件 ===== -->
+<section style="margin:18px 20px 28px;text-align:center;color:#7c7c7c;font-size:13px;line-height:1.8;">
+  <p style="margin:0;">如本文对你有帮助，欢迎分享给需要的人。</p>
+</section>
+
+__XYB_FOOTER__
+</section>
