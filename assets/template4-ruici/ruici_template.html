@@ -3,7 +3,7 @@
   - 设计提取源：长海医院协手瑞慈体检胰腺癌筛查文章
   - 风格：图文叙事 / 医疗主绿 / 薄荷转诊卡 / 蓝色附录
   - 全部 inline style，可直接粘贴到135编辑器HTML源码模式
-  - 占位符：__TITLE__ __EN_SUBTITLE__ __SUMMARY__ __HERO_IMAGE__ __BODY__ __REFERRAL_CARD__ __RELATED_READING__ __XYB_FOOTER__
+  - renderer placeholders are injected at render time
 -->
 <section style="margin:0 auto;max-width:100%;background:#fff;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;color:#3e3e3e;letter-spacing:.034em;line-height:1.9;font-size:16px;padding:0;">
 
@@ -36,10 +36,7 @@ __REFERRAL_CARD__
 <!-- ===== 可选附录：往期回顾，0–3 条链接 ===== -->
 __RELATED_READING__
 
-<!-- ===== 可选静态互动提示：不可模拟微信原生点击控件 ===== -->
-<section style="margin:18px 20px 28px;text-align:center;color:#7c7c7c;font-size:13px;line-height:1.8;">
-  <p style="margin:0;">如本文对你有帮助，欢迎分享给需要的人。</p>
-</section>
+<!-- 静态互动提示为可选组件：需要时从 ruici_components.html 显式插入，不默认附加。 -->
 
 __XYB_FOOTER__
 </section>
