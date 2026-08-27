@@ -5,7 +5,7 @@
 ## 功能
 
 - 将 Markdown/文本素材自动转换为微信公众号兼容的 inline style HTML
-- **三套版式系列**：v3.1 生机微光（默认，卡片错落 + 高对比阅读优化）、莫兰迪柔和卡片风、中国风/特展版式风
+- **六套版式系列**：v3.1 生机微光（默认，卡片错落 + 高对比阅读优化）、莫兰迪柔和卡片风、中国风/特展版式风、瑞慈医疗服务版、病历记录风、med 说明书解读风
 - 每系列 9 套配色（8 套莫兰迪色系 + Tiffany蓝绿）
 - v3.1 可读性铁律：正文用深色 token，浅色仅用于边框/装饰，杜绝"浅字叠浅底"
 - 内置多种排版组件（错位标题卡、胶囊标签、大字号数据卡、气泡时间轴、CSS几何分隔线等）
@@ -51,6 +51,16 @@ xyb-wechat-article-generator/
 │   │   ├── xyb2_template_morandi_purple.html # 🟣 莫兰迪紫
 │   │   ├── xyb2_template_morandi_green.html  # 🟢 莫兰迪绿
 │   │   └── xyb2_template_tiffany.html       # 💎 Tiffany蓝绿
+│   ├── template5-khub/          # 模板系列5：病历记录风（衬线字体+粗黑边框+暖米底）
+│   │   ├── khub_template.html               # 📋 病历档案风主模板
+│   │   ├── khub_components.html             # 🧩 组件库（SectionCard/Blockquote/ColorBar等）
+│   │   ├── khub_foot_template.html          # 📌 病历风格 foot 母版
+│   │   └── khub_template_spec.md            # 📐 视觉抽取规格
+│   ├── template6-med/           # 模板系列6：med 说明模版（深蓝权威风，说明书/用药指南）
+│   │   ├── med_template.html                # 🩺 说明书解读主模板
+│   │   ├── med_components.html              # 🧩 组件库（对照表/警示框/风险标签/清单）
+│   │   ├── med_foot_template.html           # 📌 深蓝权威版 foot 母版
+│   │   └── med_template_spec.md             # 📐 视觉抽取规格
 │   └── images/                  # 图片资源
 ├── examples/                    # 示例输出
 │   ├── 云南白药_公众号_blue.html
@@ -91,6 +101,17 @@ xyb-wechat-article-generator/
 | 紫色/胰腺癌 | 🟣 烟紫 | 胰腺癌宣传月（11月） |
 | 灰绿/营养 | 🟢 灰绿 | 营养科普 |
 | Tiffany/活动 | 💎 蒂芙尼蓝 | 活动推广、节日 |
+
+## 版式系列速查
+
+| 系列 | 风格 | 适用场景 |
+|------|------|---------|
+| template3 | 🌿 生机微光（默认） | 日常科普、治愈系长文 |
+| template1 | 🎨 莫兰迪柔和卡片 | 经典科普、叙事 |
+| template2 | 🏮 中国风/特展 | 文化历史向专题 |
+| template4-ruici | 🩺 瑞慈医疗服务 | 医院合作、体检筛查、服务指南 |
+| template5-khub | 📋 病历记录风 | 个人叙事、深度科普、罕见病记录 |
+| template6-med | 💊 med 说明模版 | 药品说明书解读、用药对照、紧急速查、患教说明 |
 
 ## 在其他 AI 工具中使用
 

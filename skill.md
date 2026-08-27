@@ -15,7 +15,7 @@ inclusion: manual
 3. **不输出 HTML 外壳**：不输出 `<!DOCTYPE>`、`<html>`、`<head>`、`<body>` 等标签，只输出 `<section>` 开始的内容
 4. **数据严格一致**：文中涉及的临床数据、百分比、时间等必须与素材原文完全一致，不得编造
 5. **科普化改写**：将专业内容改写为患者和家属能理解的语言，保留关键术语并加粗
-6. **底部固定区域（foot）结构不动**：底部的"关于小胰宝"介绍、尾图、社交媒体、底部签名卡片、免责声明，**版式结构与文案保持原样，不得修改**，只可替换参考文献。foot 结构基准按系列区分：template3 用 `assets/template3/foot_template.html`（v3 深色卡片版），template1 用 `assets/template1/foot_template.html`（强调版母版），template4-ruici 用 `assets/template4-ruici/ruici_foot_template.html`（瑞慈绿顶线版），template5-khub 用 `assets/template5-khub/khub_foot_template.html`（病历粗黑边框版）。
+6. **底部固定区域（foot）结构不动**：底部的"关于小胰宝"介绍、尾图、社交媒体、底部签名卡片、免责声明，**版式结构与文案保持原样，不得修改**，只可替换参考文献。foot 结构基准按系列区分：template3 用 `assets/template3/foot_template.html`（v3 深色卡片版），template1 用 `assets/template1/foot_template.html`（强调版母版），template4-ruici 用 `assets/template4-ruici/ruici_foot_template.html`（瑞慈绿顶线版），template5-khub 用 `assets/template5-khub/khub_foot_template.html`（病历粗黑边框版），template6-med 用 `assets/template6-med/med_foot_template.html`（深蓝权威版）。
 7. **foot 颜色随指定色系**：foot 区域中所有色值（标题竖条、小标题色、"关于小胰宝"加粗色、签名卡片强调色、引用框边线等）必须替换为当前所选配色方案的主色/强调色；但**文案与版式结构保持不变**。
 8. **"关于小胰宝"文案逐字一致**：该段介绍文字为固定话术，禁止改写、扩写或缩写，只允许在切换色系时替换其中的强调色 `<strong style="color:...">`。
 9. **间隔图标统一自然风**：文章正文里用于章节分隔的居中 emoji（即分隔线图标），**统一使用植物 / 阳光 / 自然风格**，从这套里轮换取用：`🌿 🌱 🌾 🍃 🌻 🌳 ☀️`（也可补 🍀🌲🌞 等同类）。**禁止使用** 🔍 📈 ⚡ 🗺️ ⚖️ 🧭 🧬 ⚠️ 📊 💊 等非自然类图标充当章节分隔符。文末"研究性治疗提醒框"等装饰性 emoji 也优先采用自然风，保持整体调性一致。
@@ -107,6 +107,7 @@ font-size:14px;
 - **template2 系列**（`assets/template2/`）：中国风/特展版式风，序号徽标 + 菱形旋转编号 + 边框标签组，适合专题深度文章。
 - **template4-ruici 系列**（`assets/template4-ruici/`）：瑞慈医疗服务版，品牌条头部 + 医疗主绿 + 薄荷卡底，适合医院合作、用药安全对比等。
 - **template5-khub 系列**（`assets/template5-khub/`）：**病历记录风**，衬线字体标题 + 粗黑边框卡片 + 暖米色背景 + 深绿强调，适合个人叙事、深度科普、罕见病记录等长文。
+- **template6-med 系列**（`assets/template6-med/`）：**med 说明模版 / 医学权威风**，深蓝 `#2c5f7c` 主色 + 白底卡片 + 三色风险警示体系（红/橙/蓝标签）+ 三列对照表 + 编号清单，适合药品说明书解读、用药对照、紧急情况速查、患教说明文。
 - **template_qa 系列**（`assets/template_qa/`）：病友问答胶囊（聊天气泡）版式，左灰气泡=病友问 / 右渐变气泡=医生答（带头像），适合医生群内答疑、患教 QA 原样呈现。
 
 ### template3 系列（`assets/template3/`，v3.1 生机微光 · 治愈系 · 高对比阅读版）
@@ -193,6 +194,33 @@ font-size:14px;
 
 > 路由补充：用户指定"Khub""病历""病历记录""衬线""基因组""个人叙事""深度科普""罕见病记录"时，使用 `template5-khub`。未指定时仍默认 template3 v3.1。
 
+### template6-med 系列（`assets/template6-med/`，说明书解读 · 医学权威风）
+
+**med 说明模版**，提取自 RASONQUE (daraxonrasib) 官方说明书 vs 病友总结对比文章。深蓝医学权威色 + 白底卡片 + 三级风险警示体系，适合药品说明书解读、用药指南翻译、官方 vs 非官方对照、紧急情况速查、患教说明文。
+
+**med 视觉系统（深蓝权威风）：**
+- 深蓝主色 `#2C5F7C`：表头、章节底线、序号圆、强调文字；深底 `#1A3A4A`：封面渐变
+- 三级警示体系：红 `#C0392B`（高危警告框/风险标签）、橙 `#E67E22`（注意框）、绿 `#27AE60`（信息框）、蓝 `#3498DB`（低危标签）
+- 白底圆角卡片（`border-radius:12px` + 微阴影）+ 深蓝底线章节标题（`border-bottom:2px solid #2c5f7c`）
+- 三列对照表：深蓝表头白字（对比项 / ✅ 官方 / ⚠️ 对照），行边框 `#e0e0e0`，隔行 `#fafafa`
+- 编号清单：深蓝圆圈序号（26px 圆形） + 加粗条目标题
+- 字体栈：`-apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif`；正文 15px / line-height 1.8 / `#1a1a1a`
+
+**可用资产：**
+- `med_template.html`：带渲染占位符的主模板（品牌头部 + 封面标题卡 + 正文容器）；
+- `med_components.html`：MedSectionCard、MedSectionHeader、MedSubTitle、MedCompareTable/Row、MedWarningBox、MedCautionBox、MedInfoBox、MedRiskTag、MedChecklist/Item、MedDivider 组件；
+- `med_foot_template.html`：深蓝权威版 footer（关于小胰宝标题条 + 三段介绍 + 尾图 + 关注我们 + 底部寄语卡片 + 免责声明）；
+- `med_template_spec.md`：视觉 Token、模块顺序、组件清单与 ruici 区别规格。
+
+**模块规则：**
+- 高风险药物/高危提醒优先使用 `MedWarningBox`（红），普通注意用 `MedCautionBox`（橙），常规说明用 `MedInfoBox`（绿），三色不可混用层级。
+- 对比表 `MedCompareTable` 用于说明书差异；单元格内换行用 `<br>`，禁止堆叠 `<section>` 模拟行。
+- 风险标签 `MedRiskTag` 只在紧急速查表、分级处理表中使用（紧急=红 / 注意=橙 / 低危=蓝）。
+- 用药指南附录等长翻译文本用 H3 小节 + 警示框/信息框组织，保持与正文 H2 章节区分。
+- 分隔线使用自然风 emoji `🌿`，克制使用；正文卡内不要为普通段落连续添加分隔线。
+
+> 路由补充：用户指定"说明书""用药指南""Medication Guide""med""用药对照""官方 vs 病友""紧急速查""药物安全""患教说明"时，使用 `template6-med`。未指定时仍默认 template3 v3.1。
+
 ### template1 系列（`assets/template1/`，经典版式）
 
 `foot_template.html` 是底部固定区域（foot）的**强调版结构母版**。生成文章时，foot 部分必须以它为结构基准：文案与版式保持原样，只把其中的色值替换为当前指定配色方案的主色/强调色。正文部分只替换正文占位区。
@@ -226,7 +254,7 @@ font-size:14px;
 | 灰绿/营养 | xyb2_template_morandi_green.html | #4a6a5a | 营养/自然专题 |
 | Tiffany/活动 | xyb2_template_tiffany.html | #0a8b85 | 活动/节日专题 |
 
-> 路由规则：用户指定"生机微光""治愈系""新版""卡片错落"或未指定版式时，**默认使用 template3 系列（v3.1）**；指定"中国风""特展""template2"等关键词时用 template2 系列；指定"经典""旧版""template1"时用 template1 系列；指定"瑞慈""体检筛查""医院合作""高危转诊""医疗服务指南""用药安全对比"时用 template4-ruici 系列；指定"Khub""病历""病历记录""衬线""基因组""个人叙事""深度科普""罕见病记录"时用 template5-khub 系列。各系列可按主色配对使用（如 template3 紫色 + 同色系其他组件）。
+> 路由规则：用户指定"生机微光""治愈系""新版""卡片错落"或未指定版式时，**默认使用 template3 系列（v3.1）**；指定"中国风""特展""template2"等关键词时用 template2 系列；指定"经典""旧版""template1"时用 template1 系列；指定"瑞慈""体检筛查""医院合作""高危转诊""医疗服务指南""用药安全对比"时用 template4-ruici 系列；指定"Khub""病历""病历记录""衬线""基因组""个人叙事""深度科普""罕见病记录"时用 template5-khub 系列；指定"说明书""用药指南""Medication Guide""med""用药对照""官方 vs 病友""紧急速查""药物安全""患教说明"时用 template6-med 系列。各系列可按主色配对使用（如 template3 紫色 + 同色系其他组件）。
 
 ## 链接与引用格式（必须严格遵守）
 

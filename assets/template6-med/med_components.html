@@ -1,0 +1,69 @@
+<!-- med 组件库 v1.0：说明书/用药指南文体专用组件 + 全部 inline style / section 标签 -->
+
+<!-- ===== MedSectionCard：内容卡片（白底 + 圆角 + 微阴影） ===== -->
+<section style="margin:0 0 24px;background:#fff;border-radius:12px;padding:24px 20px;box-shadow:0 1px 6px rgba(0,0,0,0.06);">
+  __CARD_CONTENT__
+</section>
+
+<!-- ===== MedSectionHeader：章节标题（深蓝底线 + 标题） ===== -->
+<section style="padding-bottom:10px;border-bottom:2px solid #2c5f7c;margin-bottom:16px;">
+  <h2 style="margin:0;font-size:19px;color:#2c3e50;">__SECTION_TITLE__</h2>
+</section>
+
+<!-- ===== MedSubTitle：小标题（深蓝） ===== -->
+<h3 style="font-size:16px;color:#2c5f7c;margin:16px 0 8px;">__SUB_TITLE__</h3>
+
+<!-- ===== MedCompareTable：三列对照表（表头深蓝底白字） ===== -->
+<section style="width:100%;margin:12px 0;overflow-x:auto;">
+  <table style="width:100%;border-collapse:collapse;font-size:14px;">
+    <tr>
+      <th style="background:#2c5f7c;color:#fff;padding:10px 12px;text-align:left;font-weight:600;width:__COL1_W__;">__TH1__</th>
+      <th style="background:#2c5f7c;color:#fff;padding:10px 12px;text-align:left;font-weight:600;">__TH2__</th>
+      <th style="background:#2c5f7c;color:#fff;padding:10px 12px;text-align:left;font-weight:600;">__TH3__</th>
+    </tr>
+    __TABLE_ROWS__
+  </table>
+</section>
+
+<!-- ===== MedCompareRow：表格行 ===== -->
+<tr>
+  <td style="padding:10px 12px;border-bottom:1px solid #e0e0e0;vertical-align:top;"><strong>__CELL_KEY__</strong></td>
+  <td style="padding:10px 12px;border-bottom:1px solid #e0e0e0;vertical-align:top;">__CELL_A__</td>
+  <td style="padding:10px 12px;border-bottom:1px solid #e0e0e0;vertical-align:top;">__CELL_B__</td>
+</tr>
+
+<!-- ===== MedTableHeaderNote：表头说明（可选） ===== -->
+<p style="font-size:14px;color:#555;line-height:1.8;">__NOTE__</p>
+
+<!-- ===== MedWarningBox：红色警告框（高风险） ===== -->
+<section style="background:#fdecea;border-left:4px solid #c0392b;padding:14px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:14px;">
+  <p style="margin:0;color:#3e3e3e;"><strong style="color:#c0392b;">__WARNING_TITLE__</strong> __WARNING_BODY__</p>
+</section>
+
+<!-- ===== MedCautionBox：橙色注意框（中风险） ===== -->
+<section style="background:#fef5e7;border-left:4px solid #e67e22;padding:14px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:14px;">
+  <p style="margin:0;color:#3e3e3e;"><strong style="color:#e67e22;">__CAUTION_TITLE__</strong> __CAUTION_BODY__</p>
+</section>
+
+<!-- ===== MedInfoBox：绿色信息框（低风险/常规） ===== -->
+<section style="background:#eafaf1;border-left:4px solid #27ae60;padding:14px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:14px;">
+  <p style="margin:0;color:#3e3e3e;"><strong style="color:#27ae60;">__INFO_TITLE__</strong> __INFO_BODY__</p>
+</section>
+
+<!-- ===== MedRiskTag：风险标签（红=高，橙=中，蓝=低） ===== -->
+<span style="display:inline-block;background:__RISK_BG__;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600;margin-right:4px;">__RISK_TEXT__</span>
+<!-- 红 #c0392b / 橙 #e67e22 / 蓝 #3498db -->
+
+<!-- ===== MedChecklist：编号清单（圆圈序号） ===== -->
+<section style="margin:12px 0;">
+  __CHECKLIST_ITEMS__
+</section>
+
+<!-- ===== MedChecklistItem：清单条目 ===== -->
+<p style="display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid #eee;margin:0;font-size:14px;">
+  <span style="background:#2c5f7c;color:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0;margin-top:2px;">__NUM__</span>
+  <span style="color:#1a1a1a;line-height:1.8;"><strong>__ITEM_TITLE__</strong>__ITEM_BODY__</span>
+</p>
+
+<!-- ===== MedDivider：章节分隔线（自然风 emoji，克制使用） ===== -->
+<p style="text-align:center;margin:28px 24px;font-size:20px;">🌿</p>

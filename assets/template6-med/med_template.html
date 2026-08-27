@@ -1,0 +1,31 @@
+<!--
+  med 说明模版 v1.0：说明书/用药指南/医学对照文体 · 深蓝权威风
+  - 提取自 RASONQUE (daraxonrasib) 官方说明书对比分析文章
+  - 视觉系统：深蓝 #2c5f7c 医学权威色 + 三色警示体系（红/橙/蓝风险标签）
+  - 用途：药品说明书解读、用药指南、说明书对照、紧急情况速查、患教说明文
+  - 全部 inline style + <section> 标签，可直接粘贴公众号编辑器 HTML 源码
+-->
+
+<!-- ===== 品牌头部（固定区域，勿删）：白底 logo + 圆形头像 + 品牌行 ===== -->
+<section style="background:#fff;text-align:center;padding:25px 0 20px;">
+  <img src="https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/Pop%20Mart%20Character%20Front%20View%20(2).png" alt="小胰宝" style="width:72px;height:72px;border-radius:50%;object-fit:cover;display:inline-block;border:3px solid rgba(44,95,124,0.25);">
+  <p style="margin:12px 0 0;font-size:16px;color:#2c5f7c;font-weight:600;letter-spacing:2px;">__BRAND_TITLE__</p>
+  <p style="margin:6px 0 0;font-size:12px;color:#8d949f;letter-spacing:2px;">__BRAND_SUB__</p>
+</section>
+
+<!-- ===== 封面标题卡：深蓝渐变（固定区域，替换标题/副标题） ===== -->
+<section style="background:linear-gradient(135deg,#1a3a4a 0%,#2c5f7c 100%);color:#fff;padding:36px 24px;border-radius:0 0 16px 16px;margin-bottom:20px;">
+  <p style="margin:0 0 10px;font-size:12px;letter-spacing:2px;opacity:0.85;">__COVER_TAG__</p>
+  <h1 style="margin:0 0 8px;font-size:22px;line-height:1.5;">__HEADLINE__</h1>
+  <p style="margin:0;font-size:13px;opacity:0.85;">__SUBTITLE__</p>
+</section>
+
+<!-- ===== 正文容器 ===== -->
+<section style="max-width:90%;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;color:#1a1a1a;letter-spacing:.02em;line-height:1.8;font-size:15px;">
+
+  <!-- 【替换区域】正文内容：使用 med_components.html 中的组件组装 -->
+  __BODY__
+
+  __FOOT__
+
+</section>
