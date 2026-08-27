@@ -1,33 +1,68 @@
-<!-- 瑞慈高保真组件库 v2.0：全部 inline style / section 标签 -->
+<!-- 瑞慈高保真组件库 v3.2：色号统一版（全部 inline style / section 标签；对比卡内容区为薄荷浅底 .15） -->
+<!-- 色号体系：绿 #3a7945 | 薄荷 rgba(171,212,191,.3) | 红 #c73e3e | 浅蓝 #c7e1f7 | 青蓝 #90d7ec | 深蓝 #114287 | 正文 #3e3e3e | 链接 #607fa6 -->
 
-<!-- ===== RuiciVisualPanel：连续图文叙事面板；可重复 1–6 次 ===== -->
+<!-- ===== RuiciBrandBar：品牌条头部（纯色绿底 #3a7945） ===== -->
+<section style="background:#3a7945;padding:30px 20px 40px;text-align:center;border-radius:0 0 30px 30px;">
+  <img src="https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/Pop%20Mart%20Character%20Front%20View%20(2).png" alt="小胰宝" style="width:60px;height:60px;border-radius:50%;object-fit:cover;display:inline-block;border:3px solid rgba(255,255,255,0.4);margin-bottom:12px;">
+  <p style="margin:0;color:#fff;font-size:18px;font-weight:600;letter-spacing:3px;">小胰宝 · 科普前沿</p>
+  <p style="margin:8px 0 0;color:rgba(255,255,255,0.88);font-size:12px;letter-spacing:2px;">AI+人文 · 全心全意为患者</p>
+</section>
+
+<!-- ===== RuiciTitleCard：封面标题卡片 ===== -->
+<section style="margin:-20px 20px 25px;background:#fff;border-radius:16px;padding:25px;box-shadow:0 8px 20px rgba(58,121,69,0.1);position:relative;overflow:hidden;">
+  <section style="position:absolute;top:0;left:0;background:rgba(171,212,191,.3);padding:4px 14px 4px 10px;border-radius:0 0 12px 0;color:#3a7945;font-size:11px;font-weight:700;letter-spacing:1px;">
+    胶囊标签
+  </section>
+  <p style="font-size:20px;line-height:1.5;font-weight:700;margin:30px 0 12px;color:#3e3e3e;">文章主标题<br>第二行标题</p>
+  <p style="font-size:13px;color:#3e3e3e;margin:0;padding-left:12px;border-left:3px solid;border-left-color:#3a7945;">摘要关键数据或一句话亮点</p>
+</section>
+
+<!-- ===== RuiciVisualPanel：连续图文叙事面板 ===== -->
 <section style="margin:0 0 10px;text-align:center;line-height:0;">
   <img src="__ASSET_BASE_URL__/ruici/visual-panel-01.png" alt="研究视觉叙事图" style="width:100%;height:auto;display:block;max-width:100%;">
 </section>
 
-<!-- ===== RuiciSectionHeading：用于文本章节，非每段重复使用 ===== -->
+<!-- ===== RuiciSectionHeading：章节标题（绿 #3a7945） ===== -->
 <section style="margin:28px 0 15px;">
   <p style="margin:0;color:#3a7945;font-size:18px;line-height:1.7;font-weight:700;">章节标题</p>
 </section>
 
-<!-- ===== RuiciRichParagraph：17px / line-height 2 / 3–4行 ===== -->
-<p style="margin:0 0 18px;color:#3e3e3e;font-size:17px;line-height:2;letter-spacing:.034em;text-align:justify;">正文一段只表达一个意思。建议控制在手机端约 3–4 行，超过 80–100 个中文字符或出现多个并列观点时拆段。</p>
+<!-- ===== RuiciRichParagraph：正文 17px / line-height 2 / 色 #3e3e3e ===== -->
+<p style="margin:0 0 18px;color:#3e3e3e;font-size:17px;line-height:2;letter-spacing:.034em;text-align:justify;">正文一段只表达一个意思。建议控制在手机端约 3–4 行。</p>
 
-<!-- ===== HighRiskReferralCard：仅提供真实预约/地址/时间/电话/QR 时使用 ===== -->
+<!-- ===== RuiciCompareCard：对比卡片（薄荷绿标题栏 .3 + 薄荷浅底内容区 .15） ===== -->
+<section style="margin:18px 0 24px;border-radius:12px;overflow:hidden;border:2px solid #3a7945;box-shadow:rgba(58,121,69,0.08) 3px 3px 0 0;">
+  <section style="background:rgba(171,212,191,.3);padding:10px 16px;text-align:center;">
+    <p style="margin:0;color:#3a7945;font-size:14px;font-weight:700;">卡片标题</p>
+  </section>
+  <section style="padding:14px 16px;background:rgba(171,212,191,.15);">
+    <p style="margin:0;color:#3e3e3e;font-size:15px;line-height:1.9;text-align:justify;">卡片正文内容</p>
+  </section>
+</section>
+
+<!-- ===== RuiciWarningBox：红色警告框（红 #c73e3e 左边框 + 浅红底） ===== -->
+<section style="margin:26px 0 24px;padding:16px 18px;border-left:4px solid #c73e3e;background:#fef5f5;border-radius:0 8px 8px 0;">
+  <p style="margin:0 0 8px;color:#c73e3e;font-size:18px;line-height:1.7;font-weight:700;">⚠️ 警告标题</p>
+  <p style="margin:0;color:#3e3e3e;font-size:17px;line-height:2;letter-spacing:.034em;text-align:justify;">警告正文内容</p>
+</section>
+
+<!-- ===== RuiciMintCard：薄荷提醒卡片（薄荷底 + 绿左边框） ===== -->
+<section style="margin:14px 0;padding:14px 16px;background:rgba(171,212,191,.15);border-radius:10px;border-left:4px solid #3a7945;">
+  <p style="margin:0 0 6px;color:#3a7945;font-size:16px;line-height:1.8;font-weight:700;">提醒标题</p>
+  <p style="margin:0;color:#3e3e3e;font-size:15px;line-height:1.9;text-align:justify;">提醒正文内容</p>
+</section>
+
+<!-- ===== HighRiskReferralCard：仅提供真实预约信息时使用 ===== -->
 <section style="margin:26px 0 24px;">
-  <!-- 上层问题标签 -->
-  <section style="display:inline-block;width:100%;border-radius:14px;overflow:hidden;background:rgba(171,212,191,.3);padding:5px 15px 0;border:2px solid #3a7945;box-shadow:5px 5px 0 #ecf9ff,inset 0 0 0 2px #fff;box-sizing:border-box;">
+  <section style="display:inline-block;width:100%;border-radius:14px;overflow:hidden;background:rgba(171,212,191,.3);padding:5px 15px 0;border:2px solid #3a7945;box-shadow:rgb(236,249,255) 5px 5px 0 0,rgb(255,255,255) 5px 5px 0 0 inset;box-sizing:border-box;">
     <section style="display:flex;align-items:center;margin:0 0 3px;padding-left:8px;">
       <p style="margin:0;color:#3a7945;font-size:18px;line-height:1.6;font-weight:700;">体检高危人群如何转诊？</p>
     </section>
   </section>
-  <!-- 显式 CSS 尾角 -->
   <section style="width:0;height:0;margin:0 0 0 31px;border-style:solid;border-width:10px 7px 0;border-color:#3a7945 transparent transparent;box-sizing:border-box;"></section>
-  <!-- 下层信息主体 -->
-  <section style="margin-top:-2px;border-radius:15px;overflow:hidden;background:rgba(171,212,191,.3);padding:19px;border:2px solid #3a7945;box-shadow:5px 5px 0 #ecf9ff,inset 0 0 0 2px #fff;box-sizing:border-box;">
+  <section style="margin-top:-2px;border-radius:15px;overflow:hidden;background:rgba(171,212,191,.3);padding:19px;border:2px solid #3a7945;box-shadow:rgb(236,249,255) 5px 5px 0 0,rgb(255,255,255) 5px 5px 0 0 inset;box-sizing:border-box;">
     <p style="margin:0 0 12px;color:#c73e3e;font-size:17px;font-weight:700;line-height:2;text-align:justify;">只需一步：预约挂号</p>
     <p style="margin:0 0 12px;color:#3e3e3e;font-size:17px;line-height:2;text-align:justify;">请替换为经过确认的预约说明。</p>
-    <!-- QR 核心位：28% 宽度 + 对称箭头 -->
     <section style="display:flex;align-items:center;justify-content:center;margin:12px 0 18px;">
       <section style="width:0;height:0;border-style:solid;border-width:5px 8px 5px 0;border-color:transparent #3a7945 transparent transparent;"></section>
       <section style="width:28%;min-width:108px;margin:0 12px;border:1px solid #3a7945;padding:5px;line-height:0;box-sizing:border-box;">
@@ -42,16 +77,16 @@
   </section>
 </section>
 
-<!-- ===== RuiciDivider：原稿浅蓝圆点 + 中央图标结构 ===== -->
+<!-- ===== RuiciDivider：浅蓝圆点 + 中心图标 ===== -->
 <section style="display:flex;justify-content:center;align-items:center;margin:10px 0;">
   <section style="width:14px;height:14px;border-radius:16px;background:#c7e1f7;"></section>
   <section style="padding:0 10px;line-height:0;">
-    <img src="__ASSET_BASE_URL__/ruici/divider-icon.png" alt="" style="width:30px;height:auto;display:block;">
+    <span style="display:inline-block;width:30px;height:3px;background:#3a7945;border-radius:2px;"></span>
   </section>
   <section style="width:14px;height:14px;border-radius:16px;background:#c7e1f7;"></section>
 </section>
 
-<!-- ===== RuiciRelatedReading：原稿附录几何 ===== -->
+<!-- ===== RuiciRelatedReading：往期回顾 ===== -->
 <section style="margin:10px;display:flex;box-sizing:border-box;">
   <section style="width:100%;padding:0 10px;border:1px dashed #90d7ec;box-sizing:border-box;">
     <section style="border-left:10px solid #90d7ec;padding:0 0 12px;box-sizing:border-box;">
@@ -69,14 +104,14 @@
   </section>
 </section>
 
-<!-- ===== RuiciEndFlourish：可选；不用 rotateX，保持右对齐 ===== -->
+<!-- ===== RuiciEndFlourish：右对齐装饰（不用 rotateX） ===== -->
 <section style="margin:10px 0 4px;line-height:0;text-align:right;transform:translate3d(-4px,0,0);">
-  <img src="__ASSET_BASE_URL__/ruici/end-flourish.gif" alt="" style="width:118px;height:auto;display:inline-block;">
+  <span style="display:inline-block;width:60px;height:3px;background:#3a7945;border-radius:2px;"></span>
 </section>
 
-<!-- ===== RuiciEngagementRow：静态视觉，非原生微信控件 ===== -->
+<!-- ===== RuiciEngagementRow：静态互动（非原生微信控件） ===== -->
 <section style="display:flex;justify-content:flex-end;margin:0 0 10px;">
-  <section style="width:42px;text-align:center;"><p style="margin:0;color:#333;font-size:14px;line-height:1.8;font-weight:700;">点赞</p></section>
-  <section style="width:42px;text-align:center;"><p style="margin:0;color:#333;font-size:14px;line-height:1.8;font-weight:700;">分享</p></section>
-  <section style="width:42px;text-align:center;"><p style="margin:0;color:#333;font-size:14px;line-height:1.8;font-weight:700;">收藏</p></section>
+  <section style="width:42px;text-align:center;"><p style="margin:0;color:#3e3e3e;font-size:14px;line-height:1.8;font-weight:700;">点赞</p></section>
+  <section style="width:42px;text-align:center;"><p style="margin:0;color:#3e3e3e;font-size:14px;line-height:1.8;font-weight:700;">分享</p></section>
+  <section style="width:42px;text-align:center;"><p style="margin:0;color:#3e3e3e;font-size:14px;line-height:1.8;font-weight:700;">收藏</p></section>
 </section>

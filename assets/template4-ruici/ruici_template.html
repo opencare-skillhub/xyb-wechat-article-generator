@@ -1,46 +1,62 @@
-<!-- 瑞慈高保真微信文章模板 v2.0：基于原始瑞慈×长海文章的构图复刻 -->
-<!-- 仅输出发布正文片段时，可删除 rich_media 外层；保留标题/元信息/图文叙事/附录/尾部结构 -->
-<section style="margin:0 auto;max-width:100%;background:#fafafa;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;color:#333;letter-spacing:.034em;line-height:1.6;padding:20px 16px 12px;box-sizing:border-box;">
-  <section style="background:#fff;padding:20px 15px 15px;box-sizing:border-box;">
-    <!-- 平台式标题/元信息层 -->
-    <section style="padding-bottom:10px;margin-bottom:14px;border-bottom:1px solid #e7e7eb;">
-      <p style="margin:0;color:#333;font-size:22px;line-height:1.45;font-weight:400;">__TITLE__</p>
+<!-- 瑞慈高保真微信文章模板 v3.2：色号统一版（仅使用原始 ruici HTML 的色号；对比卡内容区为薄荷浅底，foot 含尾图） -->
+<!-- 提取自 "剑指癌王：长海医院协手瑞慈体检" 公众号文章 -->
+<!-- 色号体系：绿 #3a7945 | 薄荷 rgba(171,212,191,.3) | 红 #c73e3e | 浅蓝 #c7e1f7 | 青蓝 #90d7ec | 深蓝 #114287 | 正文 #3e3e3e | 链接 #607fa6 -->
+<section style="margin:0 auto;max-width:100%;background:#fafafa;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;color:#3e3e3e;letter-spacing:.034em;line-height:1.6;padding:0;">
+
+  <!-- ===== 顶部品牌条 ===== -->
+  <section style="background:#3a7945;padding:30px 20px 40px;text-align:center;border-radius:0 0 30px 30px;">
+    <img src="https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/Pop%20Mart%20Character%20Front%20View%20(2).png" alt="小胰宝" style="width:60px;height:60px;border-radius:50%;object-fit:cover;display:inline-block;border:3px solid rgba(255,255,255,0.4);margin-bottom:12px;">
+    <p style="margin:0;color:#fff;font-size:18px;font-weight:600;letter-spacing:3px;">__BRAND_TITLE__</p>
+    <p style="margin:8px 0 0;color:rgba(255,255,255,0.88);font-size:12px;letter-spacing:2px;">__BRAND_SUB__</p>
+  </section>
+
+  <!-- ===== 封面标题卡片 ===== -->
+  <section style="margin:-20px 20px 25px;background:#fff;border-radius:16px;padding:25px;box-shadow:0 8px 20px rgba(58,121,69,0.1);position:relative;overflow:hidden;">
+    <section style="position:absolute;top:0;left:0;background:rgba(171,212,191,.3);padding:4px 14px 4px 10px;border-radius:0 0 12px 0;color:#3a7945;font-size:11px;font-weight:700;letter-spacing:1px;">
+      __CAPSULE_LABEL__
     </section>
+    <p style="font-size:20px;line-height:1.5;font-weight:700;margin:30px 0 12px;color:#3e3e3e;">__HEADLINE__</p>
+    <p style="font-size:13px;color:#3e3e3e;margin:0;padding-left:12px;border-left:3px solid;border-left-color:#3a7945;">__SUBTITLE__</p>
+  </section>
+
+  <!-- ===== 白底正文卡片 ===== -->
+  <section style="background:#fff;margin:0 16px 0;padding:20px 15px 15px;box-sizing:border-box;border-radius:12px 12px 0 0;">
+
+    <!-- 元信息 -->
     <section style="margin:0 0 22px;font-size:14px;line-height:1.7;color:rgba(0,0,0,.3);">
       <span style="margin-right:8px;">__ACCOUNT__</span>
       <span style="margin-right:8px;">__DATE__</span>
       <span>__LOCATION__</span>
     </section>
 
-    <!-- Hero：可选；图片文字不是模板文字 -->
-    <section style="margin:10px 0;line-height:0;text-align:center;">__HERO_IMAGE__</section>
     <section style="height:24px;line-height:0;"></section>
     <section style="display:flex;justify-content:flex-end;transform:translate3d(-16px,0,0);margin:10px 0 -16px;">
       <section style="background:#fff;padding:0 6px 0 4px;line-height:0;"><span style="display:inline-block;width:38px;height:3px;background:#fff;"></span></section>
     </section>
 
-    <!-- 连续视觉叙事：有确认图片才输出，不插入通用卡片 -->
+    <!-- 视觉叙事 -->
     <section style="margin:0;">__VISUAL_STORY__</section>
 
-    <!-- 可编辑文本叙事 -->
+    <!-- 正文 -->
     <section style="margin:26px 0 18px;">__BODY__</section>
 
-    <!-- 仅有真实服务事实时输出 -->
     __REFERRAL_CARD__
 
-    <!-- 原稿蓝色圆点/中心图标分隔 -->
+    <!-- 分隔 -->
     <section style="display:flex;justify-content:center;align-items:center;margin:10px 0;">__RUICI_DIVIDER__</section>
 
-    <!-- 可选往期回顾，0–3条已确认链接 -->
     __RELATED_READING__
 
-    <!-- 来源/引用作为正文收束，不混入机构 footer -->
+    <!-- 来源/引用 -->
     <section style="margin:22px 0 10px;padding:14px 12px;border-left:3px solid #c7e1f7;background:#f8fbfd;">
       <p style="margin:0;color:#666;font-size:12px;line-height:1.8;">__REFERENCES__</p>
     </section>
 
-    <!-- 原稿尾部：右对齐装饰位 + 静态互动视觉行 -->
+    <!-- 尾部 -->
     <section style="margin:10px 0 4px;line-height:0;text-align:right;transform:translate3d(-4px,0,0);">__END_FLOURISH__</section>
     <section style="display:flex;justify-content:flex-end;margin:0 0 10px;">__ENGAGEMENT_ROW__</section>
   </section>
+
+  __FOOT__
+
 </section>
