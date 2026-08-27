@@ -1,0 +1,168 @@
+<!--
+  ============================================================================
+  小胰宝公众号模板 · 病友问答胶囊（template_qa 系列）— 通用骨架
+  ----------------------------------------------------------------------------
+  适用场景：当用户提供「病友 / 患者关注主题」的问答（QA）内容，
+           或指定「QA胶囊 / 问答胶囊 / 医生答疑 / 群内答疑」等关键词时使用。
+  版式：头部 logo + 封面标题卡 + 导语 + 【病友问（左灰气泡）/ 医生答（右渐变气泡·带头像）】
+        + 可选「小胰宝提示」信息框 + 医生介绍卡 + 固定 foot。
+  规则：全部 inline style；用 <section> 不用 div；不输出 HTML 外壳；
+        foot 文案与版式保持项目固定话术（仅色值随色系替换，已用 {{C_*}} 标记）。
+
+  ┌─ 替换清单 ───────────────────────────────────────────────────────────┐
+  │ 内容占位（直接替换为本次主题内容）：                                    │
+  │  {{LOGO_URL}}        头部 logo 图片 URL（默认小胰宝圆形 logo）          │
+  │  {{HEADER_TITLE}}    头部副标题，如「小胰宝 · 医生答疑」                │
+  │  {{COVER_CHIP}}      封面标签，如「🩺 医生答疑」                       │
+  │  {{COVER_TITLE}}     封面主标题（可 <br/> 换行）                       │
+  │  {{COVER_SUB}}       封面副标题，如「浙江省肿瘤医院 · 宋主任 · 病友群内」│
+  │  {{INTRO_P1}}        导语段落1（建议点明来源医生/场景）                 │
+  │  {{INTRO_P2}}        导语段落2（点出本篇最纠结的几个问题）              │
+  │  {{Q1}} {{Q2}}       病友提问气泡（左）文本                            │
+  │  {{A1}} {{A2}}       医生答复气泡（右）内文；可含嵌套「划重点」小卡 HTML │
+  │  {{TIP1_TITLE}}      可选「小胰宝提示」标题（无则整段删除该 section）   │
+  │  {{TIP1_BODY}}       可选「小胰宝提示」正文                            │
+  │  {{DOCTOR_NAME}}     答疑医生姓名（如 宋正波）                         │
+  │  {{DOCTOR_TITLE_LINE}} 医生职称行（如 主任医师、博士生导师）            │
+  │  {{DOCTOR_BODY1/2/3}} 医生介绍条目（· 开头）                           │
+  │  {{DOCTOR_AVATAR}}   医生头像 URL；无照片时保留默认 SVG 占位再替换      │
+  │  {{DISCLAIMER_TAGS}} 文末话题标签，如 #B7H3 #ADC #胰腺癌               │
+  │                                                                         │
+  │ 颜色占位（替换为本色系；默认紫色参考值已写在右侧）：                    │
+  │  {{C_MAIN}}          主色 / 深  → 标题、竖条、strong、封面渐变末端     │ 默认 #5c4a7a
+  │  {{C_ACCENT}}        强调 / 亮 → 封面渐变起端、头像填充、提示框边线     │ 默认 #9480b0
+  │  {{C_BUBBLE_LIGHT}}  浅底 / 头像底                                  │ 默认 #ece8f0
+  │  {{C_Q_BG}}          病友气泡背景                                    │ 默认 #f1eef5
+  │  {{C_Q_TEXT}}        病友气泡文字                                    │ 默认 #4a4458
+  │  （医生气泡文字统一用白色；内层高亮统一 rgba(255,255,255,0.95)）        │
+  └─────────────────────────────────────────────────────────────────────┘
+  复用提示：多于 2 组 QA 时，复制「Q/A 气泡 + 分隔线💬」整段追加即可；
+            foot 部分除 {{C_MAIN}}/{{C_ACCENT}} 外文案与版式禁止改动。
+  ============================================================================
+-->
+<section style="margin:0 auto;max-width:100%;background-color:#fff;font-family:'PingFangSC-light','PingFang SC',sans-serif;color:#3e3e3e;letter-spacing:1px;line-height:2;font-size:14px;padding:0;">
+
+<!-- ===== 头部 logo ===== -->
+<section style="background-color:#fff;text-align:center;padding:22px 0 6px;">
+  <img src="{{LOGO_URL}}" alt="小胰宝" style="width:60px;height:60px;border-radius:50%;object-fit:cover;display:inline-block;"/>
+  <p style="margin-top:8px;font-size:13px;color:{{C_MAIN}};font-weight:600;letter-spacing:2px;">{{HEADER_TITLE}}</p>
+</section>
+
+<!-- ===== 封面标题卡片 ===== -->
+<section style="text-align:center;margin:12px 0;padding:0 20px;">
+  <section style="background:linear-gradient(135deg,{{C_ACCENT}},{{C_MAIN}});border-radius:12px;padding:28px 22px;color:#fff;">
+    <span style="display:inline-block;background:rgba(255,255,255,0.2);border-radius:20px;padding:4px 16px;font-size:12px;letter-spacing:2px;">{{COVER_CHIP}}</span>
+    <p style="font-size:19px;line-height:1.6;font-weight:600;margin:14px 0 6px;">{{COVER_TITLE}}</p>
+    <p style="font-size:12.5px;opacity:0.9;margin:0;">{{COVER_SUB}}</p>
+  </section>
+</section>
+
+<!-- ===== 导语 ===== -->
+<section style="font-family:'PingFangSC-light','PingFang SC',sans-serif;font-size:13.5px;padding:0 20px;letter-spacing:1px;line-height:2;text-align:justify;margin:16px 0;">
+  <p style="margin:0 0 8px;">{{INTRO_P1}}</p>
+  <p style="margin:0;">{{INTRO_P2}}</p>
+</section>
+
+<!-- ===== 分隔线 ===== -->
+<p style="text-align:center;margin:22px 30px;font-size:20px;">💬</p>
+
+<!-- ===== Q1 病友提问气泡（左） ===== -->
+<section style="display:flex;margin:14px 18px;align-items:flex-start;">
+  <section style="flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:{{C_BUBBLE_LIGHT}};display:flex;align-items:center;justify-content:center;font-size:17px;margin-right:8px;">👤</section>
+  <section style="max-width:76%;background:{{C_Q_BG}};border-radius:4px 14px 14px 14px;padding:12px 14px;font-size:13.5px;line-height:1.9;color:{{C_Q_TEXT}};">
+    <p style="margin:0;"><strong style="color:{{C_MAIN}};">病友问：</strong>{{Q1}}</p>
+  </section>
+</section>
+
+<!-- ===== Q1 医生回答气泡（右） ===== -->
+<section style="display:flex;margin:14px 18px;align-items:flex-start;flex-direction:row-reverse;">
+  <section style="flex:0 0 auto;width:36px;height:36px;border-radius:50%;overflow:hidden;margin-left:8px;background:{{C_BUBBLE_LIGHT}};"><img src="{{DOCTOR_AVATAR}}" alt="{{DOCTOR_NAME}} 教授" style="width:36px;height:36px;object-fit:cover;display:block;"/></section>
+  <section style="max-width:80%;background:linear-gradient(135deg,{{C_ACCENT}},{{C_MAIN}});border-radius:14px 4px 14px 14px;padding:12px 14px;font-size:13.5px;line-height:1.9;color:#fff;">
+    <p style="margin:0 0 6px;"><strong style="color:rgba(255,255,255,0.95);">{{DOCTOR_NAME}} 教授答：</strong></p>
+    <p style="margin:0;">{{A1}}</p>
+  </section>
+</section>
+
+<!-- ===== 小胰宝提示（信息框 · 可选，无则删除整段） ===== -->
+<section style="margin:18px 20px;background:{{C_ACCENT}}1a;border-left:3px solid {{C_ACCENT}};border-radius:0 8px 8px 0;padding:13px 16px;font-size:13px;line-height:1.85;">
+  <p style="margin:0;color:{{C_MAIN}};font-weight:600;">{{TIP1_TITLE}}</p>
+  <p style="margin:6px 0 0;">{{TIP1_BODY}}</p>
+</section>
+
+<!-- ===== 分隔线 ===== -->
+<p style="text-align:center;margin:22px 30px;font-size:20px;">💬</p>
+
+<!-- ===== Q2 病友提问气泡（左） ===== -->
+<section style="display:flex;margin:14px 18px;align-items:flex-start;">
+  <section style="flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:{{C_BUBBLE_LIGHT}};display:flex;align-items:center;justify-content:center;font-size:17px;margin-right:8px;">👤</section>
+  <section style="max-width:76%;background:{{C_Q_BG}};border-radius:4px 14px 14px 14px;padding:12px 14px;font-size:13.5px;line-height:1.9;color:{{C_Q_TEXT}};">
+    <p style="margin:0;"><strong style="color:{{C_MAIN}};">病友问：</strong>{{Q2}}</p>
+  </section>
+</section>
+
+<!-- ===== Q2 医生回答气泡（右） ===== -->
+<section style="display:flex;margin:14px 18px;align-items:flex-start;flex-direction:row-reverse;">
+  <section style="flex:0 0 auto;width:36px;height:36px;border-radius:50%;overflow:hidden;margin-left:8px;background:{{C_BUBBLE_LIGHT}};"><img src="{{DOCTOR_AVATAR}}" alt="{{DOCTOR_NAME}} 教授" style="width:36px;height:36px;object-fit:cover;display:block;"/></section>
+  <section style="max-width:80%;background:linear-gradient(135deg,{{C_ACCENT}},{{C_MAIN}});border-radius:14px 4px 14px 14px;padding:12px 14px;font-size:13.5px;line-height:1.9;color:#fff;">
+    <p style="margin:0 0 6px;"><strong style="color:rgba(255,255,255,0.95);">{{DOCTOR_NAME}} 教授答：</strong></p>
+    <p style="margin:0;">{{A2}}</p>
+  </section>
+</section>
+
+<!-- ===== 分隔线 ===== -->
+<p style="text-align:center;margin:24px 30px;font-size:22px;">🌿</p>
+
+<!-- ===== 医生介绍卡片 ===== -->
+<section style="margin:16px 20px;background:#fff;border-radius:12px;padding:18px;box-shadow:0 2px 10px {{C_MAIN}}22;font-size:13px;line-height:1.9;">
+  <section style="display:flex;align-items:center;margin-bottom:12px;">
+    <img src="{{DOCTOR_AVATAR}}" alt="{{DOCTOR_NAME}} 教授" style="width:46px;height:46px;border-radius:50%;object-fit:cover;margin-right:12px;background:{{C_BUBBLE_LIGHT}};"/>
+    <strong style="font-size:16px;color:{{C_MAIN}};">答疑医生 · {{DOCTOR_NAME}} 教授</strong>
+  </section>
+  <p style="margin:0 0 8px;"><strong style="color:{{C_MAIN}};">{{DOCTOR_TITLE_LINE}}</strong></p>
+  <p style="margin:0 0 6px;">{{DOCTOR_BODY1}}</p>
+  <p style="margin:0 0 6px;">{{DOCTOR_BODY2}}</p>
+  <p style="margin:0;">{{DOCTOR_BODY3}}</p>
+</section>
+
+<!-- ===== 关于小胰宝（固定区域） ===== -->
+<section style="display:flex;align-items:center;margin:28px 30px 15px;">
+  <span style="display:inline-block;width:4px;height:20px;background-color:{{C_ACCENT}};border-radius:2px;margin-right:10px;"></span>
+  <strong style="font-size:16px;color:{{C_MAIN}};">关于小胰宝</strong>
+</section>
+
+<section style="font-family:'PingFangSC-light','PingFang SC',sans-serif;font-size:13px;padding:0 20px;letter-spacing:1px;line-height:1.9;text-align:justify;margin:15px 0;">
+  <p style="margin:0 0 10px;"><strong style="color:{{C_MAIN}};">小胰宝</strong>是一个面向胰腺肿瘤患者及家属的开源公益项目，归属<strong>小X宝社区</strong>和<strong>天工开物基金会</strong>管理。通过社区2025蓝马甲志愿者行动，以及AI工具/应用矩阵，小胰宝以"AI+人文"方式，全心全意推动肿瘤/罕见病患者信息效率改善和关怀。</p>
+  <p style="margin:0;">我们的愿景：<strong style="color:{{C_MAIN}};">让每一次搜索少一分焦虑，让每一次问诊少一步弯路，让每一次过关多一句"别怕，我陪着你"。</strong></p>
+</section>
+
+<!-- ===== 尾图 ===== -->
+<section style="text-align:center;margin:25px 20px 15px;">
+  <img src="https://pic.newrank.cn/mmbiz_jpg/1qperl0JnD1AhzWq7ibcKBsg70ppkibibHbNMCWDZqCBxLQ9UdIQdBCNK6VTXWQm8oicQKKfjJnx9d0YJefkOibraLw/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1" alt="小胰宝社区" style="width:100%;border-radius:8px;"/>
+</section>
+
+<!-- ===== 社交媒体 ===== -->
+<section style="text-align:center;margin:15px 30px 10px;font-size:12px;color:#8d949f;line-height:2;">
+  <p style="font-size:13px;color:{{C_MAIN}};font-weight:600;margin-bottom:6px;">📱 关注我们</p>
+  <p style="margin:0;">小红书 @小胰宝宝 ｜ 公众号 @小胰宝助手</p>
+  <p style="margin:0;">播客·小宇宙 @微光成炬 胰路同心</p>
+  <p style="margin:0;">官网：www.xiaoyibao.com.cn</p>
+</section>
+
+<!-- ===== 底部卡片 ===== -->
+<section style="margin:30px 20px 20px;background:#fff;border-radius:16px;padding:40px 30px;text-align:center;">
+  <p style="font-size:42px;margin-bottom:25px;">🌿🍃</p>
+  <p style="font-size:14px;color:#3e3e3e;line-height:2.2;font-weight:300;font-family:'PingFangSC-light','PingFang SC',sans-serif;letter-spacing:2px;margin:0;">愿每一份前沿信息，</p>
+  <p style="font-size:14px;color:#3e3e3e;line-height:2.2;font-weight:300;font-family:'PingFangSC-light','PingFang SC',sans-serif;letter-spacing:2px;margin:0;">都能为你带来一点光亮与希望。</p>
+  <p style="height:25px;margin:0;"></p>
+  <p style="font-size:13px;color:#666;line-height:2;font-weight:300;font-family:'PingFangSC-light','PingFang SC',sans-serif;letter-spacing:2px;margin:0;">With love and hope,</p>
+  <p style="font-size:13px;color:#666;line-height:2;font-weight:300;font-family:'PingFangSC-light','PingFang SC',sans-serif;letter-spacing:2px;margin:0;">小胰宝志愿者团队</p>
+  <p style="font-size:13px;color:#666;line-height:2;font-weight:300;font-family:'PingFangSC-light','PingFang SC',sans-serif;letter-spacing:2px;margin:0;">AI+人文 · 胰路同心</p>
+</section>
+
+<!-- ===== 免责声明 ===== -->
+<section style="text-align:center;padding:15px 30px 30px;font-size:11px;color:#aaa;line-height:1.6;">
+  <p style="margin:0;">本文为医生群内答疑的科普整理，基于{{DOCTOR_NAME}}教授的现场解答，仅供患者和家属理解治疗思路参考，不替代面诊与主治医生的个体化决策。文中涉及的治疗排序、入组排除与用药原则为原则性说明；各临床试验的入排标准、药物可及性因瘤种与突变亚型而异，正式治疗与入组请以研究中心资格预审及主治医生意见为准。</p>
+  <p style="margin:6px 0 0;">{{DISCLAIMER_TAGS}}</p>
+</section>
+
+</section>
