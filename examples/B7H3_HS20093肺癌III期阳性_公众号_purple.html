@@ -1,8 +1,9 @@
 <!--
   生机微光 · 治愈系公众号模板 v3.1（高对比阅读优化版）
   - 配色：烟紫 #5c4a7a + 琥珀暖阳 #f4a261/#e76f51（莫兰迪紫变体）
-  - 主题：B7-H3 ADC（HS-20093 瑞康立伏妥塔单抗）复发性小细胞肺癌 III 期 ARTEMIS-008 OS 阳性（WCLC 2026 LBA，2026-09-13）+ 胰腺癌可参考信息分析
-  - 信源：WCLC 2026 主席论坛 LBA（NCT06498479）｜研发方通稿与媒体报道｜YL201 ASCO 2026 #264101 / CTR20263221
+  - 主题：B7-H3 ADC（HS-20093）复发性 SCLC III 期 ARTEMIS-008 OS 阳性（WCLC 2026 LBA，2026-09-13）
+          + B7-H3 科普 + 中国临床可及性盘点（胰腺癌 / 整体 ADC 与 CAR-T 分列 / 提醒）+ 汇总更新提醒
+  - 信源：WCLC 2026 主席论坛 LBA（NCT06498479）｜研发方通稿与媒体报道｜clinicaltrials.gov v2 API + Veeva CTV 双源核对（2026-09-15）｜YL201 ASCO 2026 #264101 / CTR20263221
   - 全部 inline style，可直接粘贴到135编辑器HTML源码模式
 -->
 <section style="margin:0 auto;max-width:100%;background-color:#f7f5fa;font-family:'PingFang SC','PingFangSC-light',-apple-system,BlinkMacSystemFont,'Helvetica Neue','Microsoft YaHei',sans-serif;color:#362f40;letter-spacing:0.5px;line-height:1.75;font-size:15px;padding:0;">
@@ -19,15 +20,8 @@
   <section style="position:absolute;top:0;left:0;background:linear-gradient(90deg, #f4a261, #e76f51);padding:4px 14px 4px 10px;border-radius:0 0 12px 0;color:#fff;font-size:11px;letter-spacing:1px;">
     <span style="margin-right:4px;">🆕</span> III 期 · WCLC 2026-09-13
   </section>
-  <p style="font-size:20px;line-height:1.5;font-weight:700;margin:30px 0 12px;color:#403358;">小细胞肺癌先赢了<br>B7-H3 ADC 的第一个 III 期生存胜绩</p>
-  <p style="font-size:13px;color:#443a51;margin:0;padding-left:12px;border-left:3px solid #cfc6de;">OS 18.5 vs 10.3 个月，死亡风险降低 54%｜同一靶点，胰腺癌的 III 期刚起步，这篇讲清哪些能参考、哪些不能</p>
-</section>
-
-<!-- ===== 导语（微渐变背景） ===== -->
-<section style="margin:0 20px 25px;background:linear-gradient(180deg, #f2eff7 0%, #f7f5fa 100%);border-radius:12px;padding:20px;font-family:'PingFangSC-light','PingFang SC',sans-serif;font-size:14px;letter-spacing:1px;line-height:2;text-align:justify;">
-  <p style="margin:0 0 15px;">2026 年 9 月 13 日，韩国首尔，世界肺癌大会（WCLC 2026）首日上午的主席论坛上，翰森制药的 B7-H3 靶向 ADC 瑞康立伏妥塔单抗（研发代号 <strong style="color:#5c4a7a;border-bottom:1px dashed #5c4a7a;">HS-20093</strong>，海外编号 GSK5764227，下文简称 HS-20093）以最新突破性摘要（LBA）形式口头报告了一项 III 期研究的期中分析：<strong style="color:#e76f51;">达到总生存期（OS）主要终点</strong>。</p>
-  <p style="margin:0 0 15px;">这是全球第一个在随机对照 III 期研究中证明"能延长总生存"的 B7-H3 靶向 ADC。</p>
-  <p style="margin:0;">两个月前，另一个 B7-H3 ADC，YL201 的胰腺癌 III 期（CTR20263221）刚完成首次公示，尚未开始招募。这两件事撞在同一个秋天，胰腺癌病友群里很快出现了同一个问题：<strong style="color:#5c4a7a;">肺癌赢了的这个靶点，对我们有多少参考价值？</strong>这篇文章分两半回答：前半段把 ARTEMIS-008 的数据和读法讲清楚，后半段逐条分析它和胰腺癌临床的关系，包括哪些参考是有效的、哪些是无效的。</p>
+  <p style="font-size:20px;line-height:1.5;font-weight:700;margin:30px 0 12px;color:#403358;">B7-H3 ADC 先在肺癌赢了 III 期<br>胰腺癌病友为什么要关心这一局</p>
+  <p style="font-size:13px;color:#443a51;margin:0;padding-left:12px;border-left:3px solid #cfc6de;">OS 18.5 vs 10.3 个月，死亡风险降低 54%｜同一靶点，YL201 的胰腺癌 III 期刚起步：肺癌赢的是自己的那一局，不自动等于胰腺癌的一局</p>
 </section>
 
 <!-- ===== 前置条件卡 ===== -->
@@ -35,32 +29,40 @@
   <p style="font-size:14px;color:#9c4221;font-weight:700;margin:0 0 10px;">⚠️ 请先了解</p>
   <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:2;">① HS-20093 目前<strong>尚未在任何国家获批上市</strong>。其小细胞肺癌适应症的上市申请已获中国国家药监局受理并纳入优先审评，审批中不等于已获批。</p>
   <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:2;">② 它公开的 III 期布局（非小细胞肺癌、骨肉瘤、前列腺癌、食管鳞癌）<strong>不含胰腺癌</strong>，胰腺癌病友目前无法通过这个药获得治疗。</p>
-  <p style="font-size:13px;color:#443a51;margin:0;line-height:2;">③ 本文数据来自研发方通稿及媒体对 WCLC 2026 LBA 口头报告的转述，完整摘要与论文尚未发表，最终数字以正式发布为准。</p>
+  <p style="font-size:13px;color:#443a51;margin:0;line-height:2;">③ 文中数据来自 WCLC 2026 LBA 口头报告的媒体报道与研发方通稿；中国试验清单为 2026-09-15 对 clinicaltrials.gov 与 Veeva CTV 的双源核对结果。试验状态随时可能变化，能否入组以研究中心的筛选评估为准。</p>
+</section>
+
+<!-- ===== 导语（微渐变背景） ===== -->
+<section style="margin:0 20px 25px;background:linear-gradient(180deg, #f2eff7 0%, #f7f5fa 100%);border-radius:12px;padding:20px;font-family:'PingFangSC-light','PingFang SC',sans-serif;font-size:14px;letter-spacing:1px;line-height:2;text-align:justify;">
+  <p style="margin:0 0 15px;">2026 年 9 月 13 日，韩国首尔，世界肺癌大会（WCLC 2026）首日上午的主席论坛上，翰森制药的 B7-H3 靶向 ADC 瑞康立伏妥塔单抗（研发代号 <strong style="color:#5c4a7a;border-bottom:1px dashed #5c4a7a;">HS-20093</strong>，海外编号 GSK5764227，下文简称 HS-20093）以最新突破性摘要（LBA）形式口头报告了一项 III 期研究的期中分析：<strong style="color:#e76f51;">达到总生存期（OS）主要终点</strong>。</p>
+  <p style="margin:0 0 15px;">这是全球第一个在随机对照 III 期研究中证明"能延长总生存"的 B7-H3 靶向 ADC。</p>
+  <p style="margin:0 0 15px;">两个月前，另一个 B7-H3 ADC，YL201 的胰腺癌 III 期（CTR20263221）刚完成首次公示，尚未开始招募。两件事撞在同一个秋天，胰腺癌病友看到这条新闻，多半会冒出同一个问题：<strong style="color:#5c4a7a;">肺癌赢了的这个靶点，对我们有多少参考价值？</strong></p>
+  <p style="margin:0;">先把方向说了：药本身用不上，靶点层面的参考是真的，数字不能照搬。趁着这次结果，我们把中国正在进行的 B7-H3 试验重新全量核对了一遍：全球相关研究 175 条，中国属地 87 条。哪些和胰腺癌真正有关、哪些只是看起来有关，需要对过才知道。</p>
 </section>
 
 <!-- ===== 核心金句（大字气泡卡） ===== -->
 <section style="margin:0 20px 30px;background:#fff;border-radius:16px;padding:25px 20px 20px;box-shadow:0 4px 15px rgba(0,0,0,0.04);position:relative;">
   <section style="position:absolute;top:-12px;left:20px;width:24px;height:24px;background:#7d6c9b;border-radius:50%;line-height:24px;text-align:center;font-size:14px;color:#fff;font-weight:bold;">"</section>
-  <p style="color:#362f40;line-height:2.2;letter-spacing:1px;font-family:'PingFangSC-light','PingFang SC',sans-serif;margin:0;font-size:15px;font-weight:600;">一个靶点能不能成药，最终不取决于早期能让多少肿瘤缩小，而取决于随机对照 III 期里能不能延长生存。B7-H3 在肺癌迈过了这道坎；胰腺癌要走的，是同一条路，只是刚起步。</p>
+  <p style="color:#362f40;line-height:2.2;letter-spacing:1px;font-family:'PingFangSC-light','PingFang SC',sans-serif;margin:0;font-size:15px;font-weight:600;">一个靶点能不能成药，最后要看随机对照 III 期里能不能延长生存，早期能缩瘤只是入场券。B7-H3 在肺癌迈过了这道坎，胰腺癌的同一场考试刚开始。</p>
   <p style="text-align:right;color:#6c6479;margin:10px 0 0;font-size:12px;">—— 小胰宝科普组</p>
 </section>
 
 <!-- 🌿 分隔 -->
 <p style="text-align:center;margin:30px 20px;font-size:15px;">🌿</p>
 
-<!-- ===== 第一部分：公布的是什么 ===== -->
+<!-- ===== 第一部分：主题 ===== -->
 <section style="margin:0 20px 20px;">
   <section style="border-left:5px solid #5c4a7a;padding-left:12px;margin-bottom:15px;">
-    <p style="font-size:18px;color:#403358;font-weight:700;margin:0;">一、这次公布的是什么</p>
-    <p style="font-size:12px;color:#6c6479;margin:4px 0 0;">ARTEMIS-008 研究速览</p>
+    <p style="font-size:18px;color:#403358;font-weight:700;margin:0;">一、9 月 13 日，B7-H3 拿下了什么</p>
+    <p style="font-size:12px;color:#6c6479;margin:4px 0 0;">ARTEMIS-008：全球首个 B7-H3 ADC 的 OS 阳性 III 期</p>
   </section>
 </section>
 
 <section style="margin:0 20px 25px;background:#fff;border-radius:16px;padding:22px 20px;box-shadow:0 4px 15px rgba(92,74,122,0.06);">
-  <p style="font-size:14px;color:#443a51;margin:0 0 15px;line-height:2;text-align:justify;">先说背景。复发性小细胞肺癌（SCLC）的二线治疗，长期由化疗药<strong style="color:#5c4a7a;">托泊替康</strong>把守，二十多年没有实质变化，二线中位总生存长期徘徊在个位数到 10 个月左右。这是一个几十年进展缓慢的领域。</p>
+  <p style="font-size:14px;color:#443a51;margin:0 0 15px;line-height:2;text-align:justify;">先说背景。复发性小细胞肺癌（SCLC）的二线治疗，长期由化疗药<strong style="color:#5c4a7a;">托泊替康</strong>把守，二十多年没有实质变化，二线中位总生存长期徘徊在个位数到 10 个月左右。</p>
   <p style="font-size:14px;color:#443a51;margin:0 0 15px;line-height:2;text-align:justify;">ARTEMIS-008 问的就是：在含铂治疗失败的复发性 SCLC 患者里，B7-H3 ADC 和托泊替康正面对比，能不能活得更久。期中分析由独立数据监查委员会（IDMC）审阅，结论是<strong style="color:#e76f51;">达到 OS 主要终点</strong>。</p>
   <section style="background:rgba(92,74,122,0.06);border-radius:10px;padding:14px 16px;">
-    <p style="font-size:13px;color:#443a51;margin:0 0 6px;line-height:1.9;"><strong style="color:#5c4a7a;">研究设计：</strong>随机、开放标签的 III 期研究</p>
+    <p style="font-size:13px;color:#443a51;margin:0 0 6px;line-height:1.9;"><strong style="color:#5c4a7a;">研究设计：</strong>随机、开放标签的 III 期研究（NCT06498479）</p>
     <p style="font-size:13px;color:#443a51;margin:0 0 6px;line-height:1.9;"><strong style="color:#5c4a7a;">入组人群：</strong>461 例经含铂化疗失败的复发性小细胞肺癌，1:1 随机分组</p>
     <p style="font-size:13px;color:#443a51;margin:0 0 6px;line-height:1.9;"><strong style="color:#5c4a7a;">对比方案：</strong>HS-20093 对比托泊替康（标准二线化疗）</p>
     <p style="font-size:13px;color:#443a51;margin:0 0 6px;line-height:1.9;"><strong style="color:#5c4a7a;">主要终点：</strong>总生存期（OS）</p>
@@ -68,17 +70,9 @@
   </section>
 </section>
 
-<!-- ===== 第二部分：数据怎么读 ===== -->
-<section style="margin:0 20px 20px;">
-  <section style="border-left:5px solid #5c4a7a;padding-left:12px;margin-bottom:15px;">
-    <p style="font-size:18px;color:#403358;font-weight:700;margin:0;">二、数字怎么读</p>
-    <p style="font-size:12px;color:#6c6479;margin:4px 0 0;">不只是"18.5 比 10.3"这一个数</p>
-  </section>
-</section>
-
 <!-- ===== 数据卡片 ===== -->
 <section style="margin:0 20px 20px;background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 12px rgba(92,74,122,0.06);overflow:hidden;">
-  <p style="font-size:13px;color:#443a51;margin:0 0 15px;font-weight:600;">📊 疗效指标（HS-20093 vs 托泊替康）</p>
+  <p style="font-size:13px;color:#443a51;margin:0 0 15px;font-weight:600;">疗效指标（HS-20093 vs 托泊替康）</p>
   <section style="display:flex;justify-content:space-between;text-align:center;">
     <section style="flex:1;">
       <p style="font-size:24px;color:#5c4a7a;font-weight:700;margin:0;">18.5<span style="font-size:14px;">个月</span></p>
@@ -124,13 +118,13 @@
 <!-- ===== 安全性 ===== -->
 <section style="margin:0 20px 20px;">
   <section style="border-left:5px solid #e76f51;padding-left:12px;margin-bottom:15px;">
-    <p style="font-size:17px;color:#9c4221;font-weight:700;margin:0;">三、安全性：比化疗轻在哪里</p>
+    <p style="font-size:17px;color:#9c4221;font-weight:700;margin:0;">安全性：比化疗轻在哪里</p>
     <p style="font-size:12px;color:#6c6479;margin:4px 0 0;">它仍然不是"没有毒性的靶向药"</p>
   </section>
 </section>
 
 <section style="margin:0 20px 25px;background:#fff;border-radius:16px;padding:20px 18px;box-shadow:0 4px 15px rgba(92,74,122,0.06);">
-  <p style="font-size:14px;color:#443a51;margin:0 0 15px;line-height:2;text-align:justify;">ADC 只是把化疗毒素<strong style="color:#5c4a7a;">换了分布方式</strong>，毒性没有消失。这次公布的对比数据里，值得记住的是三点：</p>
+  <p style="font-size:14px;color:#443a51;margin:0 0 15px;line-height:2;text-align:justify;">ADC 只是把化疗毒素<strong style="color:#5c4a7a;">换了分布方式</strong>，毒性没有消失。这次公布的对比数据里，有三点值得单独看：</p>
 
   <section style="display:flex;flex-wrap:wrap;">
     <section style="flex:0 0 100%;margin-bottom:10px;padding-bottom:10px;border-bottom:1px dashed #f2eff7;">
@@ -152,118 +146,170 @@
   </section>
 </section>
 
-<!-- 🍃 分隔 -->
-<p style="text-align:center;margin:35px 20px;font-size:15px;">🍃</p>
+<section style="margin:0 20px 25px;background:#fff;border-radius:16px;padding:22px 20px;box-shadow:0 4px 15px rgba(92,74,122,0.06);">
+  <p style="font-size:15px;color:#403358;font-weight:700;margin:0 0 10px;">对胰腺癌，这次结果真正值钱的地方有两处</p>
+  <p style="font-size:14px;color:#443a51;margin:0 0 12px;line-height:2;text-align:justify;"><strong style="color:#5c4a7a;">第一，靶点证据升级了。</strong>在这之前，B7-H3 靶向药手里的证据只有临床前的表达数据和单臂早期能缩瘤的数据；这一次，同类靶点第一次拿到随机对照 III 期的生存获益证明。YL201 在 60 例胰腺癌里的 ORR 28.3%、中位 OS 14.6 个月，属于单臂信号；肺癌这次证明的是"这个靶点可以通过 III 期这道坎"。旁证更硬了，但旁证不是证明。</p>
+  <p style="font-size:14px;color:#443a51;margin:0;line-height:2;text-align:justify;"><strong style="color:#5c4a7a;">第二，通道会动。</strong>靶点拿到 III 期级证据后，整个方向的试验布局、入组政策都会跟着变。所以这篇文章没有停在数据本身，后面两节把中国正在进行的 B7-H3 试验重新盘了一遍，看看胰腺癌病友现在的实际通道有哪些。</p>
+</section>
 
-<!-- ===== 第三部分：对胰腺癌的可参考信息 ===== -->
+<!-- 🌾 分隔 -->
+<p style="text-align:center;margin:30px 20px;font-size:15px;">🌾</p>
+
+<!-- ===== 第二部分：科普 ===== -->
 <section style="margin:0 20px 20px;">
   <section style="border-left:5px solid #5c4a7a;padding-left:12px;margin-bottom:15px;">
-    <p style="font-size:18px;color:#403358;font-weight:700;margin:0;">四、对胰腺癌，能参考什么</p>
-    <p style="font-size:12px;color:#6c6479;margin:4px 0 0;">分四层说，最后一层是红线</p>
+    <p style="font-size:18px;color:#403358;font-weight:700;margin:0;">二、B7-H3 和 ADC，说清两件事</p>
+    <p style="font-size:12px;color:#6c6479;margin:4px 0 0;">看懂后面的试验清单，只需要这一节的背景</p>
   </section>
 </section>
 
-<section style="margin:0 20px 20px;background:#fff;border-radius:16px;padding:22px 20px;box-shadow:0 4px 15px rgba(92,74,122,0.06);">
-  <p style="font-size:15px;color:#403358;font-weight:700;margin:0 0 10px;">① 靶点这一层：旁证变硬了</p>
-  <p style="font-size:14px;color:#443a51;margin:0 0 12px;line-height:2;text-align:justify;">在 ARTEMIS-008 之前，B7-H3 靶向药手里的证据只有两类：临床前的表达数据，和单臂早期能缩瘤的数据。这一次，B7-H3 靶点第一次拿到了<strong style="color:#5c4a7a;">随机对照 III 期的生存获益证明</strong>。</p>
-  <p style="font-size:14px;color:#443a51;margin:0;line-height:2;text-align:justify;">对胰腺癌读者，这的意义是间接的。YL201 在 60 例胰腺癌里的 ORR 28.3%、中位 OS 14.6 个月，属于单臂信号；这次肺癌的结果证明的是"<strong style="color:#e76f51;">同类靶点可以通过 III 期这道坎</strong>"。旁证更硬了，但旁证不是证明，胰腺癌的答案仍然要由 TAISHAN-305 自己给出。</p>
+<section style="margin:0 20px 25px;background:#fff;border-radius:16px;padding:22px 20px;box-shadow:0 4px 15px rgba(92,74,122,0.06);">
+  <p style="font-size:16px;color:#403358;font-weight:700;margin:0 0 15px;">B7-H3：癌细胞门口的门牌号</p>
+  <p style="font-size:14px;color:#443a51;margin:0 0 15px;line-height:2;text-align:justify;">B7-H3，也叫 <strong style="color:#5c4a7a;">CD276</strong>，是细胞表面的一类蛋白，属于 B7 免疫调节分子家族。简单说，它像癌细胞挂在门口的一个<strong style="color:#5c4a7a;">门牌号</strong>。</p>
+  <p style="font-size:14px;color:#443a51;margin:0 0 15px;line-height:2;text-align:justify;">正常细胞这个门牌挂得很少，但很多实体瘤，包括胰腺癌，会大量挂出来。这个"癌多正常少"的落差，正是药物可以利用的突破口。</p>
+  <p style="font-size:14px;color:#443a51;margin:0 0 15px;line-height:2;text-align:justify;">在已切除胰腺癌组织的病理研究里，约 <strong style="color:#e76f51;">三分之二</strong> 的样本能检测到 B7-H3 表达（一项 150 例的研究中 99 例判为阳性，采用"染色强度≥1 且阳性肿瘤细胞≥10%"的判读标准）。</p>
+  <p style="font-size:14px;color:#443a51;margin:0 0 15px;line-height:2;text-align:justify;">在 YL201 的 60 例胰腺癌研究里，大多数肿瘤样本都检测到了膜 B7-H3 表达，H 评分中位数为 <strong style="color:#5c4a7a;">65</strong>，但个体差异极大，范围从 <strong>0 到 275</strong>。</p>
+  <section style="background:rgba(232,116,73,0.08);border-left:3px solid #e76f51;border-radius:0 8px 8px 0;padding:12px 14px;margin:15px 0 0;">
+    <p style="font-size:13px;color:#9c4221;margin:0;line-height:1.9;"><strong>但请一定连着下面这句话一起听：</strong>研究者<strong style="color:#e76f51;">没有观察到肿瘤缓解与 B7-H3 表达水平之间的关联</strong>。阳性别急着高兴，阴性别急着灰心，真正卡住入组资格的，从来不是这张检测单，而是试验的入排标准和既往用药史。</p>
+  </section>
 </section>
 
-<section style="margin:0 20px 20px;background:#fff;border-radius:16px;padding:22px 20px;box-shadow:0 4px 15px rgba(92,74,122,0.06);">
-  <p style="font-size:15px;color:#403358;font-weight:700;margin:0 0 10px;">② 方法学这一层：为什么"对照"才是关键</p>
-  <p style="font-size:14px;color:#443a51;margin:0 0 12px;line-height:2;text-align:justify;">单臂研究的 OS 数字，和任何其他研究的数字都没有可比性。我们此前提醒过：YL201 的 14.6 个月不能与 NAPOLI-1 的 6.2 个月直接比；同样的道理，<strong style="color:#e76f51;">小细胞肺癌的 18.5 个月，也不能拿来当作胰腺癌的预期</strong>。</p>
-  <p style="font-size:14px;color:#443a51;margin:0;line-height:2;text-align:justify;">ARTEMIS-008 的分量，来自它和托泊替康在同一项研究内 1:1 随机对比。TAISHAN-305 选择的对照组是伊立替康脂质体联合 5-氟尿嘧啶/亚叶酸钙，正是胰腺癌当前的标准二线方案之一。只有跑完同样的随机对照，胰腺癌病友才能拿到属于自己的那个数字。这是方法学上最直接的可参考信息。</p>
+<section style="margin:0 20px 25px;background:#fff;border-radius:16px;padding:22px 20px;box-shadow:0 4px 15px rgba(92,74,122,0.06);">
+  <p style="font-size:16px;color:#403358;font-weight:700;margin:0 0 15px;">ADC：一枚"生物导弹"</p>
+  <p style="font-size:14px;color:#443a51;margin:0 0 18px;line-height:2;text-align:justify;">YL201 是 ADC（抗体偶联药物）。可以把它想成一枚导弹，由三件东西组成：</p>
+
+  <section style="margin:0 0 14px;padding-left:14px;border-left:3px solid #cfc6de;">
+    <p style="font-size:14px;color:#443a51;margin:0;line-height:1.9;"><strong style="color:#5c4a7a;font-size:15px;">🎯 抗体 = 导航系统</strong><br>认准 B7-H3 这个门牌，带着整枚导弹飞向癌细胞。</p>
+  </section>
+  <section style="margin:0 0 14px;padding-left:14px;border-left:3px solid #cfc6de;">
+    <p style="font-size:14px;color:#443a51;margin:0;line-height:1.9;"><strong style="color:#5c4a7a;font-size:15px;">🔗 连接子 = 保险栓</strong><br>把抗体和弹头拴在一起，在血液里不松脱，进了肿瘤微环境才释放。</p>
+  </section>
+  <section style="margin:0 0 18px;padding-left:14px;border-left:3px solid #cfc6de;">
+    <p style="font-size:14px;color:#443a51;margin:0;line-height:1.9;"><strong style="color:#5c4a7a;font-size:15px;">💥 载荷 = 弹头</strong><br>真正杀死癌细胞的东西。YL201 挂的是<strong style="color:#e76f51;">新型拓扑异构酶 I 抑制剂（TOP1i）</strong>，让癌细胞 DNA 断裂、走向死亡；每个抗体挂 <strong style="color:#e76f51;">8 个</strong>弹头（DAR=8）。</p>
+  </section>
+
+  <section style="background:rgba(92,74,122,0.06);border-radius:10px;padding:14px 16px;margin:0 0 15px;">
+    <p style="font-size:13px;color:#443a51;margin:0;line-height:2;"><strong style="color:#5c4a7a;">请记住"TOP1i"这三个字母。</strong>它既是 YL201 起效的原因，也是后面决定你能不能入组的那把钥匙。</p>
+  </section>
+
+  <p style="font-size:14px;color:#443a51;margin:0 0 12px;line-height:2;text-align:justify;"><strong style="color:#5c4a7a;">都叫 B7-H3 ADC，不是一个药。</strong>HS-20093 用的是全人源抗 B7-H3 抗体，经可裂解四肽连接子偶联 TOP1i 载荷，弹头数量、抗体和连接子设计都和 YL201 不同。设计不同，疗效和安全性数据就不能互换，一个的结果不能替另一个背书。</p>
+  <p style="font-size:14px;color:#443a51;margin:0;line-height:2;text-align:justify;">B7-H3 的玩法也不止 ADC：把患者自己的 T 细胞改造成能认出 B7-H3 的"活药"（CAR-T），以及 CAR-NK、双抗等，都在中国的试验清单里。下一节分开讲。</p>
 </section>
 
-<section style="margin:0 20px 20px;background:#fff;border-radius:16px;padding:22px 20px;box-shadow:0 4px 15px rgba(92,74,122,0.06);">
-  <p style="font-size:15px;color:#403358;font-weight:700;margin:0 0 10px;">③ 安全性这一层：两个值得核实的模式</p>
-  <p style="font-size:14px;color:#443a51;margin:0 0 12px;line-height:2;text-align:justify;">一是<strong style="color:#5c4a7a;">血液学毒性低于化疗对照</strong>，尤其是血小板下降（13.9% vs 59.7%）；二是 <strong style="color:#5c4a7a;">ILD 类事件多为 1~2 级</strong>、未报告 4 级或致死性事件。</p>
-  <p style="font-size:14px;color:#443a51;margin:0;line-height:2;text-align:justify;">这两个模式发生在 HS-20093 自己的研究里，<strong>不能直接搬到 YL201 或胰腺癌人群</strong>。它们提示的是同类药物目前观察到的共性，值得在 YL201 的胰腺癌 III 期数据里对照核实。对正在考虑参加 YL201 试验的病友，实际动作不变：留意呼吸症状，按时复查，把不确定交给研究医生的定期评估。</p>
+<!-- 🍃 分隔 -->
+<p style="text-align:center;margin:30px 20px;font-size:15px;">🍃</p>
+
+<!-- ===== 第三部分：中国临床可及性 ===== -->
+<section style="margin:0 20px 20px;">
+  <section style="border-left:5px solid #5c4a7a;padding-left:12px;margin-bottom:15px;">
+    <p style="font-size:18px;color:#403358;font-weight:700;margin:0;">三、中国临床可及性：87 条试验，胰腺癌站在哪</p>
+    <p style="font-size:12px;color:#6c6479;margin:4px 0 0;">2026-09-15 双源核对：clinicaltrials.gov + Veeva CTV</p>
+  </section>
 </section>
 
+<section style="margin:0 20px 25px;background:#fff;border-radius:16px;padding:22px 20px;box-shadow:0 4px 15px rgba(92,74,122,0.06);">
+  <p style="font-size:14px;color:#443a51;margin:0 0 15px;line-height:2;text-align:justify;">这次核对不是把旧清单刷新一遍，而是按"发现式检索"重新拉取：全球 B7-H3/CD276 相关研究 <strong style="color:#5c4a7a;">175 条</strong>，中国属地 <strong style="color:#5c4a7a;">87 条</strong>，其中 <strong style="color:#e76f51;">80 条</strong>是此前社区清单之外的新发现。87 条里绝大多数不是胰腺癌试验，直接相关的只有 3 条。先看胰腺癌，再看整体。</p>
+</section>
+
+<!-- ===== 3.1 胰腺癌 ===== -->
+<section style="margin:0 20px 20px;background:#fff;border-radius:16px;padding:22px 20px;box-shadow:0 4px 15px rgba(92,74,122,0.06);">
+  <p style="font-size:16px;color:#403358;font-weight:700;margin:0 0 12px;">先看胰腺癌：现在真正能走的通道</p>
+
+  <section style="background:rgba(92,74,122,0.06);border-radius:10px;padding:14px 16px;margin:0 0 14px;">
+    <p style="font-size:14px;color:#5c4a7a;font-weight:700;margin:0 0 6px;">① YL201 胰腺癌 III 期（最清晰的一条）</p>
+    <p style="font-size:13px;color:#443a51;margin:0 0 6px;line-height:1.9;">CTR20263221，2026-08-28 首次公示，进行中（尚未招募），计划 320 人，对照方案为伊立替康脂质体联合 5-氟尿嘧啶/亚叶酸钙。底气来自 ASCO 2026 那组 60 例单臂数据（ORR 28.3%、中位 OS 14.6 个月），单臂数据未经随机对照验证，这正是 III 期要补的课。</p>
+    <p style="font-size:13px;color:#443a51;margin:0;line-height:1.9;">入组红线：既往<strong>未使用过伊立替康</strong>。用过 FOLFIRINOX、NALIRIFOX、伊立替康脂质体等 TOP1i 类方案的病友，会影响这类试验的资格。</p>
+  </section>
+
+  <section style="background:rgba(92,74,122,0.06);border-radius:10px;padding:14px 16px;margin:0 0 14px;">
+    <p style="font-size:14px;color:#5c4a7a;font-weight:700;margin:0 0 6px;">② CD276 CAR-T（唯一"标题适应症"，但疑似停滞）</p>
+    <p style="font-size:13px;color:#443a51;margin:0;line-height:1.9;">NCT05143151，深圳大学总医院，I/II 期，标题就是"CD276 靶向 CAR-T 治疗晚期胰腺癌"，是 87 条里唯一以胰腺癌为标题适应症的中国 B7-H3 试验。但它的状态是 UNKNOWN：2021 年启动，预计主要完成时间停在 2024 年 6 月，大概率已停滞或未更新。<strong style="color:#e76f51;">现阶段不建议把它当作可选项</strong>，留意它是否复活即可。</p>
+  </section>
+
+  <section style="background:rgba(92,74,122,0.06);border-radius:10px;padding:14px 16px;margin:0 0 14px;">
+    <p style="font-size:14px;color:#5c4a7a;font-weight:700;margin:0 0 6px;">③ YL201 vs 标准化疗（新登记，瘤种待确认）</p>
+    <p style="font-size:13px;color:#443a51;margin:0;line-height:1.9;">NCT07803783，尚未招募，1 个中国中心。登记页写的是"YL201 对比标准化疗"的头对头研究，未写明瘤种细节。它有可能就是 TAISHAN-305 的国际登记，也可能是另一项研究，确认前不下结论，我们会持续回源。</p>
+  </section>
+
+  <section style="background:rgba(92,74,122,0.06);border-radius:10px;padding:14px 16px;margin:0 0 14px;">
+    <p style="font-size:14px;color:#5c4a7a;font-weight:700;margin:0 0 6px;">④ Pan-RAS 抑制剂 + 含 HS-20093 的组合篮子（潜在覆盖）</p>
+    <p style="font-size:13px;color:#443a51;margin:0;line-height:1.9;">NCT07736612，尚未招募，泛实体瘤组合研究。PDAC 是 RAS 突变高频癌种，理论上可能在覆盖范围内，但当期队列收不收胰腺癌，要回源试验方案确认。</p>
+  </section>
+
+  <p style="font-size:14px;color:#443a51;margin:0;line-height:2;text-align:justify;">四条线摆在一起，结论不复杂：胰腺癌病友和 B7-H3 之间，现在没有"拿到就能用"的药，通道只有临床试验；最清晰的还是 TAISHAN-305。</p>
+</section>
+
+<!-- ===== 3.2 整体 ===== -->
+<section style="margin:0 20px 20px;background:#fff;border-radius:16px;padding:22px 20px;box-shadow:0 4px 15px rgba(92,74,122,0.06);">
+  <p style="font-size:16px;color:#403358;font-weight:700;margin:0 0 12px;">再看整体：ADC 和 CAR-T，是两条不同的路</p>
+
+  <p style="font-size:14px;color:#443a51;margin:0 0 14px;line-height:2;text-align:justify;">87 条中国试验里，能按技术路线分成两大类。<strong style="color:#5c4a7a;">ADC</strong> 走的是"大中心、随机对照化"的路，体量最大；<strong style="color:#5c4a7a;">细胞疗法（CAR-T/CAR-NK 等）</strong>整体处在更早期，单中心、小样本、I 期为主。</p>
+
+  <p style="font-size:15px;color:#403358;font-weight:700;margin:0 0 10px;">ADC 线（按中国中心数列主要试验）</p>
+  <section style="background:rgba(92,74,122,0.06);border-radius:10px;padding:14px 16px;margin:0 0 14px;">
+    <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:1.9;"><strong style="color:#5c4a7a;">YL201</strong>：NCT07487896（vs 研究者选择化疗，81 个中国中心，招募中，中国体量最大）；NCT06394414（I 期，25 中心，已停止招募）</p>
+    <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:1.9;"><strong style="color:#5c4a7a;">DB-1311 / BNT324</strong>（普方生物 DualityBio / BioNTech）：NCT05914116（I/IIa 泛实体瘤，66 中心，招募中）；NCT06892548（联合方案，34 中心）；NCT06953089（联合 BNT327 / DB-1305，18 中心）</p>
+    <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:1.9;"><strong style="color:#5c4a7a;">I-DXd / DS-7300</strong>（ifinatamab deruxtecan，第一三共）：NCT06203210（vs 医生选择治疗，34 中心，招募中）；NCT06644781（经治晚期实体瘤，25 中心）；NCT06780137（联合 gocatamig，9 中心）；NCT05280470（广泛期小细胞肺癌经治，14 中心，已停止招募）</p>
+    <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:1.9;"><strong style="color:#5c4a7a;">HS-20093</strong>：NCT06001255（ARTEMIS-003，转移性去势抵抗性前列腺癌，15 中心，状态 UNKNOWN）；NCT05830123（ARTEMIS-002，骨肉瘤/软组织肉瘤，11 中心，招募中）</p>
+    <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:1.9;"><strong style="color:#5c4a7a;">SKB500</strong>：NCT07700667（食管鳞癌组合，24 中心，招募中）</p>
+    <p style="font-size:13px;color:#443a51;margin:0;line-height:1.9;"><strong style="color:#5c4a7a;">HLX316</strong>（复宏汉霖）：NCT07541534（I 期，5 中心，招募中）</p>
+  </section>
+  <p style="font-size:13px;color:#443a51;margin:0 0 20px;line-height:2;text-align:justify;">这批试验的共同点：中心多、入组快，不少采用"泛实体瘤篮子"设计。胰腺癌患者有可能从篮子队列入组，但必须逐条确认队列是否开放 PDAC，登记页的瘤种标签不等于队列开放。</p>
+
+  <p style="font-size:15px;color:#403358;font-weight:700;margin:0 0 10px;">CAR-T / 细胞疗法线（早期探索为主）</p>
+  <section style="background:rgba(92,74,122,0.06);border-radius:10px;padding:14px 16px;margin:0 0 14px;">
+    <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:1.9;"><strong style="color:#5c4a7a;">TX103 CAR-T</strong>：NCT06482905、NCT07231081（招募中，后者 2 个中心）</p>
+    <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:1.9;"><strong style="color:#5c4a7a;">MT027 细胞注射液</strong>：NCT07004647 等多条登记（泛实体瘤、腹膜、胸膜、胶质瘤）</p>
+    <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:1.9;"><strong style="color:#5c4a7a;">TAA06 / UTAA06</strong>：NCT05562024 等 4 条（B7-H3 阳性复发难治实体瘤）</p>
+    <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:1.9;"><strong style="color:#5c4a7a;">双靶点 CAR-NK</strong>：GPC3/B7-H3（NCT07500220）、GD2/B7-H3（NCT07502287）、B7-H3/IL13Rα2（NCT07193628）</p>
+    <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:1.9;"><strong style="color:#5c4a7a;">4SCAR-276</strong>（CD276 CAR-T）：NCT04432649，本次核对中状态由"招募中"转为"尚未招募"，两侧数据库一致</p>
+    <p style="font-size:13px;color:#443a51;margin:0;line-height:1.9;"><strong style="color:#5c4a7a;">异体 B7-H3 CAR-γδT</strong>：NCT06825455（尚未招募）；另有 4SCAR-T 三靶点方案（GD2/PSMA/CD276，NCT04637503，神经母细胞瘤，尚未招募）</p>
+  </section>
+  <p style="font-size:13px;color:#443a51;margin:0 0 12px;line-height:2;text-align:justify;">细胞疗法要解决的是把改造后的细胞送进实体瘤、避免误伤正常组织等问题，从 I 期走到能随机对照，中间隔着好几年。把它当成"关注方向"，比当成"选择"更准确。另有 3 条 B7-H3 影像/诊断类研究（术中成像、PET 探针等），不属于治疗试验，检索时留意区分。</p>
+</section>
+
+<!-- ===== 3.3 提醒 ===== -->
 <section style="margin:0 20px 25px;background:rgba(232,116,73,0.07);border-left:3px solid #e76f51;border-radius:0 12px 12px 0;padding:18px 20px;">
-  <p style="font-size:15px;color:#9c4221;font-weight:700;margin:0 0 10px;">④ 红线：哪些参考是无效的</p>
-  <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:2;"><strong style="color:#e76f51;">瘤种不可外推。</strong>小细胞肺癌是对化疗高度敏感的高级别神经内分泌肿瘤；胰腺导管腺癌间质厚重、药物进入困难，历来对"肺癌有效"的方案反应谨慎。同一靶点在不同瘤种里的表现可能完全不同。</p>
-  <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:2;"><strong style="color:#e76f51;">药物不可互换。</strong>都叫 B7-H3 ADC，但 YL201 和 HS-20093 的抗体、连接子、药物抗体比等设计各不相同，一个的数据不能替另一个背书。</p>
-  <p style="font-size:13px;color:#443a51;margin:0;line-height:2;"><strong style="color:#e76f51;">人群不可照搬。</strong>461 例小细胞肺癌患者无论铂耐药还是铂敏感都观察到获益，这不代表胰腺癌在任何线数、任何身体状况下都会获益。TAISHAN-305 有自己的入排标准，跨试验、跨瘤种的条件不能互相套用。</p>
+  <p style="font-size:15px;color:#9c4221;font-weight:700;margin:0 0 10px;">提醒：把数字变成行动之前</p>
+  <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:2;"><strong style="color:#e76f51;">通道优先级。</strong>想找可入组的方向，优先从大型 ADC 篮子（YL201、DB-1311、I-DXd 这类多中心试验）确认是否开放胰腺癌队列；CAR-T 线目前没有可以依赖的胰腺癌选项。逐条回源试验方案才能确认，不能只看登记页标签。</p>
+  <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:2;"><strong style="color:#e76f51;">TOP1i 这条线。</strong>用过含伊立替康的方案（FOLFIRINOX、NALIRIFOX、伊立替康脂质体等）会影响 TOP1i 载荷 ADC 试验的入组资格。ADC 路线要提前规划，别等所有常规化疗轮完才临时找试验。</p>
+  <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:2;"><strong style="color:#e76f51;">外推红线。</strong>小细胞肺癌的 18.5 个月，是它和托泊替康在同一研究里比出来的；多瘤种篮子里的数字不能机械搬到胰腺癌。胰腺癌的成功只能由胰腺癌自己的随机对照研究来证明。</p>
+  <p style="font-size:13px;color:#443a51;margin:0;line-height:2;"><strong style="color:#e76f51;">状态核验。</strong>登记不等于开放，UNKNOWN 不等于可入组。文中所有状态以 2026-09-15 核对为准，入组与否以研究中心的筛选评估为准。</p>
 </section>
 
 <!-- 🌻 分隔 -->
 <p style="text-align:center;margin:35px 20px;font-size:15px;">🌻</p>
 
-<!-- ===== 第四部分：QA ===== -->
+<!-- ===== 第四部分：汇总与更新提醒 ===== -->
 <section style="margin:0 20px 20px;">
-  <section style="border-left:5px solid #5c4a7a;padding-left:12px;margin-bottom:8px;">
-    <p style="font-size:18px;color:#403358;font-weight:700;margin:0;">五、病友最关心的 5 个问题</p>
-    <p style="font-size:12px;color:#6c6479;margin:4px 0 0;">围绕"这个肺癌结果和胰腺癌有什么关系"整理</p>
+  <section style="border-left:5px solid #5c4a7a;padding-left:12px;margin-bottom:15px;">
+    <p style="font-size:18px;color:#403358;font-weight:700;margin:0;">四、汇总与更新提醒</p>
+    <p style="font-size:12px;color:#6c6479;margin:4px 0 0;">收个尾：记什么、盯什么</p>
   </section>
 </section>
-
-<!-- ===== Q1 ===== -->
-<section style="margin:0 20px 12px;background:#fff;border-radius:14px 14px 4px 4px;padding:16px 18px;box-shadow:0 2px 10px rgba(92,74,122,0.06);border-top:3px solid #5c4a7a;">
-  <p style="font-size:14px;color:#403358;font-weight:700;margin:0;line-height:1.7;"><span style="display:inline-block;background:#5c4a7a;color:#fff;font-size:11px;padding:1px 8px;border-radius:10px;margin-right:6px;vertical-align:2px;">Q1</span>肺癌 III 期赢了，胰腺癌病友能用上这个药吗？</p>
-</section>
-<section style="margin:0 20px 25px;background:#f2eff7;border-left:3px solid #5c4a7a;border-radius:0 12px 12px 0;padding:16px 18px;">
-  <p style="font-size:13px;color:#443a51;margin:0 0 12px;line-height:2;"><strong style="color:#5c4a7a;">目前不能。</strong>三个事实摆在一起看：</p>
-  <section style="background:#fff;border-radius:10px;padding:14px 16px;margin:0 0 12px;">
-    <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:1.9;">✦ HS-20093 <strong>尚未在任何国家获批</strong>，小细胞肺癌的上市申请正在优先审评中</p>
-    <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:1.9;">✦ 它公开的 III 期布局（非小细胞肺癌、骨肉瘤、前列腺癌、食管鳞癌）<strong>不含胰腺癌</strong>，目前也查不到胰腺癌的临床试验登记</p>
-    <p style="font-size:13px;color:#443a51;margin:0;line-height:1.9;">✦ 药物审批按瘤种进行，<strong>即使小细胞肺癌获批，也不等于胰腺癌可用</strong></p>
-  </section>
-  <p style="font-size:13px;color:#443a51;margin:0;line-height:2;">胰腺癌病友与 B7-H3 ADC 之间现有的唯一窗口，仍是 YL201 的胰腺癌 III 期（CTR20263221 / TAISHAN-305），当前状态是"进行中（尚未招募）"。</p>
-</section>
-
-<!-- ===== Q2 ===== -->
-<section style="margin:0 20px 12px;background:#fff;border-radius:14px 14px 4px 4px;padding:16px 18px;box-shadow:0 2px 10px rgba(92,74,122,0.06);border-top:3px solid #7d6c9b;">
-  <p style="font-size:14px;color:#403358;font-weight:700;margin:0;line-height:1.7;"><span style="display:inline-block;background:#7d6c9b;color:#fff;font-size:11px;padding:1px 8px;border-radius:10px;margin-right:6px;vertical-align:2px;">Q2</span>靶点赢了，YL201 的胰腺癌 III 期会提速吗？</p>
-</section>
-<section style="margin:0 20px 25px;background:#f2eff7;border-left:3px solid #7d6c9b;border-radius:0 12px 12px 0;padding:16px 18px;">
-  <p style="font-size:13px;color:#443a51;margin:0 0 12px;line-height:2;"><strong style="color:#5c4a7a;">不能承诺，两者没有直接的因果关系。</strong>两项试验分属不同企业、不同方案，入组节奏和监管审评互相独立。</p>
-  <p style="font-size:13px;color:#443a51;margin:0;line-height:2;">可以说的只有一句：B7-H3 靶点拿到 III 期级证据后，整个方向在研发和临床端会更受关注。但真正决定 TAISHAN-305 什么时候出结果的，是它自己的入组速度、随访时间和数据成熟度。对病友来说，比起期待"提速"，更有用的是盯住它自己的招募动态。</p>
-</section>
-
-<!-- ===== Q3 ===== -->
-<section style="margin:0 20px 12px;background:#fff;border-radius:14px 14px 4px 4px;padding:16px 18px;box-shadow:0 2px 10px rgba(92,74,122,0.06);border-top:3px solid #5c4a7a;">
-  <p style="font-size:14px;color:#403358;font-weight:700;margin:0;line-height:1.7;"><span style="display:inline-block;background:#5c4a7a;color:#fff;font-size:11px;padding:1px 8px;border-radius:10px;margin-right:6px;vertical-align:2px;">Q3</span>都叫 B7-H3 ADC，YL201 和 HS-20093 是一个药吗？</p>
-</section>
-<section style="margin:0 20px 25px;background:#f2eff7;border-left:3px solid #5c4a7a;border-radius:0 12px 12px 0;padding:16px 18px;">
-  <p style="font-size:13px;color:#443a51;margin:0 0 12px;line-height:2;"><strong style="color:#5c4a7a;">不是。</strong>两个药共享的是靶点（B7-H3，也叫 CD276）和大类机制（拓扑异构酶 I 抑制剂载荷的 ADC），但具体设计差别不小：</p>
-  <section style="background:#fff;border-radius:10px;padding:14px 16px;margin:0 0 12px;">
-    <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:1.9;">✦ <strong>YL201</strong>：每个抗体挂 8 个 TOP1i 弹头（DAR=8），每 3 周给药一次</p>
-    <p style="font-size:13px;color:#443a51;margin:0;line-height:1.9;">✦ <strong>HS-20093</strong>：全人源抗 B7-H3 抗体，经可裂解四肽连接子偶联 TOP1i 载荷</p>
-  </section>
-  <p style="font-size:13px;color:#443a51;margin:0;line-height:2;">抗体、连接子、弹头数量的差异，会同时影响疗效和安全性。所以 HS-20093 的任何数据，既不能当作 YL201 的疗效预期，也不能当作它的安全性预期。</p>
-</section>
-
-<!-- ===== Q4 ===== -->
-<section style="margin:0 20px 12px;background:#fff;border-radius:14px 14px 4px 4px;padding:16px 18px;box-shadow:0 2px 10px rgba(92,74,122,0.06);border-top:3px solid #e76f51;">
-  <p style="font-size:14px;color:#9c4221;font-weight:700;margin:0;line-height:1.7;"><span style="display:inline-block;background:#e76f51;color:#fff;font-size:11px;padding:1px 8px;border-radius:10px;margin-right:6px;vertical-align:2px;">Q4</span>肺癌成功了，能说明 B7-H3 ADC 在胰腺癌也会成功吗？</p>
-</section>
-<section style="margin:0 20px 25px;background:rgba(232,116,73,0.07);border-left:3px solid #e76f51;border-radius:0 12px 12px 0;padding:16px 18px;">
-  <p style="font-size:13px;color:#443a51;margin:0 0 12px;line-height:2;"><strong style="color:#e76f51;">不能。</strong>这正是整篇文章里最需要克制的一处。</p>
-  <p style="font-size:13px;color:#443a51;margin:0 0 12px;line-height:2;">小细胞肺癌和胰腺癌的生物学行为差异很大：前者对化疗敏感、对靶向载荷"接得住"；后者间质厚重、免疫和药物进入困难，历史上不少"肺癌有效"的方案到了胰腺癌表现平平。</p>
-  <p style="font-size:13px;color:#443a51;margin:0;line-height:2;">同样的逻辑也适用于之前的教训：多瘤种混合研究里的数字（比如 312 例中 4 例 ILD、占 1.3%），不能机械外推到胰腺癌亚组。肺癌 III 期的 OS 获益是 B7-H3 靶点的里程碑，但<strong>胰腺癌的成功只能由胰腺癌自己的随机对照研究来证明</strong>。这个道理，和当初 YL201 的单臂数据不能直接当成结论，是同一条。</p>
-</section>
-
-<!-- ===== Q5 ===== -->
-<section style="margin:0 20px 12px;background:#fff;border-radius:14px 14px 4px 4px;padding:16px 18px;box-shadow:0 2px 10px rgba(92,74,122,0.06);border-top:3px solid #7d6c9b;">
-  <p style="font-size:14px;color:#403358;font-weight:700;margin:0;line-height:1.7;"><span style="display:inline-block;background:#7d6c9b;color:#fff;font-size:11px;padding:1px 8px;border-radius:10px;margin-right:6px;vertical-align:2px;">Q5</span>眼下实际要做的准备是什么？</p>
-</section>
-<section style="margin:0 20px 25px;background:#f2eff7;border-left:3px solid #7d6c9b;border-radius:0 12px 12px 0;padding:16px 18px;">
-  <p style="font-size:13px;color:#443a51;margin:0 0 12px;line-height:2;"><strong style="color:#5c4a7a;">两件现在就能做的事：</strong></p>
-  <p style="font-size:13px;color:#443a51;margin:0 0 12px;line-height:2;"><strong style="color:#5c4a7a;">① 整理资料包。</strong>如果你或家人正处于吉西他滨一线治疗中或失败前后的阶段，把病理报告、影像资料、全部用药记录（药名、剂量、起止时间、最佳疗效、进展时间）整理成一份清晰的时间轴。TAISHAN-305 招募一旦开放，资料齐全的人筛选效率最高。具体入排细节，可回看我们此前那篇 YL201 三期登记解读。</p>
-  <p style="font-size:13px;color:#443a51;margin:0;line-height:2;"><strong style="color:#5c4a7a;">② 记住 TOP1i 这条线。</strong>YL201 的弹头是 TOP1i，用过含伊立替康的方案（FOLFIRINOX、NALIRIFOX、脂质体伊立替康等）会影响这类试验的入组资格。ADC 路线要提前规划，别等所有常规化疗轮完一遍才临时找临床试验。</p>
-</section>
-
-<!-- 🌳 分隔 -->
-<p style="text-align:center;margin:35px 20px;font-size:15px;">🌳</p>
 
 <!-- ===== 研究性治疗提醒框 ===== -->
 <section style="margin:0 20px 25px;background:#fff;border:1px solid #cfc6de;border-radius:14px;padding:18px 20px;">
   <p style="font-size:14px;color:#5c4a7a;font-weight:700;margin:0 0 10px;">🌿 三句必须记住的话</p>
-  <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:2;">① HS-20093 尚未获批，YL201 也<strong style="color:#e76f51;">尚未在任何国家获批</strong>用于胰腺癌，两者目前都只能通过临床试验获得。</p>
-  <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:2;">② 本文依据的是 WCLC 2026 LBA 口头报告的媒体报道与研发方通稿，完整摘要与论文尚未发表，试验状态和数字都会更新，引用前请重新核对。</p>
+  <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:2;">① HS-20093 尚未获批，YL201 也<strong style="color:#e76f51;">尚未获批用于胰腺癌</strong>，两者目前都只能通过临床试验获得。</p>
+  <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:2;">② 中国 B7-H3 试验 87 条，直接以胰腺癌为适应症的只有 1 条且疑似停滞；现阶段最现实的通道是 TAISHAN-305 和大型 ADC 篮子的胰腺癌队列。</p>
   <p style="font-size:13px;color:#443a51;margin:0;line-height:2;">③ 肺癌 III 期的结果不能外推为胰腺癌的疗效预期，治疗决策请与主治医生共同做出，最终以研究方案和研究中心的评估为准。</p>
+</section>
+
+<section style="margin:0 20px 25px;background:#fff;border-radius:16px;padding:20px 18px;box-shadow:0 4px 15px rgba(92,74,122,0.06);">
+  <p style="font-size:15px;color:#403358;font-weight:700;margin:0 0 12px;">接下来盯这四个节点</p>
+  <section style="margin:0 0 10px;padding-left:14px;border-left:3px solid #cfc6de;">
+    <p style="font-size:13px;color:#443a51;margin:0;line-height:1.9;"><strong style="color:#5c4a7a;">TAISHAN-305 的状态翻页</strong>：从"尚未招募"翻到"招募中"的那一刻，资料包该备好。</p>
+  </section>
+  <section style="margin:0 0 10px;padding-left:14px;border-left:3px solid #cfc6de;">
+    <p style="font-size:13px;color:#443a51;margin:0;line-height:1.9;"><strong style="color:#5c4a7a;">HS-20093 小细胞肺癌 BLA 的审评结论</strong>：优先审评中，获批与否会直接影响整个靶点的节奏。</p>
+  </section>
+  <section style="margin:0 0 10px;padding-left:14px;border-left:3px solid #cfc6de;">
+    <p style="font-size:13px;color:#443a51;margin:0;line-height:1.9;"><strong style="color:#5c4a7a;">大型 ADC 篮子是否新增胰腺癌队列</strong>：YL201、DB-1311、I-DXd 的方案修订都值得逐条回源。</p>
+  </section>
+  <section style="margin:0;padding-left:14px;border-left:3px solid #cfc6de;">
+    <p style="font-size:13px;color:#443a51;margin:0;line-height:1.9;"><strong style="color:#5c4a7a;">我们的下一轮核对</strong>：将按药物代号（DB-1311、DS-7300、MGC018、GTB-5550、ICP-B794 等）在数据库逐一代号回源，补齐可能漏标 B7-H3 的试验。</p>
+  </section>
 </section>
 
 <!-- 🌻 分隔 -->
@@ -272,7 +318,7 @@
 <!-- ===== 公益合作 · 入群邀请 ===== -->
 <section style="margin:0 20px 20px;">
   <section style="border-left:5px solid #5c4a7a;padding-left:12px;margin-bottom:15px;">
-    <p style="font-size:18px;color:#403358;font-weight:700;margin:0;">六、江苏的病友，我们建了一个群</p>
+    <p style="font-size:18px;color:#403358;font-weight:700;margin:0;">五、江苏的病友，我们建了一个群</p>
     <p style="font-size:12px;color:#6c6479;margin:4px 0 0;">小胰宝社区 × 江苏省人民医院内科 · 公益合作</p>
   </section>
 </section>
@@ -351,9 +397,10 @@
   <p style="margin:5px 0 0;">本文仅供科普参考，不构成医疗建议或投资建议。</p>
   <p style="margin:6px 0 0;">参考资料：</p>
   <p style="margin:4px 0 0;">① ARTEMIS-008 期中分析（NCT06498479），WCLC 2026 主席论坛 LBA 口头报告（2026-09-13），本文转引自：<a href="https://mp.weixin.qq.com/s/jrfDzhOrDUA6fxBFm6t8Eg" style="color:#5c4a7a;text-decoration:none;">原文</a>；交叉核对：<a href="https://www.cls.cn/detail/2481619" style="color:#5c4a7a;text-decoration:none;">财联社</a></p>
-  <p style="margin:4px 0 0;">② YL201 胰腺癌队列 ASCO 2026 摘要 #264101（n=60，OS 14.6 个月）：<a href="https://www.asco.org/abstracts-presentations/264101/abstract" style="color:#5c4a7a;text-decoration:none;">摘要原文</a></p>
-  <p style="margin:4px 0 0;">③ CTR20263221 登记信息（TAISHAN-305），国家药物临床试验登记与信息公示平台，首次公示 2026-08-28</p>
-  <p style="margin:4px 0 0;">④ YL201 多瘤种 I/Ib 期研究（312 例）：<a href="https://www.nature.com/articles/s41591-025-03600-2" style="color:#5c4a7a;text-decoration:none;">Nature Medicine</a>，PMID 40082695</p>
+  <p style="margin:4px 0 0;">② 中国 B7-H3 试验清单与状态：clinicaltrials.gov v2 API 与 Veeva CTV 双源核对（2026-09-15），各 NCT 编号以登记页为准</p>
+  <p style="margin:4px 0 0;">③ YL201 胰腺癌队列 ASCO 2026 摘要 #264101（n=60，OS 14.6 个月）：<a href="https://www.asco.org/abstracts-presentations/264101/abstract" style="color:#5c4a7a;text-decoration:none;">摘要原文</a></p>
+  <p style="margin:4px 0 0;">④ CTR20263221 登记信息（TAISHAN-305），国家药物临床试验登记与信息公示平台，首次公示 2026-08-28</p>
+  <p style="margin:4px 0 0;">⑤ YL201 多瘤种 I/Ib 期研究（312 例）：<a href="https://www.nature.com/articles/s41591-025-03600-2" style="color:#5c4a7a;text-decoration:none;">Nature Medicine</a>，PMID 40082695</p>
   <p style="margin:4px 0 0;">各试验状态与数据会持续更新，引用前请重新核对正式发布的摘要与登记页。</p>
 </section>
 
