@@ -15,7 +15,7 @@ inclusion: manual
 3. **不输出 HTML 外壳**：不输出 `<!DOCTYPE>`、`<html>`、`<head>`、`<body>` 等标签，只输出 `<section>` 开始的内容
 4. **数据严格一致**：文中涉及的临床数据、百分比、时间等必须与素材原文完全一致，不得编造
 5. **科普化改写**：将专业内容改写为患者和家属能理解的语言，保留关键术语并加粗
-6. **底部固定区域（foot）结构不动**：底部的"关于小胰宝"介绍、尾图、社交媒体、底部签名卡片、免责声明，**版式结构与文案保持原样，不得修改**，只可替换参考文献。foot 结构基准按系列区分：template3 用 `assets/template3/foot_template.html`（v3 深色卡片版），template1 用 `assets/template1/foot_template.html`（强调版母版），template4-ruici 用 `assets/template4-ruici/ruici_foot_template.html`（瑞慈绿顶线版），template5-khub 用 `assets/template5-khub/khub_foot_template.html`（病历粗黑边框版），template6-med 用 `assets/template6-med/med_foot_template.html`（深蓝权威版）。
+6. **底部固定区域（foot）结构不动**：底部的"关于小胰宝"介绍、尾图、社交媒体、底部签名卡片、免责声明，**版式结构与文案保持原样，不得修改**，只可替换参考文献。foot 结构基准按系列区分：template3 用 `assets/template3/foot_template.html`（v3 深色卡片版），template1 用 `assets/template1/foot_template.html`（强调版母版），template4-ruici 用 `assets/template4-ruici/ruici_foot_template.html`（瑞慈绿顶线版），template5-khub 用 `assets/template5-khub/khub_foot_template.html`（病历粗黑边框版），template6-med 用 `assets/template6-med/med_foot_template.html`（深蓝权威版），template7-review 用 `assets/template7-review/review_foot_template.html`（蓝色基准）或 `assets/template7-review/review_foot_purple.html`（紫色版）。
 7. **foot 颜色随指定色系**：foot 区域中所有色值（标题竖条、小标题色、"关于小胰宝"加粗色、签名卡片强调色、引用框边线等）必须替换为当前所选配色方案的主色/强调色；但**文案与版式结构保持不变**。
 8. **"关于小胰宝"文案逐字一致**：该段介绍文字为固定话术，禁止改写、扩写或缩写，只允许在切换色系时替换其中的强调色 `<strong style="color:...">`。
 9. **间隔图标统一自然风**：文章正文里用于章节分隔的居中 emoji（即分隔线图标），**统一使用植物 / 阳光 / 自然风格**，从这套里轮换取用：`🌿 🌱 🌾 🍃 🌻 🌳 ☀️`（也可补 🍀🌲🌞 等同类）。**禁止使用** 🔍 📈 ⚡ 🗺️ ⚖️ 🧭 🧬 ⚠️ 📊 💊 等非自然类图标充当章节分隔符。文末"研究性治疗提醒框"等装饰性 emoji 也优先采用自然风，保持整体调性一致。
@@ -109,6 +109,7 @@ font-size:14px;
 - **template5-khub 系列**（`assets/template5-khub/`）：**病历记录风**，衬线字体标题 + 粗黑边框卡片 + 暖米色背景 + 深绿强调，适合个人叙事、深度科普、罕见病记录等长文。
 - **template6-med 系列**（`assets/template6-med/`）：**med 说明模版 / 医学权威风**，深蓝 `#2c5f7c` 主色 + 白底卡片 + 三色风险警示体系（红/橙/蓝标签）+ 三列对照表 + 编号清单，适合药品说明书解读、用药对照、紧急情况速查、患教说明文。
 - **template_qa 系列**（`assets/template_qa/`）：病友问答胶囊（聊天气泡）版式，左灰气泡=病友问 / 右渐变气泡=医生答（带头像），适合医生群内答疑、患教 QA 原样呈现。
+- **template7-review 系列**（`assets/template7-review/`）：**医生点评风 / 前沿荟萃学术风**，编号章节（01/02/03 + 中英双题）+ 浅色数据卡 + 金棕来源标注 + 医生署名点评模块收尾，蓝/紫两色，适合文献解读、临床研究速递、医生点评文章。
 
 ### template3 系列（`assets/template3/`，v3.1 生机微光 · 治愈系 · 高对比阅读版）
 
@@ -221,6 +222,33 @@ font-size:14px;
 
 > 路由补充：用户指定"说明书""用药指南""Medication Guide""med""用药对照""官方 vs 病友""紧急速查""药物安全""患教说明"时，使用 `template6-med`。未指定时仍默认 template3 v3.1。
 
+### template7-review 系列（`assets/template7-review/`，医生点评 · 前沿荟萃学术风）
+
+**review 医生点评模版**，提取自「胰腺外科金大夫」前沿荟萃文献解读文章。编号章节 + 中英双题 + 浅色数据卡 + 医生署名点评模块收尾，适合文献解读、临床研究速递（III 期结果/会议 LBA 报道）、会议数据点评、医生点评文章。
+
+**review 视觉系统（蓝/紫双色）：**
+- 蓝色（默认）：主蓝 `#2F6EBA` + 浅蓝底 `#EEF6FF` + 浅蓝底线 `#7BB7FC`；紫色：主紫 `#5c4a7a` + 浅紫底 `#F3EFF8` + 浅紫底线 `#B8A8D6`
+- 金棕点缀 `#B4956F`（来源标注、点评装饰线）与灰底 `#EDEDED`（缩写块、点评卡）两版通用
+- 章节头：flex 双列 —— 左 30px 主色编号（`border-right:1px solid 主色`），右 18px 主色加粗中文题 + 12px 灰英文副题（`border-right:3px solid 主色`）
+- 数据卡：浅底 + `border-bottom:2px` 浅边 + `padding:21px`，关键句主色加粗
+- 正文 15px / line-height 1.75 / justify；字体栈 `'PingFangSC-light','PingFang SC',sans-serif`
+
+**可用资产：**
+- `review_template.html`：蓝色主模板（品牌头部 + 栏目眉题 + 标题 + 开篇介绍 + 正文容器占位符）；
+- `review_template_purple.html`：紫色主模板（结构一致，仅换色）；
+- `review_components.html`：ReviewChapterHeader、ReviewSubTitle、ReviewBodyText、ReviewDataCard、ReviewSourceNote、ReviewPointList、ReviewAbbrev、ReviewRefList、**DoctorReviewCard**、ReviewDivider 组件；
+- `review_foot_template.html` / `review_foot_purple.html`：foot 母版（结构=template3 v3 深色卡片版，文案逐字一致，蓝/紫两套色值）；
+- `review_template_spec.md`：视觉 Token、模块顺序、组件清单、医生照片替换规则。
+
+**模块规则：**
+- 正文结构固定为：栏目眉题（栏目名 + 英文副题）→ 文章标题 + 元信息 → 开篇介绍（上期回顾/本期概述/登记号）→ 编号章节 ×N → 缩写说明 → 参考文献 → 医生点评模块 → foot。
+- 每个一级模块用 `ReviewChapterHeader`（01/02/03…），小节用 `ReviewSubTitle`；数据/结论句放 `ReviewDataCard`，配图与数据来源用 `ReviewSourceNote`（金棕 12px）。
+- **DoctorReviewCard 照片规则**：预留医生照片位置，默认使用医生 icon 占位（src 见组件注释 `【医生照片占位】`）；提供真实医生照片时仅替换 `img` 的 `src`，保持 88×88 圆形裁切（object-fit:cover）；横版工作照可替换为 `width:100%;border-radius:8px` 整图置于灰底卡顶部。
+- 医生点评必须来自医生本人授权/署名材料，禁止代写代署；点评末尾附点评参考文献（12px）。
+- 文中数据（OS/PFS/ORR/HR/CI/p 值）必须与素材原文逐字一致；研究性治疗不等同于已批准。
+
+> 路由补充：用户指定"医生点评""前沿荟萃""文献解读""研究速递""研究方法/疗效结果/研究结论""文献精读""医生署名点评""学术解读"时，使用 `template7-review`。未指定时仍默认 template3 v3.1。
+
 ### template1 系列（`assets/template1/`，经典版式）
 
 `foot_template.html` 是底部固定区域（foot）的**强调版结构母版**。生成文章时，foot 部分必须以它为结构基准：文案与版式保持原样，只把其中的色值替换为当前指定配色方案的主色/强调色。正文部分只替换正文占位区。
@@ -254,7 +282,7 @@ font-size:14px;
 | 灰绿/营养 | xyb2_template_morandi_green.html | #4a6a5a | 营养/自然专题 |
 | Tiffany/活动 | xyb2_template_tiffany.html | #0a8b85 | 活动/节日专题 |
 
-> 路由规则：用户指定"生机微光""治愈系""新版""卡片错落"或未指定版式时，**默认使用 template3 系列（v3.1）**；指定"中国风""特展""template2"等关键词时用 template2 系列；指定"经典""旧版""template1"时用 template1 系列；指定"瑞慈""体检筛查""医院合作""高危转诊""医疗服务指南""用药安全对比"时用 template4-ruici 系列；指定"Khub""病历""病历记录""衬线""基因组""个人叙事""深度科普""罕见病记录"时用 template5-khub 系列；指定"说明书""用药指南""Medication Guide""med""用药对照""官方 vs 病友""紧急速查""药物安全""患教说明"时用 template6-med 系列。各系列可按主色配对使用（如 template3 紫色 + 同色系其他组件）。
+> 路由规则：用户指定"生机微光""治愈系""新版""卡片错落"或未指定版式时，**默认使用 template3 系列（v3.1）**；指定"中国风""特展""template2"等关键词时用 template2 系列；指定"经典""旧版""template1"时用 template1 系列；指定"瑞慈""体检筛查""医院合作""高危转诊""医疗服务指南""用药安全对比"时用 template4-ruici 系列；指定"Khub""病历""病历记录""衬线""基因组""个人叙事""深度科普""罕见病记录"时用 template5-khub 系列；指定"说明书""用药指南""Medication Guide""med""用药对照""官方 vs 病友""紧急速查""药物安全""患教说明"时用 template6-med 系列；指定"医生点评""前沿荟萃""文献解读""研究速递""文献精读""医生署名点评""学术解读"时用 template7-review 系列。各系列可按主色配对使用（如 template3 紫色 + 同色系其他组件）。
 
 ## 链接与引用格式（必须严格遵守）
 

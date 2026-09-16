@@ -1,0 +1,140 @@
+<!--
+  review 医生点评模版 v1.0 · 组件库（蓝色基准）
+  - 全部 inline style + <section> 标签
+  - 紫色版换色映射：#2F6EBA→#5c4a7a、#EEF6FF→#F3EFF8、#7BB7FC→#B8A8D6、rgba(47,110,186,x)→rgba(92,74,122,x)
+    金棕点缀 #B4956F 与灰底 #EDEDED 两版通用，不替换
+-->
+
+<!-- ============================================================
+  ReviewChapterHeader 编号章节头（01 | 研究方法 Methods）
+  用法：每个一级模块一个；编号两位数字，中文标题 18px 主色加粗，英文副题 12px 灰
+============================================================ -->
+<section style="text-align:left;justify-content:flex-start;display:flex;flex-flow:row;margin:24px 0 14px;">
+  <section style="display:inline-block;vertical-align:top;width:auto;align-self:flex-start;flex:0 0 auto;min-width:5%;max-width:100%;height:auto;padding:0px 15px 0px 0px;border-right:1px solid #2F6EBA;box-sizing:border-box;">
+    <section style="margin:13px 0px;">
+      <section style="text-align:center;font-size:30px;letter-spacing:0px;line-height:1.3;color:#2F6EBA;">
+        <p style="margin:0px;padding:0px;"><strong>01</strong></p>
+      </section>
+    </section>
+  </section>
+  <section style="display:inline-block;vertical-align:top;width:auto;align-self:flex-start;flex:100 100 0%;margin:0px;padding:0px 12px;height:auto;border-right:3px solid #2F6EBA;box-sizing:border-box;">
+    <section style="text-align:justify;font-size:6px;line-height:1.5;"><p style="margin:0px;"><br /></p></section>
+    <section style="margin:2px 0px;">
+      <section style="text-align:justify;font-size:18px;line-height:1.5;color:#2F6EBA;">
+        <p style="margin:0px;"><strong>研究方法</strong></p>
+      </section>
+    </section>
+    <section style="text-align:justify;line-height:1.5;">
+      <p style="margin:0px;font-size:12px;color:#888;letter-spacing:1px;">Methods</p>
+    </section>
+  </section>
+</section>
+
+<!-- ============================================================
+  ReviewSubTitle 小节标题（如：研究设计 / 入组情况 / 基线特征）
+============================================================ -->
+<section style="margin:16px 0 8px;">
+  <p style="margin:0px;font-size:16px;color:#1a1a1a;"><strong>研究设计</strong></p>
+</section>
+
+<!-- ============================================================
+  ReviewBodyText 正文段（15px / justify / line-height 1.75）
+============================================================ -->
+<section style="text-align:justify;font-size:15px;line-height:1.75;color:#3e3e3e;margin:8px 0;">
+  <p style="margin:0px 0px 8px;">正文内容。</p>
+</section>
+
+<!-- ============================================================
+  ReviewDataCard 浅色数据卡（浅底 + 底边 2px 主色浅边，关键句/入组情况/基线特征）
+  用法：卡内文字 15px 主色加粗为关键句，补充说明用深色
+============================================================ -->
+<section style="display:inline-block;width:100%;vertical-align:top;background-color:#EEF6FF;border-style:solid;border-width:0px 0px 2px;border-bottom-color:#7BB7FC;padding:21px;box-sizing:border-box;margin:10px 0;">
+  <section style="text-align:justify;font-size:15px;line-height:1.75;">
+    <p style="margin:0px 0px 6px;"><strong style="color:#2F6EBA;">关键句： Daraxonrasib降低死亡风险60%。</strong></p>
+    <p style="margin:0px;color:#3e3e3e;">补充说明文字。</p>
+  </section>
+</section>
+
+<!-- ============================================================
+  ReviewSourceNote 来源标注（金棕小字，图片/数据出处）
+  用法：紧跟配图或数据卡之后，居中
+============================================================ -->
+<section style="text-align:center;margin:6px 0 12px;">
+  <p style="margin:0px;font-size:12px;color:#B4956F;letter-spacing:0.5px;">Brian M. Wolpin, et al. 2026 ASCO. Abstract LBA5P.</p>
+</section>
+
+<!-- ============================================================
+  ReviewPointList 编号要点清单（研究设计要素/结论要点）
+============================================================ -->
+<section style="text-align:justify;font-size:15px;line-height:1.75;color:#3e3e3e;margin:8px 0;">
+  <p style="margin:0px 0px 6px;"><strong>（1）入组人群：</strong>既往经治的转移性PDAC患者。</p>
+  <p style="margin:0px 0px 6px;"><strong>（2）随机分组（1:1）：</strong>试验药 300 mg 每日一次口服 vs 研究者选择的标准化疗。</p>
+  <p style="margin:0px 0px 6px;"><strong>（3）主要终点：</strong>总生存期（OS）。</p>
+  <p style="margin:0px;"><strong>（4）关键次要终点：</strong>无进展生存期（PFS）、客观缓解率（ORR）、安全性。</p>
+</section>
+
+<!-- ============================================================
+  ReviewAbbrev 缩写与说明块（灰底）
+  用法：章节末尾集中解释缩写；一行一组
+============================================================ -->
+<section style="background:#EDEDED;padding:18px 20px;margin:14px 0;">
+  <p style="margin:0px;font-size:13px;color:#666;line-height:1.9;text-align:justify;">ORR，客观缓解率；OS，总生存期；PDAC，胰腺导管腺癌；PFS，无进展生存期；PO，口服给药；QD，每日一次</p>
+</section>
+
+<!-- ============================================================
+  ReviewRefList 参考文献（正文收尾，编号悬挂式）
+  链接格式：<a href="..." style="color:#2F6EBA;text-decoration:none;">[n]</a>
+============================================================ -->
+<section style="margin:16px 0 8px;">
+  <p style="margin:0px 0px 6px;font-size:13px;color:#666;line-height:1.9;text-align:justify;">1. Garrido-Laguna I, et al. J Clin Oncol. 2025;43:722.</p>
+  <p style="margin:0px;font-size:13px;color:#666;line-height:1.9;text-align:justify;">2. Wolpin B, et al. N Engl J Med. 2026;394:1790-1802.</p>
+</section>
+
+<!-- ============================================================
+  DoctorReviewCard 医生点评模块（本模版核心组件）
+  结构：金棕左边线 90% 居中外框 → 金棕递减装饰条 → 灰底点评卡
+        （医生照片占位 + 点评人/职称 + 点评正文 + 点评参考文献）
+  照片规则：
+  - 默认使用医生 icon 占位（src 见下）
+  - 提供真实医生照片时，仅替换 img 的 src，尺寸保持 88×88 圆形裁切（object-fit:cover）
+  - 如需横版工作照：将头像 section 替换为 width:100% 圆角 8px 整图（与正文图片元素一致），
+    置于灰底卡顶部、点评人信息之前
+============================================================ -->
+<section style="text-align:center;justify-content:center;display:flex;flex-flow:row;margin:26px 0px 10px;">
+  <section style="display:inline-block;width:90%;vertical-align:top;align-self:flex-start;flex:0 0 auto;height:auto;padding:0px 0px 0px 27px;margin:0px;border-left:1px solid #B4956F;box-sizing:border-box;">
+    <!-- 金棕递减装饰条 -->
+    <section style="text-align:left;line-height:0;margin:0px 0px 10px;">
+      <section style="display:inline-block;width:20px;height:3px;vertical-align:top;overflow:hidden;background-color:#B4956F;margin:0px 5px;"></section>
+      <section style="display:inline-block;width:15px;height:3px;vertical-align:top;overflow:hidden;background-color:#B4956F;margin:0px 5px;"></section>
+      <section style="display:inline-block;width:10px;height:3px;vertical-align:top;overflow:hidden;background-color:#B4956F;margin:0px 5px;"></section>
+      <section style="display:inline-block;width:5px;height:3px;vertical-align:top;overflow:hidden;background-color:#B4956F;margin:0px 5px;"></section>
+    </section>
+    <!-- 灰底点评卡 -->
+    <section style="background-color:#EDEDED;padding:25px;text-align:justify;box-sizing:border-box;">
+      <!-- 医生信息行：照片占位（默认医生 icon，可替换） + 姓名/职称 -->
+      <section style="text-align:left;justify-content:flex-start;display:flex;flex-flow:row;align-items:center;margin:0px 0px 14px;">
+        <section style="display:inline-block;vertical-align:top;flex:0 0 auto;margin:0px 14px 0px 0px;line-height:0;">
+          <!-- 【医生照片占位】提供真实医生照片时替换 src（建议不小于 176×176，圆形裁切显示 88×88） -->
+          <img src="https://img0.baidu.com/it/u=2342311582,115606744&fm=253&fmt=auto&app=138&f=JPEG?w=759&h=443" alt="医生头像" style="width:88px;height:88px;border-radius:50%;object-fit:cover;display:block;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.12);">
+        </section>
+        <section style="display:inline-block;vertical-align:top;flex:1 1 0%;min-width:0;">
+          <p style="margin:0px;font-size:15px;"><strong style="color:#2F6EBA;">__DOCTOR_NAME__</strong></p>
+          <p style="margin:4px 0px 0px;font-size:12px;color:#888;letter-spacing:1px;">__DOCTOR_TITLE__</p>
+        </section>
+      </section>
+      <!-- 点评正文（2-4 段，每段 3-4 行） -->
+      <section style="text-align:justify;font-size:15px;line-height:1.8;color:#3e3e3e;">
+        <p style="margin:0px 0px 8px;">__REVIEW_BODY__</p>
+      </section>
+      <!-- 点评参考文献 -->
+      <p style="margin:10px 0px 0px;font-size:12px;color:#888;line-height:1.8;">__REVIEW_REF__</p>
+    </section>
+  </section>
+</section>
+
+<!-- ============================================================
+  ReviewDivider 自然风分隔（仅在一级模块之间克制使用）
+============================================================ -->
+<section style="text-align:center;margin:28px 0;">
+  <p style="margin:0px;font-size:15px;color:#2F6EBA;">🌿</p>
+</section>

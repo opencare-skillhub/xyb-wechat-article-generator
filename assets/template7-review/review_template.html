@@ -1,0 +1,45 @@
+<!--
+  review 医生点评模版 v1.0：前沿荟萃学术风 · 蓝色（默认）
+  - 提取自「胰腺外科金大夫」前沿荟萃文献解读文章（2026-09）
+  - 正文结构：栏目眉题 → 文章标题 → 开篇介绍 → 编号章节（01/02/03）→ 小节/数据卡/来源标注
+    → 缩写说明 → 参考文献 → 医生点评模块 → foot（免责声明）
+  - 视觉系统：主蓝 #2F6EBA + 浅蓝底 #EEF6FF + 浅蓝底线 #7BB7FC + 金棕点缀 #B4956F + 灰底 #EDEDED
+  - 用途：文献解读、临床研究速递、会议数据点评、医生署名点评文章
+  - 全部 inline style + <section> 标签，可直接粘贴公众号编辑器 HTML 源码
+  - 紫色版见 review_template_purple.html（色值映射见 review_template_spec.md）
+-->
+
+<!-- ===== 品牌头部（固定区域，勿删）：白底 logo + 圆形头像 + 品牌行 ===== -->
+<section style="background:#fff;text-align:center;padding:25px 0 20px;">
+  <img src="https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/Pop%20Mart%20Character%20Front%20View%20(2).png" alt="小胰宝" style="width:72px;height:72px;border-radius:50%;object-fit:cover;display:inline-block;border:3px solid rgba(47,110,186,0.25);">
+  <p style="margin:12px 0 0;font-size:16px;color:#2F6EBA;font-weight:600;letter-spacing:2px;">__BRAND_TITLE__</p>
+  <p style="margin:6px 0 0;font-size:12px;color:#8d949f;letter-spacing:2px;">__BRAND_SUB__</p>
+</section>
+
+<!-- ===== 栏目眉题（前沿荟萃式，居中双行） ===== -->
+<section style="text-align:center;margin:6px 0 18px;">
+  <p style="margin:0;font-size:20px;color:#2F6EBA;font-weight:700;letter-spacing:6px;">__COLUMN_TITLE__</p>
+  <p style="margin:8px 0 0;font-size:12px;color:#888;letter-spacing:3px;">__COLUMN_SUB__</p>
+</section>
+
+<!-- ===== 文章标题与元信息 ===== -->
+<section style="margin:0 20px 18px;">
+  <p style="margin:0 0 10px;font-size:18px;line-height:1.6;color:#1a1a1a;font-weight:700;text-align:justify;">__HEADLINE__</p>
+  <p style="margin:0;font-size:12px;color:#888;letter-spacing:1px;">__META__</p>
+</section>
+
+<!-- ===== 正文容器 ===== -->
+<section style="padding:0 8px;box-sizing:border-box;font-family:'PingFangSC-light','PingFang SC',sans-serif;color:#3e3e3e;letter-spacing:1px;line-height:2;font-size:14px;">
+
+  <!-- 【替换区域】开篇介绍：栏目导语（上期回顾 + 本期概述 + 研究登记号），每段 3-4 行 -->
+  __INTRO__
+
+  <!-- 【替换区域】正文内容：使用 review_components.html 中的组件组装（编号章节 → 小节 → 数据卡 → 来源标注 → 缩写说明 → 参考文献） -->
+  __BODY__
+
+  <!-- 【替换区域】医生点评模块：使用 DoctorReviewCard 组件（照片占位默认医生 icon，提供真实照片时替换 src） -->
+  __DOCTOR_REVIEW__
+
+  __FOOT__
+
+</section>
