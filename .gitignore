@@ -3,3 +3,7 @@
 .zcode/
 output/
 *.pdf
+
+# Python 编译产物
+__pycache__/
+*.pyc
