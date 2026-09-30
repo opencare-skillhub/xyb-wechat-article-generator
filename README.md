@@ -65,6 +65,8 @@ xyb-wechat-article-generator/
 ├── examples/                    # 示例输出
 │   ├── 云南白药_公众号_blue.html
 │   └── 化疗贫血科学管理_公众号_purple.html
+├── scripts/                     # 校验脚本
+│   └── verify-layout.py         # 📐 封面标题换行 + 整篇溢出检测（发布前必跑）
 └── output/                      # 生成文件输出目录
 ```
 
