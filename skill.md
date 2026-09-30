@@ -541,6 +541,30 @@ python3 scripts/verify-layout.py output/xxx.html --widths 320,375
 > 在 375px 上都是漂亮的两行，**但 320px 下各差 16px / 10px，直接折成四行**。
 > 改成 `胰腺癌家庭的一站式 AI`（206px）+ `从早筛一路到哀伤管理`（200px）后全部通过。
 
+### 5.2 文章格式验证（一条命令跑完）
+
+```bash
+python3 scripts/verify-article.py output/xxx.html \
+  --require-color "#403358" --require-color "#5c4a7a"
+python3 scripts/verify-article.py output/xxx.html --foot assets/template4-ruici/med_foot_template.html
+```
+
+依次检查，退出码非 0 即不通过：
+
+1. **禁用标签/属性**：`div` / `table` / `style` / `html` / `head` / `body` / `script` / `svg` / `ul` / `li` / `class`
+2. **标签配平** —— **先剥掉 HTML 注释再判**。踩过的坑：说明性注释里写 `<section>`、`<img>` 这类字面标签，朴素正则会把它算成未闭合，报出一个根本不存在的问题。
+3. **裸 URL**（必须包在 `a` 标签里）
+4. **foot 逐字比对**：母版每一段文案都要在文章里出现；只有「参考文献：请在此处列出引用来源」这类占位行允许被替换
+5. **foot 图片**：母版里的 `img src` 都要在文章里
+6. **色值统计** + `--require-color` 强制项
+
+> ⚠️ **写 HTML 注释时不要在注释里放尖括号标签**。除了让朴素校验器误判，
+> 各编辑器对注释内容处理也不一致。要说明结构就写「用 img 标签，src 填……」这样的文字。
+
+**二维码 / 外链槽位的做法**：留一个固定尺寸的空位（如 150×150 的居中 `section`），
+外面套一层带**虚线边框**的白卡当「还没换」的记号；替换说明写在注释里（说明文字本身别带尖括号）。
+这样替换时只动一个元素，版式不用重排。
+
 ### 6. Emoji/符号使用规范
 
 **分隔线 emoji（仅 template1/template2 系列）：**
