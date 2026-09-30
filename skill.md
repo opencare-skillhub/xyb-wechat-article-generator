@@ -584,6 +584,46 @@ python3 scripts/verify-article.py output/xxx.html --foot assets/template4-ruici/
 外面套一层带**虚线边框**的白卡当「还没换」的记号；替换说明写在注释里（说明文字本身别带尖括号）。
 这样替换时只动一个元素，版式不用重排。
 
+### 5.3 二维码验扫（文章带二维码时必跑）
+
+二维码是文章里**唯一错了就彻底没用的元素**——其他内容出错最多是不好看，二维码扫不出来，这条传播路径就断了。
+
+**关键：不能只看源图。** 源图 432px 不等于页面上能扫。二维码在页面上会缩到 150–200px，
+本体可能只剩 140px 左右。必须对**实际渲染出来的截图**解码才算验证通过。
+
+```bash
+# 1) 用 1x 渲染截图（1x = 最差情况，等于小屏手机的物理像素）
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless --disable-gpu --no-sandbox --force-device-scale-factor=1 \
+  --window-size=400,1400 --screenshot=/tmp/page.png "file://$PWD/output/文章.html"
+
+# 2) 解码（脚本会报出二维码在图里占多少像素，并识别指向类型）
+swift scripts/verify-qrcode.swift /tmp/page.png
+swift scripts/verify-qrcode.swift "https://图片地址"      # 也可直接给 URL，脚本自下载
+```
+
+脚本只打印链接的**结构**（host / 首段路径 / 末段长度），**不打印完整 token**——
+二维码链接里常带密钥，不要落到聊天记录或文档里。
+
+**插入二维码的硬规则**：
+
+1. **只写 `width`，不写 `height`**。源图很少是正方的（手机截图尤其），
+   写死 height 会把二维码压扁，可能直接扫不出来。
+   `style="width:200px;max-width:100%;display:block;margin:0 auto;border-radius:8px;"`
+2. **尺寸别小于 140px**。群码一般显示 200px 左右；小屏（320px）下正文卡内宽约 240–250px，200px 放得下。
+3. **先解码，再写文案**。二维码指向什么决定文案怎么写：
+   企业微信（`work.weixin.qq.com`）≠ 个人微信群，写「扫码进群」就错了；
+   个人群二维码**七天后失效**，长期挂在文章里的应该用企业微信活码。
+4. 先确认源图干净（截图可能带状态栏/按钮）；可用 `sips -g pixelWidth -g pixelHeight` 看尺寸，
+   再用 Vision 的 OCR 扫一遍看有没有界面文字。
+
+> 2026-09-30 实例：用户给的二维码是 **432×408 非方形截图**。像素分析显示二维码本体
+> 精确 319×319（宽高比 1.000），四周留白足够、无界面文字——图本身没问题。
+> 若按 150×150 强行塞进方框会被压扁 6%，所以只写 `width:200px`。
+> 解码验证：源图 ✓、渲染后 1x 截图（二维码 148px）✓、2x ✓。
+> 解码还发现它指向 `work.weixin.qq.com/u/…`（**企业微信**），
+> 原拟的「扫码进群」类文案会写错——文案由解码结果反推，不靠猜。
+
 ### 6. Emoji/符号使用规范
 
 **分隔线 emoji（仅 template1/template2 系列）：**

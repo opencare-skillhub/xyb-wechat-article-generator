@@ -67,7 +67,8 @@ xyb-wechat-article-generator/
 │   └── 化疗贫血科学管理_公众号_purple.html
 ├── scripts/                     # 校验脚本
 │   ├── verify-article.py        # ✅ 格式检查：禁用标签 / 标签配平 / 裸 URL / foot 逐字比对 / 色值
-│   └── verify-layout.py         # 📐 封面标题换行 + 整篇溢出检测
+│   ├── verify-layout.py         # 📐 封面标题换行 + 整篇溢出检测
+│   └── verify-qrcode.swift      # 🔍 二维码验扫（源图与渲染截图都解码，macOS Vision）
 └── output/                      # 生成文件输出目录
 ```
 
