@@ -10,7 +10,9 @@
   4. foot 逐字比对：母版里的每段文案都应出现在文章里
      （允许替换的只有「参考文献：请在此处列出引用来源」这类占位行）
   5. 母版里的图片 src 是否都在文章里
-  6. 色值统计（人工核对用；可用 --require-color 强制要求某个色值必须出现）
+  6. 防盗链属性：mmbiz.qpic.cn / pic.newrank.cn 的图必须带 referrerpolicy="no-referrer"
+     （不带的话带 Referer 请求会被换成 140×140 占位图，http 预览就是「尾图丢了」）
+  7. 色值统计（人工核对用；可用 --require-color 强制要求某个色值必须出现）
 
 用法：
   python3 verify-article.py output/xxx.html
@@ -43,6 +45,10 @@ BANNED = [
 ]
 
 VOID = {"img", "br", "hr", "input", "meta", "link"}
+
+# 微信 CDN 图片域名：带 Referer 请求会被防盗链替换成占位图，
+# 必须靠 referrerpolicy="no-referrer" 才能拿到原图。
+HOTLINK_HOSTS = ("mmbiz.qpic.cn", "pic.newrank.cn")
 
 
 def strip_comments(html: str) -> str:
@@ -147,10 +153,17 @@ def main() -> int:
                 print(f"     · {s[:70]}")
             ok &= not miss_img
 
+    hotlink = [t for t in re.findall(r"<img\b[^>]*>", clean)
+               if any(h in t for h in HOTLINK_HOSTS) and "referrerpolicy" not in t]
+    print(f"6 防盗链属性：{'✓ 均带 no-referrer' if not hotlink else f'✗ {len(hotlink)} 张缺 referrerpolicy'}")
+    for t in hotlink[:3]:
+        print(f"     · {t[:70]}")
+    ok &= not hotlink
+
     colors = re.findall(r"#[0-9A-Fa-f]{6}", html)
     norm = [c.lower() for c in colors]
     uniq = sorted(set(norm), key=lambda c: -norm.count(c))
-    print(f"6 色值统计（共 {len(uniq)} 种，按出现次数）：")
+    print(f"7 色值统计（共 {len(uniq)} 种，按出现次数）：")
     print("     " + "  ".join(f"{c}×{norm.count(c)}" for c in uniq[:10]))
     for want in args.require_color:
         found = want.lower() in uniq

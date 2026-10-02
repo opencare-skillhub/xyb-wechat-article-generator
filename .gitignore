@@ -7,3 +7,6 @@ output/
 # Python 编译产物
 __pycache__/
 *.pyc
+
+# 客户端导入技能时生成的本地元数据（含安装来源，不入库）
+_user_meta.json
