@@ -115,7 +115,7 @@ python3 scripts/verify-article.py <文章路径> --foot assets/template7-review/
 | 5 | foot 图片 | 尾图路径是否与母版一致 |
 | 6 | 防盗链属性 | foot 的 `mmbiz.qpic.cn` 尾图必须带 `referrerpolicy="no-referrer"` |
 | 7 | 图片 URL 可移植性 | URL 路径只能含 `[A-Za-z0-9/._-]`——含 `%` 括号空格中文会被微信二次编码（`%20`→`%2520`）导致图床 404 |
-| 8 | 预览污染 | 文章被 `present_files` 预览面板改写成完整 HTML 文档（套 `<html>` 外壳、给每个标签塞 `data-page-node-id`、`&` 转义成 `&amp;`） |
+| 8 | 预览污染 | 文章被 IDE / 工具的预览面板改写成完整 HTML 文档（套 `<html>` 外壳、给每个标签塞 `data-*` 属性、`&` 转义成 `&amp;`） |
 | 9 | 色值统计 | 人工核对用，可用 `--require-color` 强制要求某色值出现 |
 
 其他脚本：
@@ -134,13 +134,14 @@ python3 scripts/restore-fragment.py <文章>       # 还原被预览面板污染
 换域名没用（镜像 `pic.newrank.cn` 直接 403，两者都得靠 `referrerpolicy="no-referrer"`）。
 渲染长图时同理——Playwright 里要在 `route` 回调里剥掉 `referer` 头再 `continue_()`，否则截图里尾图是小的。
 
-**预览污染**：WorkBuddy 的预览服务会**就地改写源文件**，不是只改预览副本。
+**预览污染**：部分 IDE 与 AI 工具的预览服务会**就地改写源文件**，不是只改预览副本。
+（某些预览服务还会给每个标签塞 `data-page-node-id` 之类属性、`&` 转义成 `&amp;`。）
 所以预览前先把文章复制到 `/tmp`，或预览完立刻 `restore-fragment.py` 还原。
 历史遗留中招文件：`PanRAS_RASi报名路径_复旦肿瘤HRS7172_公众号_purple.html` 与 `..._purple(2).html`。
 
 ## 新人快速上手：从装工具到发布（照着做 8 步）
 
-第一次用、电脑上只装了浏览器，按这 8 步走一遍就能出稿。老手直接跳过。
+第一次用、还没搭过环境，按这 8 步走一遍就能出稿。老手直接跳过。
 
 **Step 0｜先分清要哪种产物**（选错要重来）
 
@@ -149,7 +150,8 @@ python3 scripts/restore-fragment.py <文章>       # 还原被预览面板污染
 | 公众号文章（HTML，粘进 135 编辑器） | 本仓库 `xyb-wechat-article-generator` |
 | 长篇白皮书、要出 DOCX | [`xyb-whitepaper-writer`](https://github.com/opencare-skillhub/xyb-whitepaper-writer) |
 
-**Step 1｜安装 WorkBuddy**：自行搜索 WorkBuddy 官方站下载安装（Mac / Windows 都有），装完登录。
+**Step 1｜装好 AI 编程助手**：Cursor / Claude Code / Kiro / CodeBuddy 这类助手挑一个顺手的装上登录
+（到各家的官网下客户端即可，Mac / Windows 都有）。这一步是环境准备，本仓库帮不上忙。
 
 **Step 2｜装技能**：复制下面**整段**（含 `==拷贝开始==` / `==拷贝结束==`）发给 agent，它会自己 clone 装上，
 然后告诉它「后面我只要给素材，你直接出稿」。装完可以再跑一句「你现在装了哪些技能、放在哪个目录」确认一下：
@@ -219,12 +221,11 @@ python3 scripts/verify-layout.py <文章>                 # 手机上有没有�
 ### 发给 AI Agent 的使用说明（放最上面，省掉来回解释）
 
 把下面**整段代码块**（含 `==拷贝开始==` / `==拷贝结束==` 两行）连同素材一起发给任意 AI Agent
-（WorkBuddy / CodeBuddy / Claude / Codex 都行），它会照着走完「选版式 → 生成 → 校验 → 交付」。
+（Claude / Codex / Cursor / Kiro 都行），它会照着走完「选版式 → 生成 → 校验 → 交付」。
 用时把 `__SKILL_DIR__` 换成本机技能目录，或让 Agent 自己 clone 那个 HTTPS 地址。
 
-> 两张目录是同一份内容的两个副本：基线 `~/.agents/skills/xyb-wechat-article-generator`，
-> WorkBuddy 镜像 `~/.workbuddy/skills/小胰宝公众号文章生成器`。改完基线记得让两边都
-> `git fetch && git reset --hard origin/main`，否则又会分裂。
+> 这份说明对工具中立：不需要装特定客户端，也不需要配 SSH key，只要那个 Agent 能读文件系统、
+> 能跑命令就可用。
 
 ```text
 ==拷贝开始==
@@ -254,8 +255,8 @@ git clone https://github.com/opencare-skillhub/xyb-wechat-article-generator.git�
 2. 复制 assets/<系列>/ 下对应模板做起点；template8 直接填 alliance_template_purple.html
    的占位符，component-clinical-card 直接填 clinical_card_template.html 的占位符。
 3. 素材缺哪块就留空或删掉整块，不许编内容；foot 尾巴（含尾图）逐字保留，不许改。
-4. 图片一律用 COS 图床干净 URL（路径部分只能含 [A-Za-z0-9/._-]），本地图先
-   python3 ~/.workbuddy/skills/picgo-cos-upload/scripts/upload_to_picgo.py <图> [名] 重传。
+4. 图片一律用 COS 图床的干净 URL（路径部分只能含 [A-Za-z0-9/._-]）；本地图先用 PicGo
+   （腾讯云 COS 图床）传上去，别拿本地相对路径或含中文/空格的文件名直接塞 src。
 5. 正文链接必须包 <a href="..." target="_blank">，不能留裸 URL。
 6. 输出必须是纯片段：文件直接以 <section 开头，禁止 <!DOCTYPE>／<html>／<head>／
    <style>／class=／内联样式以外的一切外壳。
