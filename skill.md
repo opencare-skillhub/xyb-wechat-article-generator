@@ -28,7 +28,12 @@ inclusion: manual
    > 手写 / 重排时极易顺手改成中文引号，验证器第 4 项就会报「缺 N 段」——**报错文本被截断到 60 字符，肉眼看不出差别**。
    > 排查方法：把母版段与文章段的 `re.sub(r"\s+","",...)` 结果逐字符比对，找第一个不同字符（本次差在第 146 字符）。
    > **不要在 foot 里改标点，照抄母版**。想加说明文字就另起一个 `<p>`，别塞进母版已有的段里（塞了同样会报缺段）。
-9. **间隔图标统一自然风**：文章正文里用于章节分隔的居中 emoji（即分隔线图标），**统一使用植物 / 阳光 / 自然风格**，从这套里轮换取用：`🌿 🌱 🌾 🍃 🌻 🌳 ☀️`（也可补 🍀🌲🌞 等同类）。**禁止使用** 🔍 📈 ⚡ 🗺️ ⚖️ 🧭 🧬 ⚠️ 📊 💊 等非自然类图标充当章节分隔符。文末"研究性治疗提醒框"等装饰性 emoji 也优先采用自然风，保持整体调性一致。
+9. **分隔线图标：每篇开稿前随机抽一枚，整篇统一用到底**：正文一级章节之间用「四段横线 + 居中植物图标」组件（**组件 9**，不是裸 emoji）。抽法：
+   `python scripts/pick-divider-icon.py --seed <YYYY-MM-DD> --tone <green|purple|warm>`，
+   脚本打印可直接粘贴的分隔线 HTML 与抽中的图标 id；**同 seed 必得同一枚**（便于复盘、便于整篇复现），
+   不传 `--seed` 即真随机，`--no-repeat` 默认开启会避开上一篇用过的那枚。
+   **硬约束：一篇稿子里所有分隔线必须是同一枚图标**，中途不换；抽到哪枚用哪枚，别按心情挑。
+   **禁止** 🔍 📈 ⚡ 🗺️ ⚖️ 🧭 🧬 ⚠️ 📊 💊 等非自然图标充当章节分隔符；**禁止**拿机器人吉祥物 `xyb-head-logo` 当分隔线中间那枚——那是头像，中间那枚只能是植物类，见组件 9 的图标池。
 
 
 
@@ -760,8 +765,48 @@ swift scripts/verify-qrcode.swift "https://图片地址"      # 也可直接给 
 ### 8. 列表式正文
 圆点列表。用于要点罗列。
 
-### 9. 分隔线
-居中 emoji，**统一使用植物 / 阳光 / 自然风格**（🌿🌱🌾🍃🌻🌳☀️ 轮换取用），形如 `<p style="text-align:center;margin:24px 30px;font-size:22px;">🌿</p>`。用于章节分隔，**不得用** 🔍📈⚡🗺️⚖️🧭🧬⚠️📊💊 等非自然类图标。
+### 9. 分隔线（全站共用组件：四段横线 + 居中植物图标）
+
+正文**一级章节之间**插一条（注释锚点前，如 `<!-- ===== 一、… -->`）；footer 固定区不插。
+**开稿第一步**：`python scripts/pick-divider-icon.py --seed <日期> --tone <配色>` 抽一枚图标，
+脚本直接吐出下面这段 HTML（左右横线**必须镜像**）。
+
+#### 结构（只含金/白名单标签，全 inline style，无 class、无 `<style>`）
+```html
+<section style="display:flex;align-items:center;margin:0 20px 20px">
+  <span style="flex:1;height:1px;background:#E4F2EA;"></span><span style="flex:1;height:1px;background:#D3EBDE;"></span><span style="flex:1;height:1px;background:#A8D9BF;"></span><span style="flex:1;height:1px;background:#7FBF9F;"></span>
+  <img src="{图标 COS 地址}" alt="小胰宝" style="flex:0 0 auto;width:36px;height:36px;border-radius:50%;object-fit:cover;margin:0 10px;display:block;">
+  <span style="flex:1;height:1px;background:#7FBF9F;"></span><span style="flex:1;height:1px;background:#A8D9BF;"></span><span style="flex:1;height:1px;background:#D3EBDE;"></span><span style="flex:1;height:1px;background:#E4F2EA;"></span>
+</section>
+```
+- 横线由外到内四色 `#E4F2EA → #D3EBDE → #A8D9BF → #7FBF9F`，**左右同序镜像**（换行只是为了代码好看，实际是一整段）。
+- 中间图标固定 **36×36、圆底（`border-radius:50%`）**，左 `margin:0 10px` 右不写（靠 `justify-content` 默认排布），`alt="小胰宝"`。
+- 外层 `margin:0 20px 20px`：左右各留 20px 白边（和正文卡片对齐），下留 20px。
+- **不要**用裸 emoji（`<p style="text-align:center">🌿</p>`）替代——那是老稿子才有的写法，视觉分量不够，四横线的克制感会丢。
+
+#### 图标池（7 枚，全部植物类；整篇只用一枚）
+| id | 中文名 | emoji | COS 地址 | 气质 / 什么时候用 |
+|---|---|---|---|---|
+| `sprout` | 萌芽 | 🌱 | `.../images/xyb-divider-sprout-20261003.png` | 通用首选，双叶＋顶芽，最稳 |
+| `leaf` | 单片叶 | 🌿 | `.../images/xyb-divider-leaf-20261003.png` | 柔和，用药 / 科普长文 |
+| `clover3` | 三叶草 | ☘️ | `.../images/xyb-divider-clover3-20261003.png` | 完整期 / 希望主题，绿色系最搭 |
+| `clover4` | 四叶草 | 🍀 | `.../images/xyb-divider-clover4-20261003.png` | 幸运、转机类主题 |
+| `seedling` | 圆胖幼苗 | 🍃 | `.../images/xyb-divider-seedling-20261003.png` | 圆润亲和，病友向 |
+| `tree` | 小树苗 | 🌲 | `.../images/xyb-divider-tree-20261003.png` | 深绿沉稳，治疗阶段 / 长期管理 |
+| `grass` | 小草 | 🍀 | `.../images/xyb-divider-grass-20261003.png` | 轻盈，章节特别多时用 |
+> 完整地址前缀：`https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/`
+> **池子可加不可限**：新增图标 = 往 `assets/icons/<id>.svg` 丢一个 96×96 viewBox 的 SVG →
+> `python scripts/render-divider-icons.py` 出 384 透明底 PNG → 传图床 → 在 `scripts/pick-divider-icon.py` 的 `POOL` 里加一行（id/中文名/emoji/文件名/说明）。
+> 别去外挂百度 / 千图的现成素材图：有版权，且微信抓取外链图可能被拦；自绘 SVG 改一版重渲即可。
+
+#### 随机规则（每条都是硬约束）
+1. **一篇一封**：同一篇稿子里 N 条分隔线（通常 6～10 条）全部用抽中的那枚，一个字都不换。
+2. **开稿先抽**：抽的动作在写正文之前完成，不是写完回头补。
+3. **换图标走脚本**：`python scripts/pick-divider-icon.py --apply 稿件.html`，整篇 8 条一次换掉
+   （脚本只认分隔线那一种 `img`：style 带 `width:36px;height:36px` 或 src 含 `xyb-divider-` / `xyb-clover-icon` / `xyb-plant-icon`，不会误伤正文图与 foot 尾图）。
+4. **连续两篇不撞车**：`--no-repeat` 默认开，脚本记住上次那枚（技能根目录 `.last_divider_icon.json`）。
+5. **配色跟着走**：`--tone green`（默认，浅绿四色）／`purple`（紫系稿：#EFE9F7→#DED4EE→#C6B5E0→#A48FCC）／`warm`（暖色稿：#F7EFE6→#EEDCC8→#E0C3A4→#C99A6B）。
+6. **老稿里的 emoji 分隔线要换**：历史稿中残留的 `<p style="text-align:center;...">🌿</p>` 按上面结构重做，别混用两种分隔线。
 
 ### 10. 底部固定区域（foot，勿修改结构与文案）
 - 关于小胰宝介绍（文案逐字一致，禁改写）

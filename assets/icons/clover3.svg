@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96">
+  <!-- 三叶草 ☘️：三枚心形小叶 + 茎 -->
+  <path d="M48 64 C48.5 74 47 81 44 88" fill="none" stroke="#299D8C" stroke-width="4.2" stroke-linecap="round"/>
+  <g transform="translate(48 46)">
+    <path transform="rotate(-90)" d="M0 3.5 C-13.5 -8 -14.5 -22.5 -4 -24.5 C-1.2 -25.2 0 -20 0 -20 C0 -20 1.2 -25.2 4 -24.5 C14.5 -22.5 13.5 -8 0 3.5 Z" fill="#299D8C"/>
+    <path transform="rotate(30)" d="M0 3.5 C-13.5 -8 -14.5 -22.5 -4 -24.5 C-1.2 -25.2 0 -20 0 -20 C0 -20 1.2 -25.2 4 -24.5 C14.5 -22.5 13.5 -8 0 3.5 Z" fill="#4FAE96"/>
+    <path transform="rotate(150)" d="M0 3.5 C-13.5 -8 -14.5 -22.5 -4 -24.5 C-1.2 -25.2 0 -20 0 -20 C0 -20 1.2 -25.2 4 -24.5 C14.5 -22.5 13.5 -8 0 3.5 Z" fill="#7FBF9F"/>
+  </g>
+</svg>

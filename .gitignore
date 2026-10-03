@@ -10,3 +10,6 @@ __pycache__/
 
 # 客户端导入技能时生成的本地元数据（含安装来源，不入库）
 _user_meta.json
+
+# 分隔线图标随机抽取的记账（本地状态，不入库）
+.last_divider_icon.json

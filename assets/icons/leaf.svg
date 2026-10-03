@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96">
+  <!-- 单片叶：主脉 + 侧脉 -->
+  <defs>
+    <linearGradient id="lg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4FAE96"/>
+      <stop offset="1" stop-color="#7FBF9F"/>
+    </linearGradient>
+  </defs>
+  <path d="M48 8 C73 27 81 57 48 90 C15 57 23 27 48 8 Z" fill="url(#lg)"/>
+  <path d="M48 15 L48 83" stroke="#EAF6F0" stroke-width="3.2" stroke-linecap="round" opacity="0.9"/>
+  <path d="M48 32 C39 36 34 42 32 50" fill="none" stroke="#EAF6F0" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/>
+  <path d="M48 32 C57 36 62 42 64 50" fill="none" stroke="#EAF6F0" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/>
+  <path d="M48 54 C41 57 37 62 35 69" fill="none" stroke="#EAF6F0" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/>
+  <path d="M48 54 C55 57 59 62 61 69" fill="none" stroke="#EAF6F0" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/>
+</svg>
