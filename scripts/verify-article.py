@@ -14,7 +14,10 @@
      （不带的话带 Referer 请求会被换成 140×140 占位图，http 预览就是「尾图丢了」）
   7. 图片 URL 可移植性：URL 路径里不能有 % 括号 空格 中文等字符
      （微信编辑器抓图时会二次编码，%20 变 %2520 → 图床 404 → 复制进编辑器图不显示）
-  8. 色值统计（人工核对用；可用 --require-color 强制要求某个色值必须出现）
+  8. 预览污染：预览面板会把文章改成完整 HTML（套 <html>/<head>/<style>，塞
+     data-page-node-id，把 img src 里的 & 转义成 &amp;）。这类污染对公众号是致命的，
+     发现即报错并提示 `scripts/restore-fragment.py`
+  9. 色值统计（人工核对用；可用 --require-color 强制要求某个色值必须出现）
 
 用法：
   python3 verify-article.py output/xxx.html
@@ -214,10 +217,24 @@ def main() -> int:
         print(f"     · [{chars}] {u[:78]}")
     ok &= not risky_urls
 
+    polluted = []
+    if re.search(r"<!DOCTYPE|<html[ >]|<head[ >]|<body[ >]", clean, re.I):
+        polluted.append("套了完整 HTML 外壳")
+    n_data = len(re.findall(r"\sdata-[a-z0-9-]+=", clean, re.I))
+    if n_data:
+        polluted.append(f"{n_data} 个 data-* 注入属性")
+    n_amp = len(re.findall(r'<img[^>]*&amp;', clean, re.I))
+    if n_amp:
+        polluted.append(f"{n_amp} 张图的 src 里 & 被转义成 &amp;")
+    print(f"8 预览污染：{'✓ 无' if not polluted else '✗ ' + '、'.join(polluted)}")
+    if polluted:
+        print("     修复：python3 scripts/restore-fragment.py <文章>")
+    ok &= not polluted
+
     colors = re.findall(r"#[0-9A-Fa-f]{6}", html)
     norm = [c.lower() for c in colors]
     uniq = sorted(set(norm), key=lambda c: -norm.count(c))
-    print(f"8 色值统计（共 {len(uniq)} 种，按出现次数）：")
+    print(f"9 色值统计（共 {len(uniq)} 种，按出现次数）：")
     print("     " + "  ".join(f"{c}×{norm.count(c)}" for c in uniq[:10]))
     for want in args.require_color:
         found = want.lower() in uniq

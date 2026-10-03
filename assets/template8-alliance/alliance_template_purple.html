@@ -10,8 +10,11 @@
       __DEPT_PROFILE_TITLE__ / __DEPT_FEATURE__ / __DEPT_STRATEGY__ /
       __DISEASE_SCOPE__ / __DISEASE_SCOPE_SHORT__ / __INDEX_CANCER__ / __CYCLE_DAYS__ /
       __COMMON_COMPLICATIONS__ / __COMPLICATION_LIST__ / __COMPLICATION_COOP__ /
-      __DIRECTOR__ / __TRIALS__ / __PROVINCE__ / __GEO_SCOPE__ / __QR_LABEL__ /
-      __QR_URL__ / __QR_ALT__ / __FOOT__
+      __DIRECTOR_LEAD__ / __DIRECTOR_PHOTO__ / __DIRECTOR_ALT__ / __DIRECTOR_NAME__ /
+      __DIRECTOR_DEGREE__ / __DIRECTOR_POST__ / __DIRECTOR_EDU__ / __DIRECTOR_EXPERTISE__ /
+      __DIRECTOR_SOCIETY__ / __DIRECTOR_RESEARCH__ / __DIRECTOR_OUTREACH__ /
+      __TRIALS__ / __PROVINCE__ / __GEO_SCOPE__ / __QR_LABEL__ / __QR_URL__ / __QR_ALT__ /
+      __FOOT__
 
   【配套】
     - foot：直接取 assets/template7-review/review_foot_purple.html（逐字照抄，勿改标点）
@@ -108,9 +111,40 @@
   <p style="font-size:14px;color:#443a51;margin:0;line-height:1.8;">这也是联合群在病友互助层面能补上的部分：什么时候该收手去挂急诊、什么信号不能拖、留置管怎么护理、饮食和营养怎么调——这些经验病友之间传得最快，而医生能在群里给出规范的边界。</p>
 </section>
 
-<!-- ===== 04 科室主任介绍 ===== -->
+<!-- ===== 04 科室主任介绍（医生卡片：左图右简历） ===== -->
 <section style="margin:0 20px 25px;background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 12px rgba(92,74,122,0.06);">
-  __DIRECTOR__
+  <p style="font-size:16px;color:#403358;font-weight:700;margin:0 0 8px;">04　这位医生是谁</p>
+  <p style="font-size:14px;color:#443a51;margin:0 0 12px;line-height:1.8;">__DIRECTOR_LEAD__</p>
+
+  <!-- 卡片：照片 + 姓名/职务在上（左图右），详情全宽在下。
+       不做「整段简历塞进右侧」——375px 屏下右侧只剩 ~150px，长段会挤成几十行。 -->
+  <section style="padding:14px 16px;background:#f2eff7;border-radius:10px;border-left:3px solid #5c4a7a;">
+    <section style="display:flex;align-items:flex-start;">
+      <img src="__DIRECTOR_PHOTO__" alt="__DIRECTOR_ALT__" style="flex:0 0 auto;width:92px;height:auto;border-radius:8px;display:block;margin-right:14px;box-sizing:border-box;">
+      <section style="flex:1 1 auto;min-width:0;box-sizing:border-box;">
+        <p style="font-size:15px;color:#403358;font-weight:700;margin:0 0 6px;line-height:1.6;">__DIRECTOR_NAME__</p>
+        <p style="font-size:12.5px;color:#5c4a7a;margin:0 0 4px;line-height:1.8;">__DIRECTOR_DEGREE__</p>
+        <p style="font-size:12.5px;color:#443a51;margin:0;line-height:1.8;">__DIRECTOR_POST__</p>
+      </section>
+    </section>
+
+    <p style="font-size:12px;color:#6c6479;font-weight:700;margin:14px 0 4px;">教育与进修经历</p>
+    <p style="font-size:13px;color:#443a51;margin:0 0 10px;line-height:1.9;">__DIRECTOR_EDU__</p>
+
+    <p style="font-size:12px;color:#6c6479;font-weight:700;margin:0 0 4px;">专业擅长</p>
+    <p style="font-size:13px;color:#443a51;margin:0 0 10px;line-height:1.9;">__DIRECTOR_EXPERTISE__</p>
+
+    <p style="font-size:12px;color:#6c6479;font-weight:700;margin:0 0 4px;">学术任职（部分）</p>
+    <p style="font-size:13px;color:#443a51;margin:0 0 10px;line-height:1.9;">__DIRECTOR_SOCIETY__</p>
+
+    <p style="font-size:12px;color:#6c6479;font-weight:700;margin:0 0 4px;">科研与学术成果</p>
+    <p style="font-size:13px;color:#443a51;margin:0 0 10px;line-height:1.9;">__DIRECTOR_RESEARCH__</p>
+
+    <p style="font-size:12px;color:#6c6479;font-weight:700;margin:0 0 4px;">把资源往下沉</p>
+    <p style="font-size:13px;color:#443a51;margin:0 0 8px;line-height:1.9;">__DIRECTOR_OUTREACH__</p>
+
+    <p style="font-size:11.5px;color:#6c6479;margin:0;line-height:1.8;">职称与科室职务以医院官网公示为准；部分第三方平台信息更新滞后，可能与官网口径不一致。</p>
+  </section>
 </section>
 
 <!-- ===== 05 临床研究招募 ===== -->
