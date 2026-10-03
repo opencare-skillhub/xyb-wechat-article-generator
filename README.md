@@ -14,6 +14,8 @@
 - **template8 医患联合群模版**：填完占位符即出合规长文（品牌头部／三条边界／社区能力矩阵／本地志愿者招募／结尾寄语五块话术已写死，只替换医院·科室·主任·研究·二维码）
 - **医生卡片「左图右简历」结构**：照片在左、姓名与职称在右，教育/擅长/任职/科研/下沉五段通栏在照片下方；含头衔多源冲突的取舍规则（官网 > 政府/学会 > 第三方平台）
 - **生成后自动校验**：`verify-article.py` 十项检查（含预览污染、尾图防盗链、图片 URL 可移植性），一键 `restore-fragment.py` 还原被预览面板改写的源文件
+- **分隔线图标池（全站共用组件）**：8 枚植物类图标（萌芽 / 单片叶 / 三叶草 / 四叶草 / 圆胖幼苗 / 小树苗 / 小草 / 实拍四叶草图），开稿前 `pick-divider-icon.py` 随机抽一枚、整篇统一（`--seed` 可复现、`--no-repeat` 防连续两篇撞车、`--apply` 整篇替换）；分隔线结构规范与「编辑器回写稿整条标准化重建」规则见 skill.md 组件 9
+- **小胰宝头像/Logo 统一地址**：`https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb.png`（512×512；旧的 `xyb-head-logo-20261003.png` 与更早的 Pop Mart 长文件名地址已弃用——路径含 `%20`/括号会被微信二次编码 404）
 - **占位符一致性检查**：改 template8 后跑 `check-placeholders.py`，防止模版与 spec 漂移
 - **临床 / 药物介绍胶囊卡片组件**（`assets/component-clinical-card/`，紫色）：一章要讲多个药物或多项在招研究时用，三种卡——标准卡（一个分子一张，7 个行组：瘤种→试验→分期→中心→剂量→机制→数据）／迷你卡（中心速查：找谁、什么状态、怎么联系）／灰底解释框（为什么还没开筛、数据口径）。标签写死只换右侧文字，19 个占位符填完即成稿；含 375px 实测的 flex 硬约束（标签 2～3 字、左列不加 `min-width:0`、右列必留）与八条内容红线（机制未披露就写未披露、注册节点≠临床结果、同靶点不同分子不可互套数据、小样本标例数等）
 - **配套的两个技能**：公众号文章走本仓库（`xyb-wechat-article-generator`）；长篇白皮书 / DOCX 走 [`xyb-whitepaper-writer`](https://github.com/opencare-skillhub/xyb-whitepaper-writer)
@@ -84,6 +86,9 @@ xyb-wechat-article-generator/
 │   │   ├── clinical_card_template.html  # ⚕️ 可填空骨架：标准卡 + 迷你卡 + 灰底解释框（19 占位符）
 │   │   ├── clinical_card_spec.md        # 📐 行序 / 色板 / flex 硬约束 / 八条内容红线
 │   │   └── clinical_card_specimen.html  # 🖼️ 成品样本（号码已脱敏，仅对照版式用）
+│   ├── icons/                   # 🌱 分隔线图标池（8 枚植物类，规则见 skill.md 组件 9）
+│   │   ├── sprout|leaf|clover3|clover4|seedling|tree|grass .svg + -384.png  # 自绘透明底
+│   │   └── divider-icon-pool.md         # 📐 图标资产登记（COS 地址 / 气质 / 加新图标三步）
 │   └── images/                  # 图片资源
 ├── examples/                    # 示例输出
 │   ├── 云南白药_公众号_blue.html
@@ -95,7 +100,9 @@ xyb-wechat-article-generator/
 │   ├── verify-layout.py         # 📐 封面标题换行 + 整篇溢出检测
 │   ├── verify-qrcode.swift      # 🔍 二维码验扫（源图与渲染截图都解码，macOS Vision）
 │   ├── check-placeholders.py    # 🔢 template8 占位符与 spec 双向一致性（改模版后必跑）
-│   └── restore-fragment.py      # 🩹 把被预览面板改写成完整 HTML 的文章还原成公众号纯片段
+│   ├── restore-fragment.py      # 🩹 把被预览面板改写成完整 HTML 的文章还原成公众号纯片段
+│   ├── pick-divider-icon.py     # 🎲 分隔线图标随机抽取（--seed 可复现 / --apply 整篇替换 / --list 图标池）
+│   └── render-divider-icons.py  # 🖼️ assets/icons/*.svg 批量渲 384 透明底 PNG（加新图标后跑）
 └── output/                      # 生成文件输出目录
 ```
 
@@ -132,6 +139,18 @@ python3 scripts/check-placeholders.py                            # 改 template8
 python3 scripts/check-placeholders.py assets/component-clinical-card  # 临床卡组件同理（脚本默认查 template8，可传目录）
 python3 scripts/restore-fragment.py <文章>       # 还原被预览面板污染的文章（--dry-run 只看不改）
 ```
+
+### 分隔线图标（全站共用，开稿先抽）
+
+```bash
+python3 scripts/pick-divider-icon.py --seed 2026-10-03 --tone green   # 随机抽一枚，打印可直贴的分隔线 HTML
+python3 scripts/pick-divider-icon.py --apply <文章>                    # 整篇统一换图标（编辑器回写稿会先标准化重建）
+python3 scripts/render-divider-icons.py                               # assets/icons/ 加了新 SVG 后重渲 PNG
+```
+
+- 规则：**一篇一封**——全篇 6～10 条分隔线用同一枚，`--seed` 同日期必得同一枚（可复盘），`--no-repeat` 默认避开上一篇。
+- 图标池、结构规范（四段横线 + 居中 36×36 圆底图标、左右镜像）与「整条标准化重建」规则，见 skill.md「组件 9」
+  和 `assets/icons/divider-icon-pool.md`。
 
 ### ⚠️ 两个高频坑
 
