@@ -12,7 +12,9 @@
   5. 母版里的图片 src 是否都在文章里
   6. 防盗链属性：mmbiz.qpic.cn / pic.newrank.cn 的图必须带 referrerpolicy="no-referrer"
      （不带的话带 Referer 请求会被换成 140×140 占位图，http 预览就是「尾图丢了」）
-  7. 色值统计（人工核对用；可用 --require-color 强制要求某个色值必须出现）
+  7. 图片 URL 可移植性：URL 路径里不能有 % 括号 空格 中文等字符
+     （微信编辑器抓图时会二次编码，%20 变 %2520 → 图床 404 → 复制进编辑器图不显示）
+  8. 色值统计（人工核对用；可用 --require-color 强制要求某个色值必须出现）
 
 用法：
   python3 verify-article.py output/xxx.html
@@ -91,6 +93,26 @@ def check_balance(clean: str):
     return stack, extra
 
 
+def check_img_url_portability(clean: str):
+    """图片 URL 路径里是否含「微信抓图器会二次编码」的字符。
+    典型翻车样本（COS 上的 Pop Mart 头像）：
+      /images/Pop%20Mart%20Character%20Front%20View%20(2).png
+    路径里同时有已编码的 %20 和未编码的括号 —— 微信抓图时 % 被再编码成 %25，
+    请求变成 ...%2520...%282%29.png，图床直接 404，表现就是「复制到编辑器图片不显示」。
+    修法是换一个路径只含 [A-Za-z0-9/._-] 的地址，不是加属性、也不是换图床。
+    """
+    bad = []
+    for m in re.finditer(r'<img\b[^>]*src="([^"]+)"', clean, re.I):
+        u = m.group(1)
+        if u.startswith("data:"):
+            continue
+        path = u.split("?", 1)[0]          # 查询串里的 ? & = 是正常的，只看路径
+        risky = sorted({c for c in path if not (c.isalnum() or c in "/._-:")})
+        if risky:
+            bad.append((u, "".join(risky)))
+    return bad
+
+
 def check_bare_urls(clean: str):
     body = re.sub(r"<a\b[^>]*>.*?</a>", "", clean, flags=re.S | re.I)
     body = re.sub(r'(?:src|href)="[^"]*"', "", body, flags=re.I)
@@ -160,10 +182,16 @@ def main() -> int:
         print(f"     · {t[:70]}")
     ok &= not hotlink
 
+    risky_urls = check_img_url_portability(clean)
+    print(f"7 图片 URL 可移植性：{'✓ 路径无特殊字符' if not risky_urls else f'✗ {len(risky_urls)} 张含风险字符'}")
+    for u, chars in risky_urls[:3]:
+        print(f"     · [{chars}] {u[:78]}")
+    ok &= not risky_urls
+
     colors = re.findall(r"#[0-9A-Fa-f]{6}", html)
     norm = [c.lower() for c in colors]
     uniq = sorted(set(norm), key=lambda c: -norm.count(c))
-    print(f"7 色值统计（共 {len(uniq)} 种，按出现次数）：")
+    print(f"8 色值统计（共 {len(uniq)} 种，按出现次数）：")
     print("     " + "  ".join(f"{c}×{norm.count(c)}" for c in uniq[:10]))
     for want in args.require_color:
         found = want.lower() in uniq

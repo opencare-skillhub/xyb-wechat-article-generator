@@ -18,6 +18,9 @@ inclusion: manual
 6. **底部固定区域（foot）结构不动**：底部的"关于小胰宝"介绍、尾图、社交媒体、底部签名卡片、免责声明，**版式结构与文案保持原样，不得修改**，只可替换参考文献。foot 结构基准按系列区分：template3 用 `assets/template3/foot_template.html`（v3 深色卡片版），template1 用 `assets/template1/foot_template.html`（强调版母版），template4-ruici 用 `assets/template4-ruici/ruici_foot_template.html`（瑞慈绿顶线版），template5-khub 用 `assets/template5-khub/khub_foot_template.html`（病历粗黑边框版），template6-med 用 `assets/template6-med/med_foot_template.html`（深蓝权威版），template7-review 用 `assets/template7-review/review_foot_template.html`（蓝色基准）或 `assets/template7-review/review_foot_purple.html`（紫色版）。
 7. **foot 颜色随指定色系**：foot 区域中所有色值（标题竖条、小标题色、"关于小胰宝"加粗色、签名卡片强调色、引用框边线等）必须替换为当前所选配色方案的主色/强调色；但**文案与版式结构保持不变**。
    > ⚠️ **尾图 `<img>` 必须带 `referrerpolicy="no-referrer"`**：尾图用的是微信公众号 CDN（`mmbiz.qpic.cn`，镜像 `pic.newrank.cn`）地址，这类地址有防盗链——**带 Referer 请求会被替换成 140×140 的"未经允许不可引用"占位图**，表现为「尾图丢失 / 只剩一个小灰块」；不带 Referer 或 Referer 为 `mp.weixin.qq.com` 才返回 1080×608 原图。所以 `file://` 直开正常、http 方式预览就丢图。复制 foot 时必须保留该属性（实测：http 方式下 `naturalWidth` 由 140 恢复为 1080）。**换域名没用**，两个域名都有这个问题（newrank 镜像带 Referer 直接 403）。微信编辑器内粘贴上传不受该属性影响。
+   >
+   > ⚠️ **所有图片 URL 的路径里不能出现 `%`、括号、空格、中文等字符**：微信编辑器抓取外链图时会**二次编码**——路径里的 `%20` 被再编码成 `%2520`，图床立刻返回 404，表现就是「复制到公众号编辑器后图片不显示」（本地 `file://` 打开却完全正常，所以很容易误判成防盗链）。踩过的样本是 head 头像：`.../images/Pop%20Mart%20Character%20Front%20View%20(2).png`，路径里**同时有已编码的 `%20` 和未编码的括号**，是最典型的高危形态。
+   > **修法是换一个路径只含 `[A-Za-z0-9/._-]` 的地址**（用 PicGo 重新上传一次即可，PicGo 会按时间戳命名出干净文件名），**不是加属性、也不是换图床**——同一个图床换干净路径就好了。（实证：旧地址模拟二次编码 → 404 NoSuchKey；新地址 → 200，SHA256 与原图一致。）
 8. **"关于小胰宝"文案逐字一致**：该段介绍文字为固定话术，禁止改写、扩写或缩写，只允许在切换色系时替换其中的强调色 `<strong style="color:...">`。
 9. **间隔图标统一自然风**：文章正文里用于章节分隔的居中 emoji（即分隔线图标），**统一使用植物 / 阳光 / 自然风格**，从这套里轮换取用：`🌿 🌱 🌾 🍃 🌻 🌳 ☀️`（也可补 🍀🌲🌞 等同类）。**禁止使用** 🔍 📈 ⚡ 🗺️ ⚖️ 🧭 🧬 ⚠️ 📊 💊 等非自然类图标充当章节分隔符。文末"研究性治疗提醒框"等装饰性 emoji 也优先采用自然风，保持整体调性一致。
 
@@ -27,12 +30,12 @@ inclusion: manual
 
 **小胰宝头像/Logo 固定地址：**
 ```
-https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/Pop%20Mart%20Character%20Front%20View%20(2).png
+https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb-head-logo-20261003.png
 ```
 
 生成文章头部时必须使用：
 ```html
-<img src="https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/Pop%20Mart%20Character%20Front%20View%20(2).png" alt="小胰宝" style="width:72px;height:72px;border-radius:50%;object-fit:cover;display:inline-block;">
+<img src="https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb-head-logo-20261003.png" alt="小胰宝" style="width:72px;height:72px;border-radius:50%;object-fit:cover;display:inline-block;">
 ```
 
 禁止使用失效的 newrank 图床地址。
@@ -58,7 +61,7 @@ font-size:14px;
 ## 模板头部 logo 链接
 
 > **头部 logo 链接（2026-08-26 更新）**：所有模板头部 logo 统一使用
-> `https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/Pop%20Mart%20Character%20Front%20View%20(2).png`
+> `https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb-head-logo-20261003.png`
 > （旧链接 `imgedit.newrank.cn/...b11dc12e68b0416abba90a43540b5546.png` 已失效，**禁止再用**；template1 系列模板已内置新链接，template_qa 系列由 `{{LOGO_URL}}` 注入，生成时也请填入此新链接）
 
 ## 代码块规范：mac Terminal（必须）
@@ -577,7 +580,8 @@ python3 scripts/verify-article.py output/xxx.html --foot assets/template4-ruici/
 4. **foot 逐字比对**：母版每一段文案都要在文章里出现；只有「参考文献：请在此处列出引用来源」这类占位行允许被替换
 5. **foot 图片**：母版里的 `img src` 都要在文章里
 6. **防盗链属性**：凡是 `mmbiz.qpic.cn` / `pic.newrank.cn` 的图，必须带 `referrerpolicy="no-referrer"`（见规则 7 的警示）
-7. **色值统计** + `--require-color` 强制项
+7. **图片 URL 可移植性**：所有 `img src` 的**路径部分**（`?` 之前）只能含 `[A-Za-z0-9/._-]`；出现 `%`、括号、空格、中文即报错（见规则 7 第二条警示）
+8. **色值统计** + `--require-color` 强制项
 
 > ⚠️ **写 HTML 注释时不要在注释里放尖括号标签**。除了让朴素校验器误判，
 > 各编辑器对注释内容处理也不一致。要说明结构就写「用 img 标签，src 填……」这样的文字。
