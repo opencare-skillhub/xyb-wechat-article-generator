@@ -784,7 +784,7 @@ swift scripts/verify-qrcode.swift "https://图片地址"      # 也可直接给 
 - 外层 `margin:0 20px 20px`：左右各留 20px 白边（和正文卡片对齐），下留 20px。
 - **不要**用裸 emoji（`<p style="text-align:center">🌿</p>`）替代——那是老稿子才有的写法，视觉分量不够，四横线的克制感会丢。
 
-#### 图标池（7 枚，全部植物类；整篇只用一枚）
+#### 图标池（8 枚，全部植物类；整篇只用一枚）
 | id | 中文名 | emoji | COS 地址 | 气质 / 什么时候用 |
 |---|---|---|---|---|
 | `sprout` | 萌芽 | 🌱 | `.../images/xyb-divider-sprout-20261003.png` | 通用首选，双叶＋顶芽，最稳 |
@@ -794,10 +794,13 @@ swift scripts/verify-qrcode.swift "https://图片地址"      # 也可直接给 
 | `seedling` | 圆胖幼苗 | 🍃 | `.../images/xyb-divider-seedling-20261003.png` | 圆润亲和，病友向 |
 | `tree` | 小树苗 | 🌲 | `.../images/xyb-divider-tree-20261003.png` | 深绿沉稳，治疗阶段 / 长期管理 |
 | `grass` | 小草 | 🍀 | `.../images/xyb-divider-grass-20261003.png` | 轻盈，章节特别多时用 |
+| `clover-photo` | 四叶草图 | 🍀 | `.../images/44740431290712064.png` | 实拍四叶草（用户 2026-10-03 选定）；1024 方图，36×36 圆底自动裁圆 |
 > 完整地址前缀：`https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/`
-> **池子可加不可限**：新增图标 = 往 `assets/icons/<id>.svg` 丢一个 96×96 viewBox 的 SVG →
-> `python scripts/render-divider-icons.py` 出 384 透明底 PNG → 传图床 → 在 `scripts/pick-divider-icon.py` 的 `POOL` 里加一行（id/中文名/emoji/文件名/说明）。
-> 别去外挂百度 / 千图的现成素材图：有版权，且微信抓取外链图可能被拦；自绘 SVG 改一版重渲即可。
+> **池子可加不可限**：新增图标两条路——① 自绘：往 `assets/icons/<id>.svg` 丢一个 96×96 viewBox 的 SVG →
+> `python scripts/render-divider-icons.py` 出 384 透明底 PNG → 传图床；② 现成图：稳定的自有图床 URL 直接入池（如 `clover-photo`）。
+> 任一条路最后都要在 `scripts/pick-divider-icon.py` 的 `POOL` 里加一行（id/中文名/emoji/文件名/说明）。
+> 别去外挂百度 / 千图的现成素材图：有版权，且微信抓取外链图可能被拦；135/newrank 编辑器上传的图（`imgedit.newrank.cn`）
+> 是临时 CDN **不能直接引用**，必须转存自有图床后用新地址。
 
 #### 随机规则（每条都是硬约束）
 1. **一篇一封**：同一篇稿子里 N 条分隔线（通常 6～10 条）全部用抽中的那枚，一个字都不换。
@@ -807,6 +810,13 @@ swift scripts/verify-qrcode.swift "https://图片地址"      # 也可直接给 
 4. **连续两篇不撞车**：`--no-repeat` 默认开，脚本记住上次那枚（技能根目录 `.last_divider_icon.json`）。
 5. **配色跟着走**：`--tone green`（默认，浅绿四色）／`purple`（紫系稿：#EFE9F7→#DED4EE→#C6B5E0→#A48FCC）／`warm`（暖色稿：#F7EFE6→#EEDCC8→#E0C3A4→#C99A6B）。
 6. **老稿里的 emoji 分隔线要换**：历史稿中残留的 `<p style="text-align:center;...">🌿</p>` 按上面结构重做，别混用两种分隔线。
+7. **编辑器回写的稿子，分隔线要整条标准化重建**（2026-10-03 实证，图标「漂移」的三个根源）：
+   ① 编辑器在 flex 分隔线里塞 `&nbsp;` 文本——flex 容器里的文本节点会变成匿名 flex 项，把图标挤偏；
+   ② 编辑器可能删掉 1 个渐变 span（8 span 变 7），图标怎么摆都不居中；
+   ③ 图标 src 被换成 `imgedit.newrank.cn` 临时 CDN。
+   修法：**别逐 img 打补丁**，用正则把每条分隔线 section 整体重建为「4 span 镜像 + 图标 + 4 span 镜像」标准结构
+   （span 样式硬编码：`flex:1`/`flex:0 0 9px` + 四色，图标 `width:36px;height:36px;border-radius:50%;object-fit:cover;margin:0 10px`），
+   顺带清 `data-*` 属性、`&nbsp;`、`&amp;`。span 数不是 8 的也一并重建成 8，别修修补补。
 
 ### 10. 底部固定区域（foot，勿修改结构与文案）
 - 关于小胰宝介绍（文案逐字一致，禁改写）

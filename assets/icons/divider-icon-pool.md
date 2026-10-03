@@ -14,6 +14,7 @@
 | `seedling` | 圆胖幼苗 | 🍃 | `seedling.svg` | `seedling-384.png` | `.../images/xyb-divider-seedling-20261003.png` | 圆润亲和，病友向 |
 | `tree` | 小树苗 | 🌲 | `tree.svg` | `tree-384.png` | `.../images/xyb-divider-tree-20261003.png` | 深绿沉稳，治疗阶段 / 长期管理 |
 | `grass` | 小草 | 🍀 | `grass.svg` | `grass-384.png` | `.../images/xyb-divider-grass-20261003.png` | 轻盈，章节特别多时用 |
+| `clover-photo` | 四叶草图 | 🍀 | —（无 SVG，外部图） | — | `.../images/44740431290712064.png` | 实拍四叶草（用户 2026-10-03 选定），1024 方图，36×36 圆底自动裁圆 |
 
 COS 基址：`https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/`
 （历史遗留一枚旧 `xyb-clover-icon-20261003.png` / 圆底绿苗 `xyb-plant-icon`，属于被淘汰的早期形态，
