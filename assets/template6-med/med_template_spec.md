@@ -71,7 +71,7 @@
 ## 图片规则
 
 - 图片统一 `width:100%;height:auto;display:block`。
-- 品牌条 logo 使用小胰宝固定地址：`https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb-head-logo-20261003.png`
+- 品牌条 logo 使用小胰宝固定地址：`https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb.png`
 - 尾图固定地址：`https://mmbiz.qpic.cn/mmbiz_jpg/1qperl0JnD1AhzWq7ibcKBsg70ppkibibHbNMCWDZqCBxLQ9UdIQdBCNK6VTXWQm8oicQKKfjJnx9d0YJefkOibraLw/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1`
 - 禁止为装饰编造医学/临床图片；药物实拍、说明书截图等需真实来源。
 
