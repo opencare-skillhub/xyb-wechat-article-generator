@@ -6,8 +6,12 @@
   【设计原则】把「每次都变」的抽成占位符，把「每次都一样」的写死。
     - 写死（勿改）：品牌头部、三条边界、社区能力矩阵、志愿者招募、结尾寄语
     - 占位（按医院/科室替换）：__BRAND_LINE__ / __BADGE__ / __HEADLINE__ / __SUBTITLE__ /
-      __INTRO__ / __HOSPITAL_POSITION__ / __DEPT_PROFILE__ / __DEPT_FEATURE__ /
-      __COMPLICATION_COOP__ / __DIRECTOR__ / __TRIALS__ / __QR_*__ / __SOURCES__
+      __INTRO__ / __HOSPITAL_POSITION__ / __HOSPITAL_INTRO__ / __DEPT_PROFILE__ /
+      __DEPT_PROFILE_TITLE__ / __DEPT_FEATURE__ / __DEPT_STRATEGY__ /
+      __DISEASE_SCOPE__ / __DISEASE_SCOPE_SHORT__ / __INDEX_CANCER__ / __CYCLE_DAYS__ /
+      __COMMON_COMPLICATIONS__ / __COMPLICATION_LIST__ / __COMPLICATION_COOP__ /
+      __DIRECTOR__ / __TRIALS__ / __PROVINCE__ / __GEO_SCOPE__ / __QR_LABEL__ /
+      __QR_URL__ / __QR_ALT__ / __FOOT__
 
   【配套】
     - foot：直接取 assets/template7-review/review_foot_purple.html（逐字照抄，勿改标点）
@@ -84,6 +88,10 @@
   </section>
 
   __DEPT_FEATURE__
+
+  <!-- 可选：学科战略定位（03 前置铺垫用）。科室有公开的学科战略/定位资料时填，
+       没有就整块删掉——不要硬编。结构与写法见 alliance_template_spec.md 第 4 条。 -->
+  __DEPT_STRATEGY__
 </section>
 
 <!-- ===== 03 并发症管理 ===== -->
