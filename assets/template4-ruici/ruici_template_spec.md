@@ -82,6 +82,6 @@
 - 默认 COS 基址可替换：`ASSET_BASE_URL = user_base || xyb_default_base`。
 - 不上传患者隐私、检查报告、身份信息、Token 或 AppID。
 - 品牌条 logo 使用小胰宝固定地址：
-  `https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/Pop%20Mart%20Character%20Front%20View%20(2).png`
+  `https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb-head-logo-20261003.png`
 - **foot 尾图使用小胰宝社区固定地址**（与 template3 系列一致，勿删）：
   `https://mmbiz.qpic.cn/mmbiz_jpg/1qperl0JnD1AhzWq7ibcKBsg70ppkibibHbNMCWDZqCBxLQ9UdIQdBCNK6VTXWQm8oicQKKfjJnx9d0YJefkOibraLw/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1`
