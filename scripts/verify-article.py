@@ -17,7 +17,11 @@
   8. 预览污染：预览面板会把文章改成完整 HTML（套 <html>/<head>/<style>，塞
      data-page-node-id，把 img src 里的 & 转义成 &amp;）。这类污染对公众号是致命的，
      发现即报错并提示 `scripts/restore-fragment.py`
-  9. 色值统计（人工核对用；可用 --require-color 强制要求某个色值必须出现）
+  9. foot 五件套结构：关于小胰宝深卡 → 尾图 → 关注我们 → 底部寄语（With love and hope
+     落款）→ 免责声明，缺件或顺序颠倒都算不过。这一条**不依赖母版文件**，
+     单独成项是因为它漏过 2-3 次（母版比对只能查到「母版里那段文字在不在」，
+     查不到「整块 section 被删/被挪」）。
+  10. 色值统计（人工核对用；可用 --require-color 强制要求某个色值必须出现）
 
 用法：
   python3 verify-article.py output/xxx.html
@@ -50,6 +54,17 @@ BANNED = [
 ]
 
 VOID = {"img", "br", "hr", "input", "meta", "link"}
+
+# foot 五件套（template3 / ruici 母版的固定顺序，一套都不能少、顺序也不能颠倒）
+# last=True 表示取「最后一次出现」的位置：正文里可能顺带提一句「关于小胰宝」，
+# 但 footer 块一定在文末，取最后一次才不会被正文里的同名文字骗过去。
+FOOT_PIECES = (
+    ("① 关于小胰宝深卡", "关于小胰宝", True),
+    ("② 尾图", "mmbiz.qpic.cn", True),
+    ("③ 关注我们", "关注我们", True),
+    ("④ 底部寄语落款", "With love and hope", False),
+    ("⑤ 免责声明", "本文仅供科普", False),
+)
 
 # 微信 CDN 图片域名：带 Referer 请求会被防盗链替换成占位图，
 # 必须靠 referrerpolicy="no-referrer" 才能拿到原图。
@@ -134,6 +149,32 @@ def check_img_url_portability(clean: str):
     return bad
 
 
+def check_foot_pieces(clean: str):
+    """foot 五件套（关于小胰宝深卡 → 尾图 → 关注我们 → 落款 → 免责）。
+
+    返回 (缺件列表, 乱序描述列表)。检查前必须是**剥掉注释**的 html：
+    母版片段里那些 `<!-- ===== 关于小胰宝（固定区域，勿删） ===== -->` 锚点注释
+    本身就含关键词，否则整篇都会误判成「已有」。
+    """
+    missing, ordered = [], []
+    idx = {}
+    for name, marker, use_last in FOOT_PIECES:
+        positions = [m.start() for m in re.finditer(re.escape(marker), clean, re.I)]
+        if not positions:
+            missing.append(name)
+            continue
+        idx[name] = positions[-1] if use_last else positions[0]
+    # 顺序校验：只比对都存在的那几件，缺件已单独报过
+    prev = None
+    for name, _, _ in FOOT_PIECES:
+        if name not in idx:
+            continue
+        if prev is not None and idx[name] < idx[prev]:
+            ordered.append(f"{prev} 之后本该是 {name}，实际跑到它前面了")
+        prev = name
+    return missing, ordered
+
+
 def check_bare_urls(clean: str):
     body = re.sub(r"<a\b[^>]*>.*?</a>", "", clean, flags=re.S | re.I)
     body = re.sub(r'(?:src|href)="[^"]*"', "", body, flags=re.I)
@@ -175,7 +216,10 @@ def main() -> int:
 
     if not args.no_foot:
         if not foot_path.exists():
-            print(f"4 foot 比对：⚠️ 找不到母版 {foot_path}，已跳过")
+            # 母版找不到不能「跳过」——跳过就等于这条检查永远不生效，
+            # foot 整块丢失这类事故就是这么漏过去的（2026-10-03 ×2）。
+            print(f"4 foot 逐字比对：✗ 找不到母版 {foot_path}，无法比对（先把母版放回 assets/）")
+            ok &= False
         else:
             mtext = foot_path.read_text(encoding="utf-8")
             have = set(para_texts(html))
@@ -231,10 +275,18 @@ def main() -> int:
         print("     修复：python3 scripts/restore-fragment.py <文章>")
     ok &= not polluted
 
+    # 这条刻意放在「色值统计」之前：色值只是人工核对用，不该挡在结构检查前面
+    missing_p, ordered_p = check_foot_pieces(clean)
+    foot_bad = bool(missing_p or ordered_p)
+    print(f"9 foot 五件套：{'✓ 五件齐全且顺序正确' if not foot_bad else '✗ ' + '；'.join(missing_p + ordered_p)}")
+    if missing_p:
+        print("     fix：照 assets/template3/foot_template.html 补整块 section，文案逐字照抄（表情/标点别动）")
+    ok &= not foot_bad
+
     colors = re.findall(r"#[0-9A-Fa-f]{6}", html)
     norm = [c.lower() for c in colors]
     uniq = sorted(set(norm), key=lambda c: -norm.count(c))
-    print(f"9 色值统计（共 {len(uniq)} 种，按出现次数）：")
+    print(f"10 色值统计（共 {len(uniq)} 种，按出现次数）：")
     print("     " + "  ".join(f"{c}×{norm.count(c)}" for c in uniq[:10]))
     for want in args.require_color:
         found = want.lower() in uniq

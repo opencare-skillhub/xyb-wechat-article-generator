@@ -16,6 +16,8 @@ inclusion: manual
 4. **数据严格一致**：文中涉及的临床数据、百分比、时间等必须与素材原文完全一致，不得编造
 5. **科普化改写**：将专业内容改写为患者和家属能理解的语言，保留关键术语并加粗
 6. **底部固定区域（foot）结构不动**：底部的"关于小胰宝"介绍、尾图、社交媒体、底部签名卡片、免责声明，**版式结构与文案保持原样，不得修改**，只可替换参考文献。foot 结构基准按系列区分：template3 用 `assets/template3/foot_template.html`（v3 深色卡片版），template1 用 `assets/template1/foot_template.html`（强调版母版），template4-ruici 用 `assets/template4-ruici/ruici_foot_template.html`（瑞慈绿顶线版），template5-khub 用 `assets/template5-khub/khub_foot_template.html`（病历粗黑边框版），template6-med 用 `assets/template6-med/med_foot_template.html`（深蓝权威版），template7-review 用 `assets/template7-review/review_foot_template.html`（蓝色基准）或 `assets/template7-review/review_foot_purple.html`（紫色版）。
+  不管用哪套母版，**五件套缺一不可、顺序固定**：`① 关于小胰宝深卡 → ② 尾图 → ③ 关注我们 → ④ 底部寄语落款（With love and hope）→ ⑤ 免责声明`；
+  `verify-article.py` 第 9 项专门查这条（缺件 / 顺序颠倒都判不过，不依赖母版文件）。出稿后不许只靠人工 grep 过这一关。
 7. **foot 颜色随指定色系**：foot 区域中所有色值（标题竖条、小标题色、"关于小胰宝"加粗色、签名卡片强调色、引用框边线等）必须替换为当前所选配色方案的主色/强调色；但**文案与版式结构保持不变**。
    > ⚠️ **尾图 `<img>` 必须带 `referrerpolicy="no-referrer"`**：尾图用的是微信公众号 CDN（`mmbiz.qpic.cn`，镜像 `pic.newrank.cn`）地址，这类地址有防盗链——**带 Referer 请求会被替换成 140×140 的"未经允许不可引用"占位图**，表现为「尾图丢失 / 只剩一个小灰块」；不带 Referer 或 Referer 为 `mp.weixin.qq.com` 才返回 1080×608 原图。所以 `file://` 直开正常、http 方式预览就丢图。复制 foot 时必须保留该属性（实测：http 方式下 `naturalWidth` 由 140 恢复为 1080）。**换域名没用**，两个域名都有这个问题（newrank 镜像带 Referer 直接 403）。微信编辑器内粘贴上传不受该属性影响。
    >
@@ -624,7 +626,14 @@ python3 scripts/verify-article.py output/xxx.html --foot assets/template4-ruici/
 5. **foot 图片**：母版里的 `img src` 都要在文章里
 6. **防盗链属性**：凡是 `mmbiz.qpic.cn` / `pic.newrank.cn` 的图，必须带 `referrerpolicy="no-referrer"`（见规则 7 的警示）
 7. **图片 URL 可移植性**：所有 `img src` 的**路径部分**（`?` 之前）只能含 `[A-Za-z0-9/._-]`；出现 `%`、括号、空格、中文即报错（见规则 7 第二条警示）
-8. **色值统计** + `--require-color` 强制项
+8. **预览污染**（套 `<html>/<head>`、`data-*` 注入、`&amp;` 未还原）
+9. **foot 五件套结构**：`① 关于小胰宝深卡 → ② 尾图 → ③ 关注我们 → ④ 底部寄语落款（With love and hope）→ ⑤ 免责声明`
+   —— 缺件或顺序颠倒都判不过。这一项**不依赖母版文件**，是硬规则，出稿必过。
+   > 为什么单独成一条：母版逐字比对只能查「母版里那段文字在不在」，
+   > 查不到「整块 section 被删 / 被挪到别处 / 顺序调换」。这一条漏过 2-3 次（2026-10-03），
+   > 所以别只靠人工 grep。另外**母版文件找不到时旧版会「⚠️ 跳过」而不算失败**——
+   > 现在改成直接报 ✗，免得这条检查悄悄失效。
+10. **色值统计** + `--require-color` 强制项
 
 > ⚠️ **写 HTML 注释时不要在注释里放尖括号标签**。除了让朴素校验器误判，
 > 各编辑器对注释内容处理也不一致。要说明结构就写「用 img 标签，src 填……」这样的文字。

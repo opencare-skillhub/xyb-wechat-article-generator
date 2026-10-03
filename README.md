@@ -13,7 +13,7 @@
 - 输出可直接粘贴到135编辑器使用
 - **template8 医患联合群模版**：填完占位符即出合规长文（品牌头部／三条边界／社区能力矩阵／本地志愿者招募／结尾寄语五块话术已写死，只替换医院·科室·主任·研究·二维码）
 - **医生卡片「左图右简历」结构**：照片在左、姓名与职称在右，教育/擅长/任职/科研/下沉五段通栏在照片下方；含头衔多源冲突的取舍规则（官网 > 政府/学会 > 第三方平台）
-- **生成后自动校验**：`verify-article.py` 九项检查（含预览污染、尾图防盗链、图片 URL 可移植性），一键 `restore-fragment.py` 还原被预览面板改写的源文件
+- **生成后自动校验**：`verify-article.py` 十项检查（含预览污染、尾图防盗链、图片 URL 可移植性），一键 `restore-fragment.py` 还原被预览面板改写的源文件
 - **占位符一致性检查**：改 template8 后跑 `check-placeholders.py`，防止模版与 spec 漂移
 - **临床 / 药物介绍胶囊卡片组件**（`assets/component-clinical-card/`，紫色）：一章要讲多个药物或多项在招研究时用，三种卡——标准卡（一个分子一张，7 个行组：瘤种→试验→分期→中心→剂量→机制→数据）／迷你卡（中心速查：找谁、什么状态、怎么联系）／灰底解释框（为什么还没开筛、数据口径）。标签写死只换右侧文字，19 个占位符填完即成稿；含 375px 实测的 flex 硬约束（标签 2～3 字、左列不加 `min-width:0`、右列必留）与八条内容红线（机制未披露就写未披露、注册节点≠临床结果、同靶点不同分子不可互套数据、小样本标例数等）
 - **配套的两个技能**：公众号文章走本仓库（`xyb-wechat-article-generator`）；长篇白皮书 / DOCX 走 [`xyb-whitepaper-writer`](https://github.com/opencare-skillhub/xyb-whitepaper-writer)
@@ -89,8 +89,9 @@ xyb-wechat-article-generator/
 │   ├── 云南白药_公众号_blue.html
 │   └── 化疗贫血科学管理_公众号_purple.html
 ├── scripts/                     # 校验脚本
-│   ├── verify-article.py        # ✅ 九项检查：预览污染 / 禁用标签 / 标签配平 / 裸 URL /
-│   │                            #    foot 逐字比对 / foot 图片 / 尾图防盗链属性 / 图片 URL 可移植性 / 色值
+│   ├── verify-article.py        # ✅ 十项检查：预览污染 / 禁用标签 / 标签配平 / 裸 URL /
+│   │                            #    foot 逐字比对 / foot 图片 / 尾图防盗链属性 / 图片 URL 可移植性 / 预览污染 /
+│   │                            #    foot 五件套 / 色值
 │   ├── verify-layout.py         # 📐 封面标题换行 + 整篇溢出检测
 │   ├── verify-qrcode.swift      # 🔍 二维码验扫（源图与渲染截图都解码，macOS Vision）
 │   ├── check-placeholders.py    # 🔢 template8 占位符与 spec 双向一致性（改模版后必跑）
@@ -100,7 +101,7 @@ xyb-wechat-article-generator/
 
 ## 生成后校验与修复（必做）
 
-发布前跑验证器，九项全过才算交付：
+发布前跑验证器，十项全过才算交付：
 
 ```bash
 python3 scripts/verify-article.py <文章路径> --foot assets/template7-review/review_foot_purple.html
@@ -116,7 +117,11 @@ python3 scripts/verify-article.py <文章路径> --foot assets/template7-review/
 | 6 | 防盗链属性 | foot 的 `mmbiz.qpic.cn` 尾图必须带 `referrerpolicy="no-referrer"` |
 | 7 | 图片 URL 可移植性 | URL 路径只能含 `[A-Za-z0-9/._-]`——含 `%` 括号空格中文会被微信二次编码（`%20`→`%2520`）导致图床 404 |
 | 8 | 预览污染 | 文章被 IDE / 工具的预览面板改写成完整 HTML 文档（套 `<html>` 外壳、给每个标签塞 `data-*` 属性、`&` 转义成 `&amp;`） |
-| 9 | 色值统计 | 人工核对用，可用 `--require-color` 强制要求某色值出现 |
+| 9 | foot 五件套 | `① 关于小胰宝深卡 → ② 尾图 → ③ 关注我们 → ④ 底部寄语落款（With love and hope）→ ⑤ 免责声明`，缺件或顺序颠倒即不过。硬规则，不依赖母版文件 |
+| 10 | 色值统计 | 人工核对用，可用 `--require-color` 强制要求某色值出现 |
+
+> foot 五件套单独成项，是因为母版逐字比对查不出「整块 section 被删 / 被挪 / 顺序调换」——
+> 这条漏过 2-3 次，别用人工 grep 代替。母版文件找不到时验证器现在直接报 ✗（旧版是「⚠️ 跳过」，等于这条检查悄悄失效）。
 
 其他脚本：
 
@@ -273,11 +278,11 @@ git clone https://github.com/opencare-skillhub/xyb-wechat-article-generator.git�
 - 学科战略定位照抄原文，带「建设」字样的是目标不是成就，解读句只能用「方向是／目标是／争取」。
 
 【第 4 步 · 交付前必跑校验（在技能目录下，全过才算完工）】
-python3 scripts/verify-article.py <文章> --foot assets/template7-review/review_foot_purple.html  # 九项
+python3 scripts/verify-article.py <文章> --foot assets/template7-review/review_foot_purple.html  # 十项
 python3 scripts/verify-layout.py <文章>                 # 375px 横向溢出
 python3 scripts/restore-fragment.py <文章> --dry-run     # 预览污染检测
 python3 scripts/check-placeholders.py                    # 只改过 template8 才需要
-九项不全绿就修到全绿：漏 referrerpolicy／图片 URL 含 % 括号空格中文／带了 <html> 外壳／
+十项不全绿就修到全绿：漏 referrerpolicy／图片 URL 含 % 括号空格中文／带了 <html> 外壳／
 标签没配平／裸 URL／foot 与母版不一致，脚本都会逐条报出来。
 第 8 项报「预览污染」时先跑 python3 scripts/restore-fragment.py <文章> 还原，不要手改。
 
@@ -306,7 +311,7 @@ python3 scripts/check-placeholders.py                    # 只改过 template8 �
 2. 按 `alliance_template_spec.md` 替换 36 个占位符（品牌头部／三条边界／社区能力矩阵／
    本地志愿者招募／结尾寄语五块话术已写死，不要改）
 3. 跑 `python3 scripts/check-placeholders.py` 确认没有漏填、没有多填
-4. 跑 `verify-article.py` 九项校验后发布
+4. 跑 `verify-article.py` 十项校验后发布
 
 **这类文章的三条硬红线**：不做疗效比较、不做医院排名；「家门口」只能建立在地理距离／
 随访连续性／并发症就近处理／陪护与时间成本上；医院定位、科室数据、专家头衔一律核医院官网——
