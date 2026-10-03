@@ -1,0 +1,96 @@
+<!-- ============================================================
+     组件：临床 / 药物介绍卡（胶囊风格，紫色系）
+     目录：assets/component-clinical-card/
+
+     三种卡：① 标准卡（一整个药物 / 一项研究）
+            ② 迷你卡（中心速查：找谁、什么状态、怎么联系）
+            ③ 灰底解释框（为什么还没开筛 / 数据口径提醒）
+
+     通用规则：
+     · 行组 = 左侧固定标签 + 右侧正文。标签不动，只换右侧文字。
+     · 加行：复制一整个 <section style="display:flex;align-items:flex-start;margin:0 0 8px;">…
+       行组，改 <span> 里的标签、换一个占位符；最后一行把 margin 改成 "0 0 0"。
+     · 第一行组带 border-top + padding-top:11px（与胶囊行分隔），其余不带。
+     · 行组标签一律 **2～3 字**（瘤种/试验/分期/中心/剂量/机制/数据/研究/联系）。
+       胶囊带 white-space:nowrap 不折行：4 字起要么挤窄正文列，要么（左列加了
+       min-width:0 时）直接压到正文上。
+     · 左侧标签列 flex:0 0 46px **不要**加 min-width:0；右侧正文 min-width:0 必须留，
+       否则一长串登记号会把整张卡撑破。实测数据见 clinical_card_spec.md 第 3 节。
+     ============================================================ -->
+
+<!-- ===== ① 标准卡：一个药物 / 一项研究 ========== -->
+<section style="margin:0 20px 25px;background:#fff;border-radius:16px;padding:20px 18px;box-shadow:0 4px 15px rgba(92,74,122,0.06);">
+  <p style="font-size:16px;color:#403358;font-weight:700;margin:0;">__CARD_TITLE__</p>
+  <p style="font-size:11px;color:#8d8a99;margin:3px 0 10px;">__CARD_SUBTITLE__</p>
+
+  <!-- 胶囊行：按语义取色，几个写几个，不需要就整行删掉 -->
+  <section style="display:flex;flex-wrap:wrap;margin:0 0 13px;">
+    <p style="margin:0 6px 6px 0;display:inline-block;background:rgba(41,157,140,0.12);color:#1f7a6b;font-size:11px;line-height:1.7;padding:2px 9px;border-radius:20px;white-space:nowrap;">__CAPSULE_RECRUITING__</p>
+    <p style="margin:0 6px 6px 0;display:inline-block;background:rgba(92,74,122,0.08);color:#6c6479;font-size:11px;line-height:1.7;padding:2px 9px;border-radius:20px;white-space:nowrap;">__CAPSULE_NEUTRAL__</p>
+    <p style="margin:0 6px 6px 0;display:inline-block;background:rgba(232,116,73,0.10);color:#9c4221;font-size:11px;line-height:1.7;padding:2px 9px;border-radius:20px;white-space:nowrap;">__CAPSULE_WARN__</p>
+  </section>
+
+  <!-- 行组 1：带分隔线，与胶囊行分开 -->
+  <section style="display:flex;align-items:flex-start;margin:0 0 8px;border-top:1px solid #efecf4;padding-top:11px;">
+    <p style="flex:0 0 46px;margin:0;padding-top:1px;"><span style="display:inline-block;font-size:11px;line-height:1.7;padding:2px 8px;border-radius:20px;white-space:nowrap;background:rgba(92,74,122,0.08);color:#5c4a7a;">瘤种</span></p>
+    <p style="flex:1 1 0%;min-width:0;margin:0;color:#443a51;line-height:1.85;font-size:13px;">__INDICATION__</p>
+  </section>
+  <!-- 行组 2 -->
+  <section style="display:flex;align-items:flex-start;margin:0 0 8px;">
+    <p style="flex:0 0 46px;margin:0;padding-top:1px;"><span style="display:inline-block;font-size:11px;line-height:1.7;padding:2px 8px;border-radius:20px;white-space:nowrap;background:rgba(92,74,122,0.08);color:#5c4a7a;">试验</span></p>
+    <p style="flex:1 1 0%;min-width:0;margin:0;color:#443a51;line-height:1.85;font-size:13px;">__TRIAL__</p>
+  </section>
+  <!-- 行组 3 -->
+  <section style="display:flex;align-items:flex-start;margin:0 0 8px;">
+    <p style="flex:0 0 46px;margin:0;padding-top:1px;"><span style="display:inline-block;font-size:11px;line-height:1.7;padding:2px 8px;border-radius:20px;white-space:nowrap;background:rgba(92,74,122,0.08);color:#5c4a7a;">分期</span></p>
+    <p style="flex:1 1 0%;min-width:0;margin:0;color:#443a51;line-height:1.85;font-size:13px;">__PHASE__</p>
+  </section>
+  <!-- 行组 4 -->
+  <section style="display:flex;align-items:flex-start;margin:0 0 8px;">
+    <p style="flex:0 0 46px;margin:0;padding-top:1px;"><span style="display:inline-block;font-size:11px;line-height:1.7;padding:2px 8px;border-radius:20px;white-space:nowrap;background:rgba(92,74,122,0.08);color:#5c4a7a;">中心</span></p>
+    <p style="flex:1 1 0%;min-width:0;margin:0;color:#443a51;line-height:1.85;font-size:13px;">__CENTERS__</p>
+  </section>
+  <!-- 行组 5 -->
+  <section style="display:flex;align-items:flex-start;margin:0 0 8px;">
+    <p style="flex:0 0 46px;margin:0;padding-top:1px;"><span style="display:inline-block;font-size:11px;line-height:1.7;padding:2px 8px;border-radius:20px;white-space:nowrap;background:rgba(92,74,122,0.08);color:#5c4a7a;">剂量</span></p>
+    <p style="flex:1 1 0%;min-width:0;margin:0;color:#443a51;line-height:1.85;font-size:13px;">__DOSAGE__</p>
+  </section>
+  <!-- 行组 6 -->
+  <section style="display:flex;align-items:flex-start;margin:0 0 8px;">
+    <p style="flex:0 0 46px;margin:0;padding-top:1px;"><span style="display:inline-block;font-size:11px;line-height:1.7;padding:2px 8px;border-radius:20px;white-space:nowrap;background:rgba(92,74,122,0.08);color:#5c4a7a;">机制</span></p>
+    <p style="flex:1 1 0%;min-width:0;margin:0;color:#443a51;line-height:1.85;font-size:13px;">__MECHANISM__</p>
+  </section>
+  <!-- 行组 7（末行，margin 归零） -->
+  <section style="display:flex;align-items:flex-start;margin:0 0 0;">
+    <p style="flex:0 0 46px;margin:0;padding-top:1px;"><span style="display:inline-block;font-size:11px;line-height:1.7;padding:2px 8px;border-radius:20px;white-space:nowrap;background:rgba(92,74,122,0.08);color:#5c4a7a;">数据</span></p>
+    <p style="flex:1 1 0%;min-width:0;margin:0;color:#443a51;line-height:1.85;font-size:13px;">__DATA__</p>
+  </section>
+
+  <!-- 卡内脚注：上市状态、数据出处与口径限定，能删就别硬塞 -->
+  <p style="font-size:11px;color:#8d8a99;margin:12px 0 0;line-height:1.8;">__CARD_FOOTNOTE__</p>
+</section>
+
+<!-- ===== ② 迷你卡：中心速查（找谁 / 状态 / 怎么联系）==========
+     标签一般就这三件：研究、联系、地址（或提示）。
+     正文用 12.5px，比标准卡小半号，让一屏能放七八家。 -->
+<section style="margin:0 20px 12px;background:#fff;border-radius:14px;padding:15px 16px;box-shadow:0 3px 12px rgba(92,74,122,0.05);">
+  <section style="display:flex;align-items:center;margin:0 0 9px;">
+    <p style="flex:1 1 0%;min-width:0;margin:0;font-size:14px;color:#403358;font-weight:700;">__MINI_TITLE__</p>
+    <p style="margin:0 0 0 8px;display:inline-block;font-size:11px;line-height:1.7;padding:2px 8px;border-radius:20px;white-space:nowrap;background:rgba(41,157,140,0.12);color:#1f7a6b;">__MINI_BADGE__</p>
+  </section>
+  <section style="display:flex;align-items:flex-start;margin:0 0 8px;">
+    <p style="flex:0 0 46px;margin:0;padding-top:1px;"><span style="display:inline-block;font-size:11px;line-height:1.7;padding:2px 8px;border-radius:20px;white-space:nowrap;background:rgba(92,74,122,0.08);color:#5c4a7a;">研究</span></p>
+    <p style="flex:1 1 0%;min-width:0;margin:0;color:#443a51;line-height:1.85;font-size:12.5px;">__MINI_TRIAL__</p>
+  </section>
+  <section style="display:flex;align-items:flex-start;margin:0 0 0;">
+    <p style="flex:0 0 46px;margin:0;padding-top:1px;"><span style="display:inline-block;font-size:11px;line-height:1.7;padding:2px 8px;border-radius:20px;white-space:nowrap;background:rgba(92,74,122,0.08);color:#5c4a7a;">联系</span></p>
+    <p style="flex:1 1 0%;min-width:0;margin:0;color:#443a51;line-height:1.85;font-size:12.5px;">__MINI_CONTACT__</p>
+  </section>
+</section>
+
+<!-- ===== ③ 灰底解释框：为什么还没开筛 / 数据怎么读 =====
+     比白卡低一级的视觉权重，用来放「不是结论的结论」这类解释。 -->
+<section style="margin:0 20px 20px;background:rgba(92,74,122,0.06);border-radius:12px;padding:16px 18px;">
+  <p style="font-size:13px;color:#5c4a7a;font-weight:700;margin:0 0 8px;">__NOTE_TITLE__</p>
+  <p style="font-size:13px;color:#443a51;margin:0;line-height:1.9;">__NOTE_TEXT__</p>
+</section>

@@ -15,6 +15,8 @@
 - **医生卡片「左图右简历」结构**：照片在左、姓名与职称在右，教育/擅长/任职/科研/下沉五段通栏在照片下方；含头衔多源冲突的取舍规则（官网 > 政府/学会 > 第三方平台）
 - **生成后自动校验**：`verify-article.py` 九项检查（含预览污染、尾图防盗链、图片 URL 可移植性），一键 `restore-fragment.py` 还原被预览面板改写的源文件
 - **占位符一致性检查**：改 template8 后跑 `check-placeholders.py`，防止模版与 spec 漂移
+- **临床 / 药物介绍胶囊卡片组件**（`assets/component-clinical-card/`，紫色）：一章要讲多个药物或多项在招研究时用，三种卡——标准卡（一个分子一张，7 个行组：瘤种→试验→分期→中心→剂量→机制→数据）／迷你卡（中心速查：找谁、什么状态、怎么联系）／灰底解释框（为什么还没开筛、数据口径）。标签写死只换右侧文字，19 个占位符填完即成稿；含 375px 实测的 flex 硬约束（标签 2～3 字、左列不加 `min-width:0`、右列必留）与八条内容红线（机制未披露就写未披露、注册节点≠临床结果、同靶点不同分子不可互套数据、小样本标例数等）
+- **配套的两个技能**：公众号文章走本仓库（`xyb-wechat-article-generator`）；长篇白皮书 / DOCX 走 [`xyb-whitepaper-writer`](https://github.com/opencare-skillhub/xyb-whitepaper-writer)
 
 ## 目录结构
 
@@ -77,6 +79,11 @@ xyb-wechat-article-generator/
 │   │   ├── alliance_template_purple.html    # 🤝 13 节骨架 + 36 个占位符
 │   │   └── alliance_template_spec.md        # 📐 占位符清单与硬规则（4 战略定位 / 5 医生卡片 / 6.1 新启动研究高亮卡）
 │   ├── template_qa/             # 胶囊问答组件（医生答疑短问答）
+│   │   └── qa_capsule.html                # 💬 问答胶囊卡
+│   ├── component-clinical-card/ # 💊 临床/药物介绍胶囊卡组件（紫色，见功能清单）
+│   │   ├── clinical_card_template.html  # ⚕️ 可填空骨架：标准卡 + 迷你卡 + 灰底解释框（19 占位符）
+│   │   ├── clinical_card_spec.md        # 📐 行序 / 色板 / flex 硬约束 / 八条内容红线
+│   │   └── clinical_card_specimen.html  # 🖼️ 成品样本（号码已脱敏，仅对照版式用）
 │   └── images/                  # 图片资源
 ├── examples/                    # 示例输出
 │   ├── 云南白药_公众号_blue.html
@@ -116,7 +123,8 @@ python3 scripts/verify-article.py <文章路径> --foot assets/template7-review/
 ```bash
 python3 scripts/verify-layout.py <文章>        # 封面标题换行 + 整篇溢出
 swift   scripts/verify-qrcode.swift <图>        # 二维码能否扫出（源图与渲染截图都验）
-python3 scripts/check-placeholders.py            # 改 template8 后，占位符与 spec 是否漂移
+python3 scripts/check-placeholders.py                            # 改 template8 后，占位符与 spec 是否漂移
+python3 scripts/check-placeholders.py assets/component-clinical-card  # 临床卡组件同理（脚本默认查 template8，可传目录）
 python3 scripts/restore-fragment.py <文章>       # 还原被预览面板污染的文章（--dry-run 只看不改）
 ```
 
@@ -129,6 +137,65 @@ python3 scripts/restore-fragment.py <文章>       # 还原被预览面板污染
 **预览污染**：WorkBuddy 的预览服务会**就地改写源文件**，不是只改预览副本。
 所以预览前先把文章复制到 `/tmp`，或预览完立刻 `restore-fragment.py` 还原。
 历史遗留中招文件：`PanRAS_RASi报名路径_复旦肿瘤HRS7172_公众号_purple.html` 与 `..._purple(2).html`。
+
+## 新人快速上手：从装工具到发布（照着做 8 步）
+
+第一次用、电脑上只装了浏览器，按这 8 步走一遍就能出稿。老手直接跳过。
+
+**Step 0｜先分清要哪种产物**（选错要重来）
+
+| 产物 | 用哪个技能 |
+|------|-----------|
+| 公众号文章（HTML，粘进 135 编辑器） | 本仓库 `xyb-wechat-article-generator` |
+| 长篇白皮书、要出 DOCX | [`xyb-whitepaper-writer`](https://github.com/opencare-skillhub/xyb-whitepaper-writer) |
+
+**Step 1｜安装 WorkBuddy**：自行搜索 WorkBuddy 官方站下载安装（Mac / Windows 都有），装完登录。
+
+**Step 2｜装技能**：把下面两行地址发给 WorkBuddy，让它自己装：
+
+```
+https://github.com/opencare-skillhub/xyb-whitepaper-writer
+https://github.com/opencare-skillhub/xyb-wechat-article-generator.git
+```
+
+> 本仓库 README 里常见 SSH 地址（`git@github.com:...`），只有配过 GitHub key 的人才用得了；
+> 新手一律给上面的 HTTPS 地址，让 agent 自己 clone，省掉配 key 这一步。
+
+**Step 3｜让 agent 生成文章**：**要求说得越细，文章越接近预期**——配色、模板、要讲哪几件事、
+哪些话不要写，一次性说全。不会写就直接整段粘素材，再说一句「用紫色 template3 生成公众号文章」：
+
+```
+用紫色 template8（医患联合群版），把这段素材做成公众号文章：
+<这里贴素材>
+要求：医院定位与科室数据核医院官网；不要做疗效比较、不要医院排名。
+```
+
+**Step 4｜检查排版有没有套上**：打开生成的 HTML，必须以 `<section` 开头，
+不能出现 `<html>` / `<style>` / `class=`。没套上就回一句
+「排版错了，用 template3 生机微光重新排版一次」，让它重来。
+
+**Step 5｜按需微调 HTML**：任意 HTML 编辑器（VS Code 最顺手），改完保存、浏览器刷新看效果；不用改就跳过。
+
+**Step 6｜复制到 135 编辑器**：[135editor.com](https://www.135editor.com) →「导入」→「HTML 源码」→ 粘贴 →
+再点顶部「HTML」切回可视化视图看前端效果 →「复制到公众号」。
+
+**Step 7｜公众号新建文章**（后台左侧「内容与互动 → 图文素材」）。
+
+**Step 8｜把 135 的内容全选复制进公众号后台** → 预览 → 按需微调 → 发布。
+不想马上发就**存草稿**：发布前从草稿箱打开再核一遍图片（图没显示多半撞下面两条坑）。
+
+**出问题时，先跑这三条**（都在技能目录下）
+
+```bash
+python3 scripts/restore-fragment.py <文章> --dry-run   # 是不是预览污染了
+python3 scripts/verify-article.py <文章> --foot assets/template7-review/review_foot_purple.html
+python3 scripts/verify-layout.py <文章>                 # 手机上有没有横向溢出
+```
+
+- **图在公众号里不显示、本地打开却正常** → 图片 URL 里混了 `%`、括号、空格、中文，
+  被微信二次编码成 `%2520` 导致图床 404（校验第 7 项）。用 PicGo 重传一次干净文件名即可。
+- **尾图变成一个灰块 / http 预览丢图** → 缺 `referrerpolicy="no-referrer"`（第 6 项），换域名没用。
+- **粘贴后样式全丢** → 文件带了 `<html>` 外壳，跑一次 `restore-fragment.py`。
 
 ## 使用方法
 
