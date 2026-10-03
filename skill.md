@@ -39,9 +39,9 @@ inclusion: manual
 
 ## Logo 配置（必须）
 
-**小胰宝头像/Logo 固定地址：**
+**小胰宝头像/Logo 固定地址（2026-10-03 更新，旧 `xyb-head-logo-20261003.png` 与更早的 `Pop%20Mart Character Front View (2).png` 均已弃用——旧地址路径含 `%20`/括号/空格，微信编辑器二次编码后 404 不显示）：**
 ```
-https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb-head-logo-20261003.png
+https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb.png
 ```
 
 生成文章头部时必须使用：
