@@ -199,6 +199,77 @@ python3 scripts/verify-layout.py <文章>                 # 手机上有没有�
 
 ## 使用方法
 
+### 发给 AI Agent 的使用说明（放最上面，省掉来回解释）
+
+把下面**整段代码块**（含 `==拷贝开始==` / `==拷贝结束==` 两行）连同素材一起发给任意 AI Agent
+（WorkBuddy / CodeBuddy / Claude / Codex 都行），它会照着走完「选版式 → 生成 → 校验 → 交付」。
+用时把 `__SKILL_DIR__` 换成本机技能目录，或让 Agent 自己 clone 那个 HTTPS 地址。
+
+> 两张目录是同一份内容的两个副本：基线 `~/.agents/skills/xyb-wechat-article-generator`，
+> WorkBuddy 镜像 `~/.workbuddy/skills/小胰宝公众号文章生成器`。改完基线记得让两边都
+> `git fetch && git reset --hard origin/main`，否则又会分裂。
+
+```text
+==拷贝开始==
+你负责用「小胰宝公众号文章生成器」把用户给的素材排成一份能直接粘进微信公众号的 HTML 长文。
+技能目录填这里：__SKILL_DIR__（没有就先
+git clone https://github.com/opencare-skillhub/xyb-wechat-article-generator.git）
+
+【第 0 步 · 先确认产物类型】
+- 要公众号文章（HTML，粘进 135 编辑器）→ 用本仓库。
+- 要长篇白皮书 / DOCX → 换 xyb-whitepaper-writer 技能，别用本仓库。
+
+【第 1 步 · 选版式系列，默认 template3 生机微光】
+  template3 生机微光（默认，日常科普）
+  template1 莫兰迪柔和卡片（经典科普、叙事）
+  template2 中国风/特展（文化历史专题）
+  template4-ruici 瑞慈医疗（体检筛查、服务指南）
+  template5-khub 病历记录风（个人叙事、罕见病记录）
+  template6-med med 说明模版（药品/用药解读、紧急速查）
+  template7-review 医生点评风（文献解读、临床研究速递、医生署名点评）
+  template8-alliance 医患联合群·紫色（科室共建招募，见第 2 步）
+路由关键词会自动命中：联合群 / 共建群 / 合作群 / 入群 / 科室共建 / 不用跑外地 / 家门口治疗 /
+本地就医 ／ 临床介绍 / 药物介绍 / 药物卡片 / 试验卡片 / 在招研究 / 分子盘点 / 入组路径 / 中心速查。
+用户没指定配色就用各系列旗舰模板（template3 治愈翡翠绿+琥珀暖阳）。
+
+【第 2 步 · 生成】
+1. 在 <技能目录>/output/ 下新建文章，命名 <主题>_公众号_<配色>.html。
+2. 复制 assets/<系列>/ 下对应模板做起点；template8 直接填 alliance_template_purple.html
+   的占位符，component-clinical-card 直接填 clinical_card_template.html 的占位符。
+3. 素材缺哪块就留空或删掉整块，不许编内容；foot 尾巴（含尾图）逐字保留，不许改。
+4. 图片一律用 COS 图床干净 URL（路径部分只能含 [A-Za-z0-9/._-]），本地图先
+   python3 ~/.workbuddy/skills/picgo-cos-upload/scripts/upload_to_picgo.py <图> [名] 重传。
+5. 正文链接必须包 <a href="..." target="_blank">，不能留裸 URL。
+6. 输出必须是纯片段：文件直接以 <section 开头，禁止 <!DOCTYPE>／<html>／<head>／
+   <style>／class=／内联样式以外的一切外壳。
+
+【第 3 步 · 内容红线（违反就是返工）】
+- 医院定位、科室数据、医生头衔一律核医院官网；第三方平台滞后（官网 > 政府/学会 > 第三方平台）。
+- 头衔多源冲突取官网，文末加一行「职称以医院官网公示为准」。
+- 不做疗效比较、不做医院排名；「家门口」只能建立在地理距离／随访连续性／并发症就近处理／
+  陪护与时间成本上。
+- 用户贴来的药物或临床资料不能直接照抄，逐条回一手源核对：公司名别张冠李戴、官方没写的
+  机制写「未披露」、查不到来源的数字不写、注册节点（IND/首例入组）不算临床结果、
+  同靶点不同分子不可互套数据、小样本要标例数。
+- 私人手机号不进文章；链接 chip 附来源行（公众号名＋日期＋原标题）。
+- 学科战略定位照抄原文，带「建设」字样的是目标不是成就，解读句只能用「方向是／目标是／争取」。
+
+【第 4 步 · 交付前必跑校验（在技能目录下，全过才算完工）】
+python3 scripts/verify-article.py <文章> --foot assets/template7-review/review_foot_purple.html  # 九项
+python3 scripts/verify-layout.py <文章>                 # 375px 横向溢出
+python3 scripts/restore-fragment.py <文章> --dry-run     # 预览污染检测
+python3 scripts/check-placeholders.py                    # 只改过 template8 才需要
+九项不全绿就修到全绿：漏 referrerpolicy／图片 URL 含 % 括号空格中文／带了 <html> 外壳／
+标签没配平／裸 URL／foot 与母版不一致，脚本都会逐条报出来。
+第 8 项报「预览污染」时先跑 python3 scripts/restore-fragment.py <文章> 还原，不要手改。
+
+【第 5 步 · 交付】
+1. 预览前先把文件复制到 /tmp 再预览——预览服务会就地改写源文件，不是只动副本。
+2. 回一段「改了什么」的简报（200 字内），再给文件路径和「怎么粘进 135 编辑器」的步骤。
+3. 不外发 base64，不外链本地绝对路径。
+==拷贝结束==
+```
+
 ### 在 Kiro 中使用
 
 1. 在对话中通过 `#` 引用 skill
