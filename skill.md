@@ -46,7 +46,7 @@ https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb.png
 
 生成文章头部时必须使用：
 ```html
-<img src="https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb-head-logo-20261003.png" alt="小胰宝" style="width:72px;height:72px;border-radius:50%;object-fit:cover;display:inline-block;">
+<img src="https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb.png" alt="小胰宝" style="width:72px;height:72px;border-radius:50%;object-fit:cover;display:inline-block;">
 ```
 
 禁止使用失效的 newrank 图床地址。
@@ -72,7 +72,7 @@ font-size:14px;
 ## 模板头部 logo 链接
 
 > **头部 logo 链接（2026-08-26 更新）**：所有模板头部 logo 统一使用
-> `https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb-head-logo-20261003.png`
+> `https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb.png`
 > （旧链接 `imgedit.newrank.cn/...b11dc12e68b0416abba90a43540b5546.png` 已失效，**禁止再用**；template1 系列模板已内置新链接，template_qa 系列由 `{{LOGO_URL}}` 注入，生成时也请填入此新链接）
 
 ## 代码块规范：mac Terminal（必须）
