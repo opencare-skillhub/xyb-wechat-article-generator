@@ -5,12 +5,16 @@
 ## 功能
 
 - 将 Markdown/文本素材自动转换为微信公众号兼容的 inline style HTML
-- **七套版式系列**：v3.1 生机微光（默认，卡片错落 + 高对比阅读优化）、莫兰迪柔和卡片风、中国风/特展版式风、瑞慈医疗服务版、病历记录风、med 说明书解读风、review 医生点评风（前沿荟萃学术风，蓝/紫双色）
+- **八套版式系列**：v3.1 生机微光（默认，卡片错落 + 高对比阅读优化）、莫兰迪柔和卡片风、中国风/特展版式风、瑞慈医疗服务版、病历记录风、med 说明书解读风、review 医生点评风（前沿荟萃学术风，蓝/紫双色）、alliance 医患联合群版（紫色）
 - 每系列 9 套配色（8 套莫兰迪色系 + Tiffany蓝绿）
 - v3.1 可读性铁律：正文用深色 token，浅色仅用于边框/装饰，杜绝"浅字叠浅底"
 - 内置多种排版组件（错位标题卡、胶囊标签、大字号数据卡、气泡时间轴、CSS几何分隔线等）
 - 自动附加固定底部区域（组织介绍、社交媒体、签名卡片）
 - 输出可直接粘贴到135编辑器使用
+- **template8 医患联合群模版**：填完占位符即出合规长文（品牌头部／三条边界／社区能力矩阵／本地志愿者招募／结尾寄语五块话术已写死，只替换医院·科室·主任·研究·二维码）
+- **医生卡片「左图右简历」结构**：照片在左、姓名与职称在右，教育/擅长/任职/科研/下沉五段通栏在照片下方；含头衔多源冲突的取舍规则（官网 > 政府/学会 > 第三方平台）
+- **生成后自动校验**：`verify-article.py` 九项检查（含预览污染、尾图防盗链、图片 URL 可移植性），一键 `restore-fragment.py` 还原被预览面板改写的源文件
+- **占位符一致性检查**：改 template8 后跑 `check-placeholders.py`，防止模版与 spec 漂移
 
 ## 目录结构
 
@@ -61,16 +65,70 @@ xyb-wechat-article-generator/
 │   │   ├── med_components.html              # 🧩 组件库（对照表/警示框/风险标签/清单）
 │   │   ├── med_foot_template.html           # 📌 深蓝权威版 foot 母版
 │   │   └── med_template_spec.md             # 📐 视觉抽取规格
+│   ├── template7-review/        # 模板系列7：医生点评风（前沿荟萃学术风）
+│   │   ├── review_template.html             # 👨‍⚕️ 蓝底点评主模板
+│   │   ├── review_template_purple.html      # 🟣 紫底点评主模板
+│   │   ├── review_components.html           # 🧩 组件库
+│   │   ├── review_foot_template.html        # 📌 通用 foot 母版
+│   │   ├── review_foot_purple.html          # 📌 紫色 foot 母版（foot 逐字比对用）
+│   │   ├── preview_blue.png / preview_purple.png  # 🖼️ 版式预览图
+│   │   └── review_template_spec.md          # 📐 视觉抽取规格
+│   ├── template8-alliance/      # 模板系列8：医患联合群（科室共建招募，紫色）
+│   │   ├── alliance_template_purple.html    # 🤝 13 节骨架 + 36 个占位符
+│   │   └── alliance_template_spec.md        # 📐 占位符清单与硬规则（4 战略定位 / 5 医生卡片 / 6.1 新启动研究高亮卡）
+│   ├── template_qa/             # 胶囊问答组件（医生答疑短问答）
 │   └── images/                  # 图片资源
 ├── examples/                    # 示例输出
 │   ├── 云南白药_公众号_blue.html
 │   └── 化疗贫血科学管理_公众号_purple.html
 ├── scripts/                     # 校验脚本
-│   ├── verify-article.py        # ✅ 格式检查：禁用标签 / 标签配平 / 裸 URL / foot 逐字比对 / 色值
+│   ├── verify-article.py        # ✅ 九项检查：预览污染 / 禁用标签 / 标签配平 / 裸 URL /
+│   │                            #    foot 逐字比对 / foot 图片 / 尾图防盗链属性 / 图片 URL 可移植性 / 色值
 │   ├── verify-layout.py         # 📐 封面标题换行 + 整篇溢出检测
-│   └── verify-qrcode.swift      # 🔍 二维码验扫（源图与渲染截图都解码，macOS Vision）
+│   ├── verify-qrcode.swift      # 🔍 二维码验扫（源图与渲染截图都解码，macOS Vision）
+│   ├── check-placeholders.py    # 🔢 template8 占位符与 spec 双向一致性（改模版后必跑）
+│   └── restore-fragment.py      # 🩹 把被预览面板改写成完整 HTML 的文章还原成公众号纯片段
 └── output/                      # 生成文件输出目录
 ```
+
+## 生成后校验与修复（必做）
+
+发布前跑验证器，九项全过才算交付：
+
+```bash
+python3 scripts/verify-article.py <文章路径> --foot assets/template7-review/review_foot_purple.html
+```
+
+| # | 检查项 | 抓的是什么 |
+|---|--------|-----------|
+| 1 | 禁用标签/属性 | `<div>` / `<style>` / `class` 等微信不支持或样式全丢的写法 |
+| 2 | 标签配平 | `<section>` 开合是否配对 |
+| 3 | 裸 URL | 正文里没包 `<a>` 的裸链接（微信不识别，验证器判不合格） |
+| 4 | foot 逐字比对 | 与 foot 母版逐字比对（含标点；失败会打印首个差异字符与上下文） |
+| 5 | foot 图片 | 尾图路径是否与母版一致 |
+| 6 | 防盗链属性 | foot 的 `mmbiz.qpic.cn` 尾图必须带 `referrerpolicy="no-referrer"` |
+| 7 | 图片 URL 可移植性 | URL 路径只能含 `[A-Za-z0-9/._-]`——含 `%` 括号空格中文会被微信二次编码（`%20`→`%2520`）导致图床 404 |
+| 8 | 预览污染 | 文章被 `present_files` 预览面板改写成完整 HTML 文档（套 `<html>` 外壳、给每个标签塞 `data-page-node-id`、`&` 转义成 `&amp;`） |
+| 9 | 色值统计 | 人工核对用，可用 `--require-color` 强制要求某色值出现 |
+
+其他脚本：
+
+```bash
+python3 scripts/verify-layout.py <文章>        # 封面标题换行 + 整篇溢出
+swift   scripts/verify-qrcode.swift <图>        # 二维码能否扫出（源图与渲染截图都验）
+python3 scripts/check-placeholders.py            # 改 template8 后，占位符与 spec 是否漂移
+python3 scripts/restore-fragment.py <文章>       # 还原被预览面板污染的文章（--dry-run 只看不改）
+```
+
+### ⚠️ 两个高频坑
+
+**尾图防盗链**：`mmbiz.qpic.cn` 的尾图带 Referer 请求会被换成 140×140 的「未经允许不可引用」占位图，
+换域名没用（镜像 `pic.newrank.cn` 直接 403，两者都得靠 `referrerpolicy="no-referrer"`）。
+渲染长图时同理——Playwright 里要在 `route` 回调里剥掉 `referer` 头再 `continue_()`，否则截图里尾图是小的。
+
+**预览污染**：WorkBuddy 的预览服务会**就地改写源文件**，不是只改预览副本。
+所以预览前先把文章复制到 `/tmp`，或预览完立刻 `restore-fragment.py` 还原。
+历史遗留中招文件：`PanRAS_RASi报名路径_复旦肿瘤HRS7172_公众号_purple.html` 与 `..._purple(2).html`。
 
 ## 使用方法
 
@@ -84,6 +142,20 @@ xyb-wechat-article-generator/
 使用莫兰迪蓝模板，将 [素材] 生成公众号文章
 ```
 
+### 医患联合群模版（template8）
+
+医院科室 × 小胰宝共建病友群这类招募文已模版化，填占位符即出合规长文：
+
+1. 把 `assets/template8-alliance/alliance_template_purple.html` 复制到文章目录
+2. 按 `alliance_template_spec.md` 替换 36 个占位符（品牌头部／三条边界／社区能力矩阵／
+   本地志愿者招募／结尾寄语五块话术已写死，不要改）
+3. 跑 `python3 scripts/check-placeholders.py` 确认没有漏填、没有多填
+4. 跑 `verify-article.py` 九项校验后发布
+
+**这类文章的三条硬红线**：不做疗效比较、不做医院排名；「家门口」只能建立在地理距离／
+随访连续性／并发症就近处理／陪护与时间成本上；医院定位、科室数据、专家头衔一律核医院官网——
+第三方平台更新滞后（2026-10 实测：官网已更新为正高+博导，好大夫仍挂副高+硕导）。
+
 ### 发布到微信公众号
 
 1. 打开 [135编辑器](https://www.135editor.com)
@@ -91,6 +163,9 @@ xyb-wechat-article-generator/
 3. 粘贴生成的 HTML 代码
 4. 微调后点"复制到公众号"
 5. 在微信公众号后台粘贴发布
+
+> 注意：输出必须是**纯片段**（直接以 `<section>` 开头）。带 `<html>` 外壳或 `data-*` 属性
+> 的粘贴进编辑器会样式全丢，先跑 `restore-fragment.py` 还原。
 
 ## 配色方案速查
 
@@ -117,6 +192,7 @@ xyb-wechat-article-generator/
 | template5-khub | 📋 病历记录风 | 个人叙事、深度科普、罕见病记录 |
 | template6-med | 💊 med 说明模版 | 药品说明书解读、用药对照、紧急速查、患教说明 |
 | template7-review | 👨‍⚕️ 医生点评风（前沿荟萃学术风） | 文献解读、临床研究速递、医生署名点评文章 |
+| template8-alliance | 🤝 医患联合群（紫色，可填空） | 医院科室 × 小胰宝共建病友群、本地就医与志愿者招募（路由词：联合群/共建群/入群/科室共建/不用跑外地/家门口治疗/本地就医） |
 
 ## 在其他 AI 工具中使用
 
