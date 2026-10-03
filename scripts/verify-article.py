@@ -66,6 +66,24 @@ def para_texts(html: str):
     ]
 
 
+def closest_diff(target: str, candidates):
+    """在候选段里找与 target 最相近的一段，返回 (候选, 首个差异字符下标)。
+
+    用途：foot 逐字比对失败时，报错文本按 60 字符截断，肉眼分不出
+    ASCII 直引号 " 与中文弯引号 “” 这类单字符差异。这里直接指出
+    差在第几个字符并把两边上下文打印出来。"""
+    best, best_i = None, -1
+    for c in candidates:
+        if not c:
+            continue
+        i = 0
+        while i < len(c) and i < len(target) and c[i] == target[i]:
+            i += 1
+        if i > best_i:
+            best, best_i = c, i
+    return best, best_i
+
+
 def check_banned(clean: str):
     hits = []
     for pat, name in BANNED:
@@ -166,6 +184,14 @@ def main() -> int:
                   f"{'✓ 全部一致' if not missing else f'✗ 缺 {len(missing)} 段'}")
             for t in missing[:5]:
                 print(f"     · {t[:60]}")
+                c, i = closest_diff(t, have)
+                # 相似度够高才提示，避免对完全无关的段落给出误导性对照
+                if c is not None and i >= max(10, len(t) // 3):
+                    print(f"       ↳ 最接近的一段仅差在第 {i} 字符：")
+                    print(f"          母版 {t[max(0, i - 12):i + 12]!r}")
+                    print(f"          文章 {c[max(0, i - 12):i + 12]!r}")
+                    if i >= len(t) or i >= len(c):
+                        print("          （一边已结束 → 疑似在该段里追加/删减了文字）")
             ok &= not missing
 
             srcs = re.findall(r'<img[^>]+src="([^"]+)"', mtext)
