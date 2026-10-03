@@ -1,0 +1,180 @@
+<!--
+  alliance 医患联合群模版 v1.0（紫色）
+  ================================================================
+  用途：某医院科室 × 小胰宝社区共建病友群 / 面向特定地区招募患者入群 / 鼓励本地就医。
+
+  【设计原则】把「每次都变」的抽成占位符，把「每次都一样」的写死。
+    - 写死（勿改）：品牌头部、三条边界、社区能力矩阵、志愿者招募、结尾寄语
+    - 占位（按医院/科室替换）：__BRAND_LINE__ / __BADGE__ / __HEADLINE__ / __SUBTITLE__ /
+      __INTRO__ / __HOSPITAL_POSITION__ / __DEPT_PROFILE__ / __DEPT_FEATURE__ /
+      __COMPLICATION_COOP__ / __DIRECTOR__ / __TRIALS__ / __QR_*__ / __SOURCES__
+
+  【配套】
+    - foot：直接取 assets/template7-review/review_foot_purple.html（逐字照抄，勿改标点）
+    - 占位符清单与填写规范：alliance_template_spec.md
+    - 章节骨架与硬规则：skill.md「医患联合群 / 科室共建招募文」一节
+
+  【硬规则提醒】不做疗效比较与医院排名；医院定位/科室数据/专家头衔一律核医院官网。
+-->
+
+<section style="margin:0 auto;max-width:100%;background-color:#f7f5fa;font-family:'PingFang SC','PingFangSC-light',-apple-system,BlinkMacSystemFont,'Helvetica Neue','Microsoft YaHei',sans-serif;color:#362f40;letter-spacing:0.5px;line-height:1.75;font-size:15px;padding:0;">
+
+<!-- ===== 品牌头部（固定，仅替换联群名称） ===== -->
+<section style="background:linear-gradient(120deg, #5c4a7a 0%, #7d6c9b 100%);padding:30px 20px 40px;text-align:center;border-radius:0 0 30px 30px;">
+  <img src="https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb-head-logo-20261003.png" alt="小胰宝" style="width:60px;height:60px;border-radius:50%;object-fit:cover;display:inline-block;border:3px solid rgba(255,255,255,0.4);margin-bottom:12px;">
+  <p style="margin:0;color:#fff;font-size:18px;font-weight:600;letter-spacing:3px;">__BRAND_LINE__</p>
+  <p style="margin:8px 0 0;color:rgba(255,255,255,0.88);font-size:12px;letter-spacing:2px;">AI+人文 · 全心全意为患者</p>
+</section>
+
+<!-- ===== 封面标题卡片 ===== -->
+<section style="margin:-20px 20px 25px;background:#fff;border-radius:16px;padding:25px;box-shadow:0 8px 20px rgba(92,74,122,0.1);position:relative;overflow:hidden;">
+  <section style="position:absolute;top:0;left:0;background:linear-gradient(90deg, #f4a261, #e76f51);padding:4px 14px 4px 10px;border-radius:0 0 12px 0;color:#fff;font-size:11px;letter-spacing:1px;">
+    __BADGE__
+  </section>
+  <p style="font-size:20px;line-height:1.5;font-weight:700;margin:30px 0 12px;color:#403358;">__HEADLINE__</p>
+  <p style="font-size:13px;color:#443a51;margin:0;padding-left:12px;border-left:3px solid #cfc6de;">__SUBTITLE__</p>
+</section>
+
+<!-- ===== 导语（3 段：痛点 → 这个群做什么 → 本文说清什么） ===== -->
+<section style="margin:0 20px 25px;background:linear-gradient(180deg, #f2eff7 0%, #f7f5fa 100%);border-radius:12px;padding:20px;font-family:'PingFangSC-light','PingFang SC',sans-serif;font-size:14px;letter-spacing:1px;line-height:2;text-align:justify;">
+  __INTRO__
+</section>
+
+<!-- ===== 三条边界（固定话术，勿改） ===== -->
+<section style="margin:0 20px 25px;background:#fff;border-radius:12px;padding:18px 20px;border:1px solid #e8d9c8;box-shadow:0 2px 12px rgba(92,74,122,0.06);">
+  <p style="font-size:14px;color:#9c4221;font-weight:700;margin:0 0 10px;">⚠️ 三条边界先说清</p>
+  <section style="margin:0;">
+    <p style="margin:0 0 8px;padding-left:1.1em;text-indent:-1.1em;color:#443a51;font-size:14px;line-height:1.9;">· 社群是<strong>公益性质</strong>的医患交流与信息支持平台，<strong>不替代面诊、不替代医生的诊疗判断</strong>，也不做任何形式的推荐排名；</p>
+    <p style="margin:0 0 8px;padding-left:1.1em;text-indent:-1.1em;color:#443a51;font-size:14px;line-height:1.9;">· 群内讨论的诊疗经验来自病友与家属，<strong>每位患者的具体方案必须由自己的主管医生决定</strong>，个体差异极大，别人的方案不能照搬；</p>
+    <p style="margin:0;padding-left:1.1em;text-indent:-1.1em;color:#443a51;font-size:14px;line-height:1.9;">· 文中涉及的科室信息、专家介绍均来自公开可查渠道，<strong>门诊排班与出诊时间会变动，以医院当日公示为准</strong>。</p>
+  </section>
+</section>
+
+<!-- ===== 01 为什么需要家门口的群（论证框架固定，仅替换医院定位） ===== -->
+<section style="margin:0 20px 25px;background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 12px rgba(92,74,122,0.06);">
+  <p style="font-size:16px;color:#403358;font-weight:700;margin:0 0 8px;">01　为什么需要一个「家门口」的群</p>
+
+  <p style="font-size:14px;color:#443a51;margin:0 0 10px;line-height:1.8;"><strong>__DISEASE_SCOPE__</strong>的治疗是一场长期战。以<strong>__INDEX_CANCER__</strong>为例，一线化疗通常每 __CYCLE_DAYS__ 一个周期，中间还要复查血象、肝肾功能、影像，同时处理 __COMMON_COMPLICATIONS__ 这些随时可能冒出来的问题。</p>
+
+  <section style="margin:0 0 10px;padding:12px 14px;background:rgba(92,74,122,0.04);border-radius:8px;border-left:3px solid #5c4a7a;">
+    <p style="font-size:13px;color:#5c4a7a;font-weight:700;margin:0 0 6px;">一次异地往返，实际要付出什么</p>
+    <p style="margin:0 0 6px;padding-left:1.1em;text-indent:-1.1em;color:#443a51;font-size:14px;line-height:1.9;">· <strong>时间</strong>：挂号、检查、等结果、复诊，一次完整的往返通常是 3–7 天；</p>
+    <p style="margin:0 0 6px;padding-left:1.1em;text-indent:-1.1em;color:#443a51;font-size:14px;line-height:1.9;">· <strong>费用</strong>：患者加上至少一位家属的路费、住宿费、市内交通；</p>
+    <p style="margin:0 0 6px;padding-left:1.1em;text-indent:-1.1em;color:#443a51;font-size:14px;line-height:1.9;">· <strong>医保</strong>：异地就医需办理备案或转诊，报销比例与本地存在差异，具体以参保地政策为准；</p>
+    <p style="margin:0;padding-left:1.1em;text-indent:-1.1em;color:#443a51;font-size:14px;line-height:1.9;">· <strong>体力</strong>：这一项最容易被低估——对正在化疗的患者，一趟长途本身就是消耗。</p>
+  </section>
+
+  <p style="font-size:14px;color:#443a51;margin:0 0 10px;line-height:1.8;">还有一层常被忽略：内科治疗的<strong>标准化程度，比很多人以为的高</strong>。化疗、靶向、免疫的依据是全国通用的指南与规范，不是某一家医院的独门方案。真正需要「在身边」的，是<strong>执行与随访</strong>——按周期给药、及时处理不良反应、并发症就近解决。</p>
+
+  <p style="font-size:14px;color:#5c4a7a;font-weight:700;margin:0 0 6px;">更现实的分工方式</p>
+  <p style="font-size:14px;color:#443a51;margin:0 0 10px;line-height:1.8;">关键的初始决策，可以多听几家意见；而<strong>方案的日常执行、复查、并发症处理，交给家门口的医院</strong>。这样既保住了决策质量，也把长期治疗中最消耗人的那部分负担降下来。</p>
+
+  <p style="font-size:14px;color:#443a51;margin:0;line-height:1.8;">__HOSPITAL_POSITION__</p>
+</section>
+
+<!-- ===== 02 医院与科室能力 ===== -->
+<section style="margin:0 20px 25px;background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 12px rgba(92,74,122,0.06);">
+  <p style="font-size:16px;color:#403358;font-weight:700;margin:0 0 8px;">02　「家门口」的医院，水平到底怎么样</p>
+
+  __HOSPITAL_INTRO__
+
+  <section style="margin:0 0 10px;padding:12px 14px;background:rgba(92,74,122,0.04);border-radius:8px;border-left:3px solid #5c4a7a;">
+    <p style="font-size:13px;color:#5c4a7a;font-weight:700;margin:0 0 6px;">__DEPT_PROFILE_TITLE__</p>
+    __DEPT_PROFILE__
+  </section>
+
+  __DEPT_FEATURE__
+</section>
+
+<!-- ===== 03 并发症管理 ===== -->
+<section style="margin:0 20px 25px;background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 12px rgba(92,74,122,0.06);">
+  <p style="font-size:16px;color:#403358;font-weight:700;margin:0 0 8px;">03　并发症管理：不只是肿瘤科一个科室的事</p>
+
+  <p style="font-size:14px;color:#443a51;margin:0 0 10px;line-height:1.8;">对<strong>__DISEASE_SCOPE_SHORT__</strong>患者来说，真正影响治疗能不能走下去的，往往不是「有没有新药」，而是<strong>并发症能不能被及时接住</strong>。__COMPLICATION_LIST__——这些问题分散在介入、外科、消化、营养、疼痛等多个环节，任何一处卡住，抗肿瘤治疗就得停下来等。</p>
+
+  <section style="margin:0 0 10px;padding:12px 14px;background:rgba(244,162,97,0.08);border-radius:8px;border-left:3px solid #f4a261;">
+    <p style="font-size:13px;color:#9c4221;font-weight:700;margin:0 0 6px;">这个联合群在并发症管理上要推动的</p>
+    __COMPLICATION_COOP__
+  </section>
+
+  <p style="font-size:14px;color:#443a51;margin:0;line-height:1.8;">这也是联合群在病友互助层面能补上的部分：什么时候该收手去挂急诊、什么信号不能拖、留置管怎么护理、饮食和营养怎么调——这些经验病友之间传得最快，而医生能在群里给出规范的边界。</p>
+</section>
+
+<!-- ===== 04 科室主任介绍 ===== -->
+<section style="margin:0 20px 25px;background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 12px rgba(92,74,122,0.06);">
+  __DIRECTOR__
+</section>
+
+<!-- ===== 05 临床研究招募 ===== -->
+<section style="margin:0 20px 25px;background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 12px rgba(92,74,122,0.06);">
+  __TRIALS__
+</section>
+
+<!-- ===== 06 社区提供什么（固定话术，勿改） ===== -->
+<section style="margin:0 20px 25px;background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 12px rgba(92,74,122,0.06);">
+  <p style="font-size:16px;color:#403358;font-weight:700;margin:0 0 8px;">06　小胰宝社区提供什么</p>
+
+  <p style="font-size:14px;color:#443a51;margin:0 0 10px;line-height:1.8;">医生解决诊疗，社区补上另外两块：<strong>信息效率</strong>和<strong>陪伴</strong>。</p>
+
+  <section style="margin:0 0 10px;padding:12px 14px;background:rgba(92,74,122,0.04);border-radius:8px;border-left:3px solid #5c4a7a;">
+    <p style="font-size:13px;color:#5c4a7a;font-weight:700;margin:0 0 6px;">AI 工具矩阵（社区开源公益项目）</p>
+    <p style="margin:0 0 6px;padding-left:1.1em;text-indent:-1.1em;color:#443a51;font-size:14px;line-height:1.9;">· <strong>病情助手</strong>：基于知识库检索的问答工具，用于把「这个术语是什么意思」「报告怎么看」这类问题先问清楚；</p>
+    <p style="margin:0 0 6px;padding-left:1.1em;text-indent:-1.1em;color:#443a51;font-size:14px;line-height:1.9;">· <strong>并发症管理助手</strong>：帮助建立并发症风险意识，把需要警惕的信号提前认出来；</p>
+    <p style="margin:0 0 6px;padding-left:1.1em;text-indent:-1.1em;color:#443a51;font-size:14px;line-height:1.9;">· <strong>心理支持助手</strong>：治疗期的心理状态同样是治疗的一部分；</p>
+    <p style="margin:0;padding-left:1.1em;text-indent:-1.1em;color:#443a51;font-size:14px;line-height:1.9;">· <strong>基因报告解读助手</strong>：依据指南科普解读基因检测报告，帮助看懂报告里与治疗选择相关的部分。</p>
+  </section>
+
+  <p style="font-size:13px;color:#6c6479;margin:0 0 12px;line-height:1.85;">以上工具均为<strong>科普与信息辅助性质，不能替代医生诊断</strong>。具体可用的工具与版本以社区最新发布为准。</p>
+
+  <section style="margin:0;padding:12px 14px;background:rgba(244,162,97,0.08);border-radius:8px;border-left:3px solid #f4a261;">
+    <p style="font-size:13px;color:#9c4221;font-weight:700;margin:0 0 6px;">志愿者服务：淋过雨的人，愿意撑伞</p>
+    <p style="font-size:14px;color:#443a51;margin:0;line-height:1.8;">社区里有一批叫「<strong>蓝马甲</strong>」的病友与家属志愿者。他们不是医生，但走过那条路——知道第一次拿到诊断书是什么感觉，知道 PICC 管怎么护，知道怎么跟家里人开口。群里最直接的支持，很多时候来自他们。</p>
+  </section>
+</section>
+
+<!-- ===== 07 招募本地志愿者（固定话术，仅替换省份） ===== -->
+<section style="margin:0 20px 25px;background:linear-gradient(180deg,#f2eff7 0%,#fff 100%);border-radius:12px;padding:20px;border:1px solid #e3dcf0;">
+  <p style="font-size:16px;color:#403358;font-weight:700;margin:0 0 8px;">07　我们也在找__PROVINCE__的志愿者</p>
+
+  <p style="font-size:14px;color:#443a51;margin:0 0 10px;line-height:1.8;">一个__PROVINCE__本地的群，需要__PROVINCE__本地的人来撑。如果你符合下面任意一条，欢迎加入志愿者队伍：</p>
+
+  <section style="margin:0 0 10px;">
+    <p style="margin:0 0 6px;padding-left:1.1em;text-indent:-1.1em;color:#443a51;font-size:14px;line-height:1.9;">· __PROVINCE__的<strong>病友或家属</strong>，愿意把自己的经验讲给同路的人听；</p>
+    <p style="margin:0 0 6px;padding-left:1.1em;text-indent:-1.1em;color:#443a51;font-size:14px;line-height:1.9;">· <strong>医务工作者或医学生</strong>，愿意在业余时间做科普与答疑支持；</p>
+    <p style="margin:0 0 6px;padding-left:1.1em;text-indent:-1.1em;color:#443a51;font-size:14px;line-height:1.9;">· 懂<strong>内容整理、排版、视频剪辑、社群运营</strong>，愿意把手艺用在公益上；</p>
+    <p style="margin:0;padding-left:1.1em;text-indent:-1.1em;color:#443a51;font-size:14px;line-height:1.9;">· 会<strong>AI 工具、数据整理、开源开发</strong>，想让技术真的帮到人。</p>
+  </section>
+
+  <p style="font-size:13px;color:#6c6479;margin:0;line-height:1.85;">志愿者完全自愿、无报酬，也<strong>不要求医学背景</strong>。入群后说明想参与的方向即可，会有社区伙伴对接。</p>
+</section>
+
+<!-- ===== 08 怎么加入 ===== -->
+<section style="margin:0 20px 25px;background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 12px rgba(92,74,122,0.06);">
+  <p style="font-size:16px;color:#403358;font-weight:700;margin:0 0 8px;">08　怎么加入</p>
+  <p style="font-size:14px;color:#443a51;margin:0 0 16px;line-height:1.8;">面向__GEO_SCOPE__的__DISEASE_SCOPE_SHORT__患者与家属，扫码入群。公益免费，群内不设任何推销。</p>
+
+  <!-- 二维码卡片必须独占一行（见 skill.md §5.3 规则 5）；不要并排两列，不要留空占位框 -->
+  <section style="text-align:center;padding:16px;background:rgba(92,74,122,0.04);border-radius:12px;border:1px solid #cfc6de;margin:0 0 16px;">
+    <p style="font-size:13px;color:#5c4a7a;font-weight:700;margin:0 0 12px;">__QR_LABEL__</p>
+    <img src="__QR_URL__" alt="__QR_ALT__" style="display:block;width:100%;max-width:200px;height:auto;margin:0 auto 10px;border-radius:8px;">
+    <p style="font-size:12px;color:#6c6479;margin:0;">微信扫码加入</p>
+  </section>
+
+  <p style="font-size:13px;color:#6c6479;margin:0;line-height:1.85;">群二维码有有效期，过期后可在公众号 <strong>@小胰宝助手</strong> 留言获取最新二维码。入群后请先阅读群公告，群内讨论请勿发布个人隐私信息。</p>
+</section>
+
+<!-- ===== 结尾寄语（固定话术，勿改） ===== -->
+<section style="margin:0 20px 25px;background:linear-gradient(120deg,#5c4a7a 0%,#7d6c9b 100%);border-radius:16px;padding:28px 22px;text-align:center;">
+  <p style="font-size:15px;color:#fff;font-weight:600;margin:0 0 12px;line-height:1.9;letter-spacing:1px;">家门口的好医生，值得被看见</p>
+  <p style="font-size:13px;color:rgba(255,255,255,0.9);margin:0 0 8px;line-height:2;">省内的专业能力已经在那里，<br>有时缺的只是「知道它、用起来」。</p>
+  <p style="font-size:13px;color:rgba(255,255,255,0.9);margin:0;line-height:2;">少一趟奔波，多一分从容，<br>把力气留给治疗本身。</p>
+</section>
+
+<!-- ===== foot：此处直接接 assets/template7-review/review_foot_purple.html ===== -->
+<!-- 注意：foot 逐字照抄母版，包括标点（母版用 ASCII 直引号，勿写成中文弯引号） -->
+__FOOT__
+
+<!-- 免责声明里的「资料来源」一行按本次实际来源填写 -->
+<!-- 例：资料来源：XX医院官网（XX科科室介绍与医生团队公开信息）；微信百科「XXX」词条。 -->
+
+</section>
