@@ -151,15 +151,32 @@ python3 scripts/restore-fragment.py <文章>       # 还原被预览面板污染
 
 **Step 1｜安装 WorkBuddy**：自行搜索 WorkBuddy 官方站下载安装（Mac / Windows 都有），装完登录。
 
-**Step 2｜装技能**：把下面两行地址发给 WorkBuddy，让它自己装：
+**Step 2｜装技能**：复制下面**整段**（含 `==拷贝开始==` / `==拷贝结束==`）发给 agent，它会自己 clone 装上，
+然后告诉它「后面我只要给素材，你直接出稿」。装完可以再跑一句「你现在装了哪些技能、放在哪个目录」确认一下：
 
-```
-https://github.com/opencare-skillhub/xyb-whitepaper-writer
-https://github.com/opencare-skillhub/xyb-wechat-article-generator.git
+```text
+==拷贝开始==
+我要搭一套「小胰宝」公众号文章的生成工具，请帮我装好，以后我给素材你直接出稿。
+
+第一步，装这两个技能（用 HTTPS 地址 clone，别用 SSH）：
+1. https://github.com/opencare-skillhub/xyb-wechat-article-generator.git
+   —— 公众号文章：生成 HTML 纯片段，再粘进 135 编辑器
+2. https://github.com/opencare-skillhub/xyb-whitepaper-writer
+   —— 长篇白皮书 / 要出 DOCX 的时候用
+
+第二步，装完后告诉我：
+- 技能放在本机哪个目录（clone 到了哪）
+- 以后我只要怎么说，你就能直接给我一份能粘进公众号的 HTML
+- 生成后要跑哪些校验脚本、在哪跑
+- 有哪几条硬规则是你必须遵守的（我会挑素材给你，不会让你编内容）
+
+只要上面这四类信息，别让我自己去翻仓库文件。
+==拷贝结束==
 ```
 
 > 本仓库 README 里常见 SSH 地址（`git@github.com:...`），只有配过 GitHub key 的人才用得了；
-> 新手一律给上面的 HTTPS 地址，让 agent 自己 clone，省掉配 key 这一步。
+> 上面特意写死 HTTPS，让 agent 自己 clone，省掉配 key 这一步——
+> 如果你已经被要求配 SSH key，改成 `git@github.com:opencare-skillhub/xyb-wechat-article-generator.git` 也行。
 
 **Step 3｜让 agent 生成文章**：**要求说得越细，文章越接近预期**——配色、模板、要讲哪几件事、
 哪些话不要写，一次性说全。不会写就直接整段粘素材，再说一句「用紫色 template3 生成公众号文章」：
