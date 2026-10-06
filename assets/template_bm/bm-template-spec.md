@@ -79,7 +79,12 @@
 ## 五、XYB logo 规则
 
 - 头部悬浮信息卡左侧方框**内嵌 logo 图标**（50×50 圆角方框，`linear-gradient(135deg, C_ANCHOR, C_GRAD_A)` 底，logo 38×38 圆形 `object-fit:cover` 居中）。
-- 统一 logo 地址（**路径不含 `%`、括号、空格、中文**，否则微信编辑器二次编码后 404）：
+- **唯一合法地址**（原样复制，末尾不带参数）：
+  ```
+  https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb.png
+  ```
+- **禁止本地相对路径**（`xyb.png` / `./xyb.png` / `images/xyb.png` / `assets/images/xyb.png`）——本地 `file://` 预览正常，公众号内裂图；
+- 路径**不得含 `%`、括号、空格、中文**——微信二次编码（`%20`→`%2520`）致图床 404。
   ```
   https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb.png
   ```

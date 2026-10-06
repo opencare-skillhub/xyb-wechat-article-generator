@@ -73,7 +73,16 @@ font-size:14px;
 
 > **头部 logo 链接（2026-08-26 更新）**：所有模板头部 logo 统一使用
 > `https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb.png`
-> （旧链接 `imgedit.newrank.cn/...b11dc12e68b0416abba90a43540b5546.png` 已失效，**禁止再用**；template1 系列模板已内置新链接，template_qa 系列由 `{{LOGO_URL}}` 注入，生成时也请填入此新链接）
+> （旧链接 `imgedit.newrank.cn/...b11dc12e68b0416abba90a43540b5546.png` 已失效，**禁止再用**）
+>
+> **唯一合法 logo 地址（跨全系列通用，务必原样复制，末尾不带任何参数）**：
+> `https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb.png`
+>
+> **硬规则**：
+> 1. 所有模板的头部/正文 logo `<img src>` **必须写这个完整 https 绝对地址**；
+> 2. **禁止写本地相对路径**（如 `xyb.png`、`./xyb.png`、`images/xyb.png`、`assets/images/xyb.png`）——本地 `file://` 预览看着正常，粘进公众号就裂图；
+> 3. **禁止在 URL 路径里出现 `%`、括号、空格、中文**——微信编辑器会二次编码（`%20`→`%2520`）导致图床 404；
+> 4. 需要换图时，先把新图上传 COS，再把 `src` 换成新的绝对地址，不要引用本地文件。
 
 ## 代码块规范：mac Terminal（必须）
 
@@ -770,6 +779,7 @@ swift scripts/verify-qrcode.swift "https://图片地址"      # 也可直接给 
 - **复用**：多于 2 组 QA 时，复制「Q/A 气泡 + 分隔线💬」整段追加；foot 文案与版式（除 `{{C_MAIN}}`/`{{C_ACCENT}}` 色值外）禁止改动。
 - **分隔符说明**：QA 胶囊里气泡之间的「💬」是对话式分隔符（表示又一轮问答），**属章节分隔自然风规则的例外**，不在正文分隔线 🌿🌱🌾🍃🌻🌳☀️ 约束范围内，保持 💬 即可。
 - **头像**：`{{DOCTOR_AVATAR}}` 替换为医生真人照片 URL；无照片时模板内置紫色人形 SVG 占位，发布前务必替换。
+- **图片类占位符一律填「完整 https 绝对地址」**：`{{DOCTOR_AVATAR}}`（医生头像）填 COS 上的头像绝对地址；template8 的 `__DIRECTOR_PHOTO__`（主任照片）、`__QR_URL__`（入群二维码）填真实图片的 https 地址；ruici 的 `__ASSET_BASE_URL__` 填 COS 基址（如 `https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com`）。**任何图片占位符都不得填本地相对路径**，否则公众号内裂图。
 
 ## 可用组件
 
