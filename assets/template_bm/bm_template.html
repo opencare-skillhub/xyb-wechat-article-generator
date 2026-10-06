@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>bm 模版 · 主骨架（token 化，三色共用）</title>
+<!--
+  ============================================================================
+  bm 系列主骨架 v2（前沿快讯风 / 提取自「刚刚BME」）
+  ----------------------------------------------------------------------------
+  用法：把 9 个颜色 token 按所选配色映射替换，再把【…】占位内容写成正文。
+  结构三色完全一致，仅色值不同。
+  颜色 token：
+    {{C_GRAD_A}}      品牌渐变·首段（渐变大字/图标/白卡标签/LOGO 字/左竖条）
+    {{C_GRAD_B}}      品牌渐变·次段（同族浅调：渐变收尾/小标签/深卡标题字）
+    {{C_ANCHOR}}      深色锚点（Hero/引用/深卡/页脚底；也是所有标题文字色）
+    {{C_ANCHOR_DARK}} 最深锚点（Hero/深卡/页脚渐变收尾）
+    {{C_ANCHOR_RGB}}  锚点 rgb（阴影透明度）
+    {{C_ACCENT}}      强调色（BREAKING 胶囊/左竖条/行内代码/荧光笔/导读标签/左边框）
+    {{C_ACCENT_RGB}}  强调色 rgb（高亮与浅底透明度）
+    {{C_TAG_BG}}      次级标签底（rgba 半透明）
+    {{C_TAG_TEXT}}    次级标签字（同族）
+  配色映射见 bm-template-spec.md（橙 / 紫 / 绿 三套已定值）。
+  生成时只输出 .article 内的 <section>/<footer>；预览框与 token 不进入文章。
+  ============================================================================
+-->
+<style>
+  html,body{margin:0;padding:0;}
+  body{background:#e9ebef;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;color:#2D3748;-webkit-font-smoothing:antialiased;}
+  .frame{max-width:760px;margin:0 auto;background:#fff;padding:26px 0 70px;}
+  .banner{max-width:677px;margin:0 auto 18px;padding:12px 16px;box-sizing:border-box;background:#eef0f3;border:1px dashed #9aa3ad;border-radius:10px;font-size:13px;line-height:1.7;color:#54606b;}
+  .banner b{color:#2D3748;}
+  .article{max-width:677px;margin:0 auto;background:#fff;}
+  .phone{outline:1px solid #e3e6ea;border-radius:6px;overflow:hidden;}
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="banner"><b>bm 主骨架 v2 · token 化</b>　替换 {{C_*}} 颜色 token 即可切换橙/紫/绿（见 bm-template-spec.md）。下方【】为内容占位，生成时替换为真实文案；foot 为小胰宝固定 foot（结构文案不动，仅换色值）。</div>
+
+  <div class="phone">
+  <div class="article">
+
+    <!-- 1. 封面 Hero（深色锚点渐变 + 胶囊标签 + 斜体副线） -->
+    <section data-ignore-dm="text-bg-gradient" style="margin:0;padding:26px 24px 44px;box-sizing:border-box;background:linear-gradient(150deg, {{C_ANCHOR}} 0%, {{C_ANCHOR_DARK}} 100%);overflow:hidden;color:#fff;font-size:medium;">
+      <section style="display:flex;align-items:center;justify-content:space-between;margin:0 0 18px;box-sizing:border-box;">
+        <span style="margin:0;padding:4px 11px;box-sizing:border-box;font-size:11px;border-radius:20px;letter-spacing:0.6px;background:rgba(255,255,255,0.13);color:#fff;border:1px solid rgba(255,255,255,0.28);">【栏目 · FRONTIER】</span>
+        <span style="margin:0;font-size:11px;color:rgba(255,255,255,0.6);letter-spacing:0.5px;">【2026.10.02】</span>
+      </section>
+      <section style="margin:0 0 14px;box-sizing:border-box;">
+        <span style="margin:0 6px 0 0;padding:4px 11px;box-sizing:border-box;font-size:11px;border-radius:20px;letter-spacing:0.6px;background:{{C_ACCENT}};color:#fff;font-weight:700;">【BREAKING】</span>
+        <span style="margin:0;padding:4px 11px;box-sizing:border-box;font-size:11px;border-radius:20px;letter-spacing:0.6px;background:{{C_TAG_BG}};color:{{C_TAG_TEXT}};border:0.8px solid {{C_TAG_TEXT}};">【栏目标签】</span>
+      </section>
+      <h1 style="margin:0 0 14px;padding:0;font-size:25px;line-height:1.4;font-weight:800;color:#fff;letter-spacing:0.3px;">【封面主标题】</h1>
+      <p data-ignore-dm="low-contrast" style="margin:16px 0 0;padding:0 0 0 11px;box-sizing:border-box;font-size:12.5px;line-height:1.7;color:rgba(255,255,255,0.7);border-left:1.6px solid {{C_ACCENT}};font-style:italic;">【斜体副线 / 一句话导语】</p>
+    </section>
+
+    <!-- 2. 悬浮白色信息卡（负 margin 上浮叠压 + 方框内嵌 XYB logo） -->
+    <section style="margin:-24px 20px 0;padding:15px 17px;box-sizing:border-box;display:flex;align-items:center;gap:13px;background:rgb(255,255,255);border-radius:13px;box-shadow:rgba({{C_ANCHOR_RGB}},0.16) 0px 10px 30px;z-index:5;border:0.8px solid rgba(0,0,0,0.04);position:relative;">
+      <section data-ignore-dm="text-bg-gradient" style="margin:0;padding:0;width:50px;height:50px;flex-shrink:0;border-radius:11px;background:linear-gradient(135deg, {{C_ANCHOR}}, {{C_GRAD_A}});display:flex;align-items:center;justify-content:center;box-sizing:border-box;overflow:hidden;">
+        <img src="https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb.png" alt="小胰宝" style="width:38px;height:38px;border-radius:50%;object-fit:cover;display:block;">
+      </section>
+      <section style="flex:1;box-sizing:border-box;">
+        <p style="margin:0 0 3px;font-size:14px;font-weight:700;color:{{C_ANCHOR}};">【信息卡标题】</p>
+        <p style="margin:0;font-size:12px;line-height:1.6;color:#5b6478;">【信息卡副文】</p>
+      </section>
+    </section>
+
+    <!-- 3. 导读 IN BRIEF（浅渐变底 + 强调色字距标签 + 衬线正文） -->
+    <section style="margin:26px 22px 0;padding:18px 18px 16px;box-sizing:border-box;border-radius:14px;background:linear-gradient(135deg, rgba({{C_ACCENT_RGB}},0.07), rgba({{C_ACCENT_RGB}},0.02));border:0.8px solid rgba({{C_ACCENT_RGB}},0.12);color:#2D3748;">
+      <p style="margin:0 0 8px;font-size:11px;letter-spacing:2px;color:{{C_ACCENT}};">导 读 · IN BRIEF</p>
+      <p style="margin:0;padding:0;box-sizing:border-box;text-align:justify;font-size:15.5px;line-height:1.9;color:{{C_ANCHOR}};font-family:'Noto Serif SC','Songti SC',Georgia,serif;">【导读正文：用一段话说清全文核心，衬线字体，微信内可直接读】</p>
+    </section>
+
+    <!-- 4. 章节标题（渐变序号 + 衬线标题 + 底线 + 灰色英文小标） -->
+    <section style="margin:28px 22px 0;padding:0;box-sizing:border-box;">
+      <section style="margin:0 0 16px;padding:0 0 11px;box-sizing:border-box;display:flex;align-items:baseline;gap:11px;border-bottom:0.8px solid rgb(226,232,240);">
+        <span style="margin:0;padding:0;box-sizing:border-box;font-size:26px;background:linear-gradient(135deg, {{C_GRAD_A}}, {{C_GRAD_B}});-webkit-background-clip:text;background-clip:text;color:transparent;flex-shrink:0;line-height:1;font-family:Georgia,'Noto Serif SC','Songti SC',serif;">01</span>
+        <span style="margin:0;padding:0;box-sizing:border-box;font-size:19.5px;color:{{C_ANCHOR}};letter-spacing:0.4px;flex:1 1 0%;font-family:'Noto Serif SC','Songti SC',Georgia,serif;">【章节标题】</span>
+        <span style="margin:0;padding:0;box-sizing:border-box;font-size:10px;letter-spacing:1.6px;color:#A6ADBD;">【ENGLISH】</span>
+      </section>
+      <p style="text-align:justify;margin:0 0 4px;padding:0;box-sizing:border-box;font-size:15.5px;line-height:1.95;color:rgb(51,60,77);">
+        【正文段落】其中<strong style="margin:0;padding:0 1px;box-sizing:border-box;color:{{C_ANCHOR}};background:linear-gradient(rgba(0,0,0,0) 62%, rgba({{C_ACCENT_RGB}},0.22) 62%);">【荧光笔高亮词】</strong>可以强调。
+      </p>
+      <!-- 段落分隔件：居中加粗短线（bm 分隔行；段落留白约 1.5-2 行） -->
+      <p style="text-align:center;margin:22px 0 20px;padding:0;line-height:1;">
+        <span style="display:inline-block;width:88px;height:4px;background:linear-gradient(90deg, rgba({{C_ACCENT_RGB}},0) 0%, {{C_ACCENT}} 22%, {{C_ACCENT}} 78%, rgba({{C_ACCENT_RGB}},0) 100%);vertical-align:middle;border-radius:2px;"></span>
+      </p>
+      <p style="text-align:justify;margin:0 0 4px;padding:0;box-sizing:border-box;font-size:15.5px;line-height:1.95;color:rgb(51,60,77);">
+        【第二段正文】段落之间用居中细短线分隔，并保留上下留白（约 1.5 行），提升移动端阅读呼吸感。
+      </p>
+    </section>
+
+    <!-- 5. 数据卡（浅底 + 渐变大字）三列 -->
+    <section style="margin:0 22px 18px;padding:0;box-sizing:border-box;display:flex;gap:10px;">
+      <section style="flex:1;margin:0;padding:14px 12px;box-sizing:border-box;background:rgb(247,249,251);border:0.8px solid rgb(226,232,240);border-radius:11px;text-align:center;">
+        <p style="margin:0 0 6px;font-size:25px;font-weight:800;line-height:1.2;background:linear-gradient(135deg, {{C_GRAD_A}}, {{C_GRAD_B}});-webkit-background-clip:text;background-clip:text;color:transparent;font-family:Georgia,'Noto Serif SC',serif;">【数据1】</p>
+        <p style="margin:0;font-size:11.5px;color:#6b7488;line-height:1.5;">【指标1】</p>
+      </section>
+      <section style="flex:1;margin:0;padding:14px 12px;box-sizing:border-box;background:rgb(247,249,251);border:0.8px solid rgb(226,232,240);border-radius:11px;text-align:center;">
+        <p style="margin:0 0 6px;font-size:25px;font-weight:800;line-height:1.2;background:linear-gradient(135deg, {{C_GRAD_A}}, {{C_GRAD_B}});-webkit-background-clip:text;background-clip:text;color:transparent;font-family:Georgia,'Noto Serif SC',serif;">【数据2】</p>
+        <p style="margin:0;font-size:11.5px;color:#6b7488;line-height:1.5;">【指标2】</p>
+      </section>
+      <section style="flex:1;margin:0;padding:14px 12px;box-sizing:border-box;background:rgb(247,249,251);border:0.8px solid rgb(226,232,240);border-radius:11px;text-align:center;">
+        <p style="margin:0 0 6px;font-size:25px;font-weight:800;line-height:1.2;background:linear-gradient(135deg, {{C_GRAD_A}}, {{C_GRAD_B}});-webkit-background-clip:text;background-clip:text;color:transparent;font-family:Georgia,'Noto Serif SC',serif;">【数据3】</p>
+        <p style="margin:0;font-size:11.5px;color:#6b7488;line-height:1.5;">【指标3】</p>
+      </section>
+    </section>
+
+    <!-- 6. 胶囊标签三档尺寸（深色锚点底 + 白字；另附渐变款） -->
+    <section style="margin:0 22px 18px;padding:0;box-sizing:border-box;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+      <span style="margin:0;padding:6px 14px;box-sizing:border-box;background:{{C_ANCHOR}};color:#fff;font-size:13px;border-radius:20px;letter-spacing:0.5px;">【大号胶囊】</span>
+      <span style="margin:0;padding:4px 11px;box-sizing:border-box;background:{{C_ANCHOR}};color:#fff;font-size:11px;border-radius:20px;letter-spacing:0.6px;">【中号胶囊】</span>
+      <span style="margin:0;padding:2px 8px;box-sizing:border-box;background:{{C_ANCHOR}};color:#fff;font-size:10px;border-radius:20px;">【小号胶囊】</span>
+      <span style="margin:0;padding:4px 11px;box-sizing:border-box;background:linear-gradient(135deg, {{C_GRAD_A}}, {{C_GRAD_B}});color:#fff;font-size:11px;border-radius:20px;letter-spacing:0.6px;">【渐变胶囊】</span>
+    </section>
+
+    <!-- 7. 深色引用框（衬线 + 白字） -->
+    <section style="margin:18px 22px;padding:20px 18px 16px 22px;box-sizing:border-box;background:{{C_ANCHOR}};color:rgba(255,255,255,0.88);border-radius:12px;font-size:15.5px;line-height:1.85;font-family:'Noto Serif SC','Songti SC',Georgia,serif;">
+      【引用 / 金句内容】
+    </section>
+
+    <!-- 8. 左竖条列表卡（浅底 + 三种边色 + 行内代码徽标） -->
+    <section style="margin:0 22px;">
+      <section style="margin:0 0 16px;padding:0 0 11px;box-sizing:border-box;display:flex;align-items:baseline;gap:11px;border-bottom:0.8px solid rgb(226,232,240);">
+        <span style="margin:0;padding:0;box-sizing:border-box;font-size:26px;background:linear-gradient(135deg, {{C_GRAD_A}}, {{C_GRAD_B}});-webkit-background-clip:text;background-clip:text;color:transparent;flex-shrink:0;line-height:1;font-family:Georgia,'Noto Serif SC','Songti SC',serif;">02</span>
+        <span style="margin:0;padding:0;box-sizing:border-box;font-size:19.5px;color:{{C_ANCHOR}};letter-spacing:0.4px;flex:1 1 0%;font-family:'Noto Serif SC','Songti SC',Georgia,serif;">【列表章节标题】</span>
+        <span style="margin:0;padding:0;box-sizing:border-box;font-size:10px;letter-spacing:1.6px;color:#A6ADBD;">【ENGLISH】</span>
+      </section>
+      <section style="margin:0 0 11px;padding:13px 14px;box-sizing:border-box;display:flex;gap:12px;align-items:flex-start;background:rgb(247,249,251);border:0.8px solid rgb(226,232,240);border-left:4px solid {{C_ACCENT}};border-radius:0 11px 11px 0;">
+        <span style="margin:0;font-size:15px;font-weight:800;color:{{C_ANCHOR}};flex-shrink:0;">【项1】</span>
+        <p style="margin:0;font-size:13.5px;line-height:1.7;color:#3a3d50;">基于 <code style="margin:0 0 0 4px;padding:1px 5px;box-sizing:border-box;font-size:12px;color:{{C_ACCENT}};background:rgba({{C_ACCENT_RGB}},0.1);border-radius:4px;font-family:Menlo,Consolas,monospace;">【code】</code>【说明】</p>
+      </section>
+      <section style="margin:0 0 11px;padding:13px 14px;box-sizing:border-box;display:flex;gap:12px;align-items:flex-start;background:rgb(247,249,251);border:0.8px solid rgb(226,232,240);border-left:4px solid {{C_GRAD_B}};border-radius:0 11px 11px 0;">
+        <span style="margin:0;font-size:15px;font-weight:800;color:{{C_ANCHOR}};flex-shrink:0;">【项2】</span>
+        <p style="margin:0;font-size:13.5px;line-height:1.7;color:#3a3d50;">【说明】</p>
+      </section>
+      <section style="margin:0 0 11px;padding:13px 14px;box-sizing:border-box;display:flex;gap:12px;align-items:flex-start;background:rgb(247,249,251);border:0.8px solid rgb(226,232,240);border-left:4px solid {{C_ANCHOR}};border-radius:0 11px 11px 0;">
+        <span style="margin:0;font-size:15px;font-weight:800;color:{{C_ANCHOR}};flex-shrink:0;">【项3】</span>
+        <p style="margin:0;font-size:13.5px;line-height:1.7;color:#3a3d50;">【说明】</p>
+      </section>
+    </section>
+
+    <!-- 9. 提示框（浅渐变底 + 强调色左粗条） -->
+    <section style="margin:16px 22px;padding:14px 16px;box-sizing:border-box;background:linear-gradient(135deg, rgba({{C_ACCENT_RGB}},0.07), rgba({{C_ACCENT_RGB}},0.02));border-left:4px solid {{C_ACCENT}};border-radius:0 10px 10px 0;font-size:14.5px;line-height:1.85;color:rgb(58,61,80);">
+      <strong style="color:{{C_ANCHOR}};">【提示标签：】</strong>【提示正文】
+    </section>
+
+    <!-- 10. 白色阴影卡（带渐变标签） -->
+    <section style="margin:0 22px 12px;padding:15px 15px 13px;box-sizing:border-box;background:rgb(255,255,255);border:0.8px solid rgba(0,0,0,0.06);border-radius:12px;box-shadow:rgba({{C_ANCHOR_RGB}},0.05) 0px 2px 10px;">
+      <span style="margin:0 0 8px;padding:3px 9px;box-sizing:border-box;display:inline-block;background:linear-gradient(135deg, {{C_GRAD_A}}, {{C_GRAD_B}});color:#fff;font-size:11px;border-radius:20px;letter-spacing:0.5px;">【标签】</span>
+      <p style="margin:0;font-size:14px;line-height:1.8;color:#3a3d50;">【白色卡正文】</p>
+    </section>
+
+    <!-- 11. 受访专家（✦ 章节头 + 圆形缩写 logo 卡） -->
+    <section style="margin:28px 22px 0;padding:0 0 26px;box-sizing:border-box;">
+      <section style="margin:0 0 16px;padding:0 0 11px;box-sizing:border-box;display:flex;align-items:baseline;gap:11px;border-bottom:0.8px solid rgb(226,232,240);">
+        <span style="margin:0;padding:0;box-sizing:border-box;font-size:26px;background:linear-gradient(135deg, {{C_GRAD_A}}, {{C_GRAD_B}});-webkit-background-clip:text;background-clip:text;color:transparent;flex-shrink:0;line-height:1;font-family:Georgia,'Noto Serif SC','Songti SC',serif;">✦</span>
+        <span style="margin:0;padding:0;box-sizing:border-box;font-size:19.5px;color:{{C_ANCHOR}};letter-spacing:0.4px;flex:1 1 0%;font-family:'Noto Serif SC','Songti SC',Georgia,serif;">受访专家</span>
+        <span style="margin:0;padding:0;box-sizing:border-box;font-size:10px;letter-spacing:1.6px;color:#A6ADBD;">PEOPLE</span>
+      </section>
+      <section style="margin:0 0 13px;padding:15px;box-sizing:border-box;display:flex;gap:13px;background:linear-gradient(135deg, rgba({{C_ACCENT_RGB}},0.05), rgba({{C_ACCENT_RGB}},0.02));border:0.8px solid rgba({{C_ACCENT_RGB}},0.12);border-radius:14px;">
+        <section data-ignore-dm="text-bg-gradient" style="margin:0;padding:0;width:52px;height:52px;flex-shrink:0;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;background:linear-gradient(135deg, {{C_ANCHOR}}, {{C_GRAD_A}});box-sizing:border-box;font-family:'Noto Serif SC','Songti SC',Georgia,serif;font-weight:700;">DS</section>
+        <section style="margin:0;padding:0;box-sizing:border-box;flex:1 1 0%;min-width:0;">
+          <section style="margin:0;padding:0;box-sizing:border-box;font-size:15.5px;color:{{C_ANCHOR}};display:flex;flex-wrap:wrap;align-items:center;gap:6px;">
+            <strong>【专家姓名】</strong>
+            <span style="margin:0;padding:2px 8px;box-sizing:border-box;background:{{C_TAG_TEXT}};color:{{C_ANCHOR}};font-size:10px;border-radius:20px;">受访专家</span>
+          </section>
+          <p style="margin:4px 0 6px;padding:0;box-sizing:border-box;font-size:12.5px;color:#718096;line-height:1.6;">【职务 / 机构】</p>
+          <p style="margin:0;padding:0;box-sizing:border-box;font-size:13px;line-height:1.8;color:#4A5568;text-align:justify;">【专家观点 / 一句话描述】</p>
+        </section>
+      </section>
+      <section style="margin:0 0 13px;padding:15px;box-sizing:border-box;display:flex;gap:13px;background:linear-gradient(135deg, rgba({{C_ACCENT_RGB}},0.05), rgba({{C_ACCENT_RGB}},0.02));border:0.8px solid rgba({{C_ACCENT_RGB}},0.12);border-radius:14px;">
+        <section data-ignore-dm="text-bg-gradient" style="margin:0;padding:0;width:52px;height:52px;flex-shrink:0;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;background:linear-gradient(135deg, {{C_ANCHOR}}, {{C_GRAD_A}});box-sizing:border-box;font-family:'Noto Serif SC','Songti SC',Georgia,serif;font-weight:700;">AM</section>
+        <section style="margin:0;padding:0;box-sizing:border-box;flex:1 1 0%;min-width:0;">
+          <section style="margin:0;padding:0;box-sizing:border-box;font-size:15.5px;color:{{C_ANCHOR}};display:flex;flex-wrap:wrap;align-items:center;gap:6px;">
+            <strong>【专家姓名】</strong>
+            <span style="margin:0;padding:2px 8px;box-sizing:border-box;background:{{C_TAG_TEXT}};color:{{C_ANCHOR}};font-size:10px;border-radius:20px;">受访专家</span>
+          </section>
+          <p style="margin:4px 0 6px;padding:0;box-sizing:border-box;font-size:12.5px;color:#718096;line-height:1.6;">【职务 / 机构】</p>
+          <p style="margin:0;padding:0;box-sizing:border-box;font-size:13px;line-height:1.8;color:#4A5568;text-align:justify;">【专家观点 / 一句话描述】</p>
+        </section>
+      </section>
+    </section>
+
+    <!-- ===================== foot（小胰宝固定 foot，结构文案不动，仅换色值） ===================== -->
+
+    <!-- 关于小胰宝 深色卡 -->
+    <section style="margin:0 20px 15px;background:{{C_ANCHOR}};border-radius:16px;padding:25px;color:#fff;">
+      <p style="font-size:16px;font-weight:600;margin:0 0 12px;color:{{C_GRAD_B}};">🌿 关于小胰宝</p>
+      <p style="font-size:13px;line-height:2;margin:0 0 10px;opacity:0.9;"><strong style="color:#fff;">小胰宝</strong>是一个面向胰腺肿瘤患者及家属的开源公益项目，归属<strong>小X宝社区</strong>和<strong>天工开物基金会</strong>管理。通过社区2025蓝马甲志愿者行动，以及AI工具/应用矩阵，小胰宝以"AI+人文"方式，全心全意推动肿瘤/罕见病患者信息效率改善和关怀。</p>
+      <p style="font-size:13px;line-height:2;margin:0 0 10px;opacity:0.9;"><strong style="color:#fff;">小X宝社区</strong>立足开源社区，鼓励和吸引开放社区志愿者/贡献者，倡导使用AI技术，突破和降低病人所面临的医学和疾病、心理及营养信息差，积极推动医患信息对等，携手获得科学治疗收益。</p>
+      <p style="font-size:13px;line-height:2;margin:0;opacity:0.9;">小X宝社区志愿者们完成公益贡献<strong style="color:{{C_GRAD_B}};">8个癌种+1个罕见病</strong>的AI助手，欢迎有共同价值观的公益病友群发起人联系。</p>
+    </section>
+
+    <!-- 尾图 -->
+    <section style="text-align:center;margin:10px 20px 15px;">
+      <img src="https://mmbiz.qpic.cn/mmbiz_jpg/1qperl0JnD1AhzWq7ibcKBsg70ppkibibHbNMCWDZqCBxLQ9UdIQdBCNK6VTXWQm8oicQKKfjJnx9d0YJefkOibraLw/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1" alt="小胰宝社区" style="width:100%;border-radius:8px;">
+    </section>
+
+    <!-- 关注我们 -->
+    <section style="margin:15px 20px 30px;background:#fff;border-radius:12px;padding:20px;text-align:center;border:1px solid rgba({{C_ANCHOR_RGB}},0.12);">
+      <p style="font-size:13px;color:{{C_ACCENT}};font-weight:700;margin:0 0 8px;">📱 关注我们</p>
+      <p style="margin:0;font-size:12px;color:#3a3d50;line-height:2;">小红书 @小胰宝宝 ｜ 公众号 @小胰宝助手</p>
+      <p style="margin:0;font-size:12px;color:#3a3d50;line-height:2;">播客·小宇宙 @微光成炬 胰路同心</p>
+      <p style="margin:0;font-size:12px;color:#3a3d50;line-height:2;">官网：www.xiaoyibao.com.cn</p>
+    </section>
+
+    <!-- 底部寄语 -->
+    <section style="text-align:center;padding:0 30px 30px;">
+      <p style="font-size:32px;margin-bottom:15px;">🌿🍃</p>
+      <p style="font-size:14px;color:#2D3748;line-height:2;font-weight:300;font-family:'PingFangSC-light','PingFang SC',sans-serif;letter-spacing:2px;margin:0;">愿每一份前沿信息，</p>
+      <p style="font-size:14px;color:#2D3748;line-height:2;font-weight:300;font-family:'PingFangSC-light','PingFang SC',sans-serif;letter-spacing:2px;margin:0;">都能为你带来一点光亮与希望。</p>
+      <p style="height:15px;margin:0;"></p>
+      <p style="font-size:12px;color:#5b6478;line-height:2;font-weight:300;letter-spacing:2px;margin:0;">With love and hope,</p>
+      <p style="font-size:12px;color:#5b6478;line-height:2;font-weight:300;letter-spacing:2px;margin:0;">小胰宝志愿者团队</p>
+      <p style="font-size:12px;color:#5b6478;line-height:2;font-weight:300;letter-spacing:2px;margin:0;">AI+人文 · 胰路同心</p>
+    </section>
+
+    <!-- 免责声明 -->
+    <section style="text-align:center;padding:10px 30px 20px;font-size:11px;color:#6b7488;line-height:1.6;border-top:1px solid rgba({{C_ANCHOR_RGB}},0.12);">
+      <p style="margin:5px 0 0;">本文仅供科普参考，不构成医疗建议或投资建议。</p>
+      <p style="margin:0;">参考文献：请在此处列出引用来源</p>
+    </section>
+
+  </div>
+  </div>
+</div>
+</body>
+</html>
+<!--
+  ========================== 生成时实际输出区（仅 <section>） ==========================
+  将 .article 内全部 <section>/<footer> 原样输出，即为可粘贴 135 编辑器「HTML 源码」的内容。
+  预览框（.frame/.banner/.phone）与颜色 token 不进入最终文章。
+  =====================================================================================
+-->

@@ -5,7 +5,7 @@
 ## 功能
 
 - 将 Markdown/文本素材自动转换为微信公众号兼容的 inline style HTML
-- **八套版式系列**：v3.1 生机微光（默认，卡片错落 + 高对比阅读优化）、莫兰迪柔和卡片风、中国风/特展版式风、瑞慈医疗服务版、病历记录风、med 说明书解读风、review 医生点评风（前沿荟萃学术风，蓝/紫双色）、alliance 医患联合群版（紫色）
+- **九套版式系列**：v3.1 生机微光（默认，卡片错落 + 高对比阅读优化）、莫兰迪柔和卡片风、中国风/特展版式风、瑞慈医疗服务版、病历记录风、med 说明书解读风、review 医生点评风（前沿荟萃学术风，蓝/紫双色）、alliance 医患联合群版（紫色）、bm 前沿速递风（杂志快讯版式，橙/紫/绿三色）
 - 每系列 9 套配色（8 套莫兰迪色系 + Tiffany蓝绿）
 - v3.1 可读性铁律：正文用深色 token，浅色仅用于边框/装饰，杜绝"浅字叠浅底"
 - 内置多种排版组件（错位标题卡、胶囊标签、大字号数据卡、气泡时间轴、CSS几何分隔线等）
@@ -80,6 +80,13 @@ xyb-wechat-article-generator/
 │   ├── template8-alliance/      # 模板系列8：医患联合群（科室共建招募，紫色）
 │   │   ├── alliance_template_purple.html    # 🤝 13 节骨架 + 36 个占位符
 │   │   └── alliance_template_spec.md        # 📐 占位符清单与硬规则（4 战略定位 / 5 医生卡片 / 6.1 新启动研究高亮卡）
+│   ├── template_bm/              # 模板系列 bm：前沿速递风（杂志快讯，橙/紫/绿三色）
+│   │   ├── bm_template.html                # 📰 token 化主骨架（9 个 C_* token，三色共用）
+│   │   ├── bm-template-橙色.html            # 🟠 橙色已渲染示例（母版）
+│   │   ├── bm-template-紫色.html            # 🟣 紫色已渲染示例（派生）
+│   │   ├── bm-template-绿色.html            # 🟢 绿色已渲染示例（派生）
+│   │   ├── bm-template-spec.md              # 📐 Token/三色映射/12 组件/logo·foot·段落分隔规则
+│   │   └── _derive_palettes.py              # 🔧 从橙色母版派生紫/绿，保证三色结构一致
 │   ├── template_qa/             # 胶囊问答组件（医生答疑短问答）
 │   │   └── qa_capsule.html                # 💬 问答胶囊卡
 │   ├── component-clinical-card/ # 💊 临床/药物介绍胶囊卡组件（紫色，见功能清单）
@@ -373,6 +380,7 @@ python3 scripts/check-placeholders.py                    # 只改过 template8 �
 | template6-med | 💊 med 说明模版 | 药品说明书解读、用药对照、紧急速查、患教说明 |
 | template7-review | 👨‍⚕️ 医生点评风（前沿荟萃学术风） | 文献解读、临床研究速递、医生署名点评文章 |
 | template8-alliance | 🤝 医患联合群（紫色，可填空） | 医院科室 × 小胰宝共建病友群、本地就医与志愿者招募（路由词：联合群/共建群/入群/科室共建/不用跑外地/家门口治疗/本地就医） |
+| template_bm | 📰 前沿速递风（杂志快讯，橙/紫/绿） | 新闻资讯、前沿速递、研究亮点、breaking 科普（路由词：前沿速递/快讯/breaking/研究亮点/新闻资讯/bm 模版） |
 
 ## 在其他 AI 工具中使用
 

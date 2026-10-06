@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>bm 模版 · 绿色（效果预览 v2）</title>
+<style>
+  html,body{margin:0;padding:0;}
+  body{background:#e9ebef;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;color:#2D3748;-webkit-font-smoothing:antialiased;}
+  .frame{max-width:760px;margin:0 auto;background:#fff;padding:26px 0 70px;}
+  .banner{max-width:677px;margin:0 auto 18px;padding:12px 16px;box-sizing:border-box;background:#eefaf3;border:1px dashed #1FAE7E;border-radius:10px;font-size:13px;line-height:1.7;color:#137a57;}
+  .banner b{color:#0C3A2C;}
+  .article{max-width:677px;margin:0 auto;background:#fff;}
+  .phone{outline:1px solid #e3e6ea;border-radius:6px;overflow:hidden;}
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="banner"><b>bm 系列 · 绿色 v2 · 效果预览</b>　新增：方框内嵌 XYB logo、导读 IN BRIEF、完整段落标题（渐变序号+衬线标题+底线+英文小标）、深蓝底白字胶囊三档尺寸、受访专家缩写 logo 卡；foot 接入小胰宝固定 foot（bm 配色）。文中为演示内容。</div>
+
+  <div class="phone">
+  <div class="article">
+
+    <!-- 1. 封面 Hero -->
+    <section data-ignore-dm="text-bg-gradient" style="margin:0;padding:26px 24px 44px;box-sizing:border-box;background:linear-gradient(150deg, #0C3A2C 0%, #07251C 100%);overflow:hidden;color:#fff;font-size:medium;">
+      <section style="display:flex;align-items:center;justify-content:space-between;margin:0 0 18px;box-sizing:border-box;">
+        <span style="margin:0;padding:4px 11px;box-sizing:border-box;font-size:11px;border-radius:20px;letter-spacing:0.6px;background:rgba(255,255,255,0.13);color:#fff;border:1px solid rgba(255,255,255,0.28);">前沿速递 · FRONTIER</span>
+        <span style="margin:0;font-size:11px;color:rgba(255,255,255,0.6);letter-spacing:0.5px;">2026.10.02</span>
+      </section>
+      <section style="margin:0 0 14px;box-sizing:border-box;">
+        <span style="margin:0 6px 0 0;padding:4px 11px;box-sizing:border-box;font-size:11px;border-radius:20px;letter-spacing:0.6px;background:#137A57;color:#fff;font-weight:700;">BREAKING</span>
+        <span style="margin:0;padding:4px 11px;box-sizing:border-box;font-size:11px;border-radius:20px;letter-spacing:0.6px;background:rgba(245,166,35,0.16);color:#7FD8A8;border:0.8px solid #7FD8A8;">Nature News</span>
+      </section>
+      <h1 style="margin:0 0 14px;padding:0;font-size:25px;line-height:1.4;font-weight:800;color:#fff;letter-spacing:0.3px;">胰腺癌预防迎来拐点：早筛 + KRAS 抑制剂 + 疫苗同时推进</h1>
+      <p data-ignore-dm="low-contrast" style="margin:16px 0 0;padding:0 0 0 11px;box-sizing:border-box;font-size:12.5px;line-height:1.7;color:rgba(255,255,255,0.7);border-left:1.6px solid #137A57;font-style:italic;">最新研究提示，高危人群的临床干预窗口正在前移——从“发现即晚期”走向“拦截在癌变之前”。</p>
+    </section>
+
+    <!-- 2. 悬浮白色信息卡（方框内嵌 XYB logo） -->
+    <section style="margin:-24px 20px 0;padding:15px 17px;box-sizing:border-box;display:flex;align-items:center;gap:13px;background:rgb(255,255,255);border-radius:13px;box-shadow:rgba(12,58,44,0.16) 0px 10px 30px;z-index:5;border:0.8px solid rgba(0,0,0,0.04);position:relative;">
+      <section data-ignore-dm="text-bg-gradient" style="margin:0;padding:0;width:50px;height:50px;flex-shrink:0;border-radius:11px;background:linear-gradient(135deg, #0C3A2C, #1FAE7E);display:flex;align-items:center;justify-content:center;box-sizing:border-box;overflow:hidden;">
+        <img src="https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb.png" alt="小胰宝" style="width:38px;height:38px;border-radius:50%;object-fit:cover;display:block;">
+      </section>
+      <section style="flex:1;box-sizing:border-box;">
+        <p style="margin:0 0 3px;font-size:14px;font-weight:700;color:#0C3A2C;">小胰宝 · 临床情报</p>
+        <p style="margin:0;font-size:12px;line-height:1.6;color:#5b6478;">本文由患者社区整理，仅供科普参考，不构成诊疗建议。</p>
+      </section>
+    </section>
+
+    <!-- 3. 导读 IN BRIEF -->
+    <section style="margin:26px 22px 0;padding:18px 18px 16px;box-sizing:border-box;border-radius:14px;background:linear-gradient(135deg, rgba(19,122,87,0.07), rgba(19,122,87,0.02));border:0.8px solid rgba(19,122,87,0.12);color:#2D3748;">
+      <p style="margin:0 0 8px;font-size:11px;letter-spacing:2px;color:#137A57;">导 读 · IN BRIEF</p>
+      <p style="margin:0;padding:0;box-sizing:border-box;text-align:justify;font-size:15.5px;line-height:1.9;color:#0C3A2C;font-family:'Noto Serif SC','Songti SC',Georgia,serif;">超过一半的胰腺癌确诊时已经转移，5 年生存率只有 13.7%。随着 KRAS 通路新药在 8 月获批，研究者开始认真讨论一个激进的设想：在高危人群的组织癌变之前就出手“拦截”。早筛队列、KRAS 疫苗和“细胞身份锁定”正在汇成一条新路线——但让健康人吃下强效抗癌药，仍是绕不开的难题。</p>
+    </section>
+
+    <!-- 4. 章节 01 背景 -->
+    <section style="margin:28px 22px 0;padding:0;box-sizing:border-box;">
+      <section style="margin:0 0 16px;padding:0 0 11px;box-sizing:border-box;display:flex;align-items:baseline;gap:11px;border-bottom:0.8px solid rgb(226,232,240);">
+        <span style="margin:0;padding:0;box-sizing:border-box;font-size:26px;background:linear-gradient(135deg, #1FAE7E, #7FD8A8);-webkit-background-clip:text;background-clip:text;color:transparent;flex-shrink:0;line-height:1;font-family:Georgia,'Noto Serif SC','Songti SC',serif;">01</span>
+        <span style="margin:0;padding:0;box-sizing:border-box;font-size:19.5px;color:#0C3A2C;letter-spacing:0.4px;flex:1 1 0%;font-family:'Noto Serif SC','Songti SC',Georgia,serif;">背景：最凶险的癌症之一，迎来新药窗口</span>
+        <span style="margin:0;padding:0;box-sizing:border-box;font-size:10px;letter-spacing:1.6px;color:#A6ADBD;">BACKGROUND</span>
+      </section>
+      <p style="text-align:justify;margin:0 0 4px;padding:0;box-sizing:border-box;font-size:15.5px;line-height:1.95;color:rgb(51,60,77);">
+        胰腺癌是全球最致命的癌症之一。它出了名地“狡猾”：侵袭性强、对大多数治疗无效，还会包绕主要动静脉，使手术切除异常困难。问题在于症状模糊，患者往往不会第一时间就医。
+      </p>
+      <!-- 段落分隔件：居中加粗短线（bm 分隔行，色值随 token） -->
+      <p style="text-align:center;margin:22px 0 20px;padding:0;line-height:1;">
+        <span style="display:inline-block;width:88px;height:4px;background:linear-gradient(90deg, rgba(19,122,87,0) 0%, #137A57 22%, #137A57 78%, rgba(19,122,87,0) 100%);vertical-align:middle;border-radius:2px;"></span>
+      </p>
+      <p style="text-align:justify;margin:0 0 4px;padding:0;box-sizing:border-box;font-size:15.5px;line-height:1.95;color:rgb(51,60,77);">
+        但早期发现的胰腺癌，<strong style="margin:0;padding:0 1px;box-sizing:border-box;color:#0C3A2C;background:linear-gradient(rgba(0,0,0,0) 62%, rgba(19,122,87,0.22) 62%);">5 年生存率可超过 80%</strong>。真正被改变的是干预时机——从“确诊即治疗”，前移到“癌变前拦截”。
+      </p>
+    </section>
+
+    <!-- 5. 数据卡 -->
+    <section style="margin:0 22px 18px;padding:0;box-sizing:border-box;display:flex;gap:10px;">
+      <section style="flex:1;margin:0;padding:14px 12px;box-sizing:border-box;background:rgb(247,249,251);border:0.8px solid rgb(226,232,240);border-radius:11px;text-align:center;">
+        <p style="margin:0 0 6px;font-size:25px;font-weight:800;line-height:1.2;background:linear-gradient(135deg, #1FAE7E, #7FD8A8);-webkit-background-clip:text;background-clip:text;color:transparent;font-family:Georgia,'Noto Serif SC',serif;">13.7%</p>
+        <p style="margin:0;font-size:11.5px;color:#6b7488;line-height:1.5;">晚期 5 年生存率</p>
+      </section>
+      <section style="flex:1;margin:0;padding:14px 12px;box-sizing:border-box;background:rgb(247,249,251);border:0.8px solid rgb(226,232,240);border-radius:11px;text-align:center;">
+        <p style="margin:0 0 6px;font-size:25px;font-weight:800;line-height:1.2;background:linear-gradient(135deg, #1FAE7E, #7FD8A8);-webkit-background-clip:text;background-clip:text;color:transparent;font-family:Georgia,'Noto Serif SC',serif;">&gt;50%</p>
+        <p style="margin:0;font-size:11.5px;color:#6b7488;line-height:1.5;">确诊即已转移</p>
+      </section>
+      <section style="flex:1;margin:0;padding:14px 12px;box-sizing:border-box;background:rgb(247,249,251);border:0.8px solid rgb(226,232,240);border-radius:11px;text-align:center;">
+        <p style="margin:0 0 6px;font-size:25px;font-weight:800;line-height:1.2;background:linear-gradient(135deg, #1FAE7E, #7FD8A8);-webkit-background-clip:text;background-clip:text;color:transparent;font-family:Georgia,'Noto Serif SC',serif;">80%+</p>
+        <p style="margin:0;font-size:11.5px;color:#6b7488;line-height:1.5;">早期 5 年生存率</p>
+      </section>
+    </section>
+
+    <!-- 6. 胶囊三档尺寸（深蓝底白字） -->
+    <section style="margin:0 22px 18px;padding:0;box-sizing:border-box;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+      <span style="margin:0;padding:6px 14px;box-sizing:border-box;background:#0C3A2C;color:#fff;font-size:13px;border-radius:20px;letter-spacing:0.5px;">高危人群</span>
+      <span style="margin:0;padding:4px 11px;box-sizing:border-box;background:#0C3A2C;color:#fff;font-size:11px;border-radius:20px;letter-spacing:0.6px;">需遗传咨询</span>
+      <span style="margin:0;padding:2px 8px;box-sizing:border-box;background:#0C3A2C;color:#fff;font-size:10px;border-radius:20px;">新发糖尿病</span>
+      <span style="margin:0;padding:4px 11px;box-sizing:border-box;background:linear-gradient(135deg, #1FAE7E, #7FD8A8);color:#fff;font-size:11px;border-radius:20px;letter-spacing:0.6px;">研究阶段</span>
+    </section>
+
+    <!-- 7. 深色引用框 -->
+    <section style="margin:18px 22px;padding:20px 18px 16px 22px;box-sizing:border-box;background:#0C3A2C;color:rgba(255,255,255,0.88);border-radius:12px;font-size:15.5px;line-height:1.85;font-family:'Noto Serif SC','Songti SC',Georgia,serif;">
+      “如果我们能在胰腺导管上皮内瘤变阶段就识别并干预，胰腺癌的结局将被彻底改写。”
+    </section>
+
+    <!-- 8. 章节 02 关键进展 + 左竖条列表卡 -->
+    <section style="margin:0 22px;">
+      <section style="margin:0 0 16px;padding:0 0 11px;box-sizing:border-box;display:flex;align-items:baseline;gap:11px;border-bottom:0.8px solid rgb(226,232,240);">
+        <span style="margin:0;padding:0;box-sizing:border-box;font-size:26px;background:linear-gradient(135deg, #1FAE7E, #7FD8A8);-webkit-background-clip:text;background-clip:text;color:transparent;flex-shrink:0;line-height:1;font-family:Georgia,'Noto Serif SC','Songti SC',serif;">02</span>
+        <span style="margin:0;padding:0;box-sizing:border-box;font-size:19.5px;color:#0C3A2C;letter-spacing:0.4px;flex:1 1 0%;font-family:'Noto Serif SC','Songti SC',Georgia,serif;">关键进展：三条线分别走到哪了</span>
+        <span style="margin:0;padding:0;box-sizing:border-box;font-size:10px;letter-spacing:1.6px;color:#A6ADBD;">PROGRESS</span>
+      </section>
+      <section style="margin:0 0 11px;padding:13px 14px;box-sizing:border-box;display:flex;gap:12px;align-items:flex-start;background:rgb(247,249,251);border:0.8px solid rgb(226,232,240);border-left:4px solid #137A57;border-radius:0 11px 11px 0;">
+        <span style="margin:0;font-size:15px;font-weight:800;color:#0C3A2C;flex-shrink:0;">早筛</span>
+        <p style="margin:0;font-size:13.5px;line-height:1.7;color:#3a3d50;">基于 <code style="margin:0 0 0 4px;padding:1px 5px;box-sizing:border-box;font-size:12px;color:#137A57;background:rgba(19,122,87,0.1);border-radius:4px;font-family:Menlo,Consolas,monospace;">cfDNA</code> 的多靶点甲基化检测，已在高危人群中显示较高灵敏度。</p>
+      </section>
+      <section style="margin:0 0 11px;padding:13px 14px;box-sizing:border-box;display:flex;gap:12px;align-items:flex-start;background:rgb(247,249,251);border:0.8px solid rgb(226,232,240);border-left:4px solid #7FD8A8;border-radius:0 11px 11px 0;">
+        <span style="margin:0;font-size:15px;font-weight:800;color:#0C3A2C;flex-shrink:0;">抑制剂</span>
+        <p style="margin:0;font-size:13.5px;line-height:1.7;color:#3a3d50;">KRAS G12D 口服小分子进入临床试验，针对既往“不可成药”突变。</p>
+      </section>
+      <section style="margin:0 0 11px;padding:13px 14px;box-sizing:border-box;display:flex;gap:12px;align-items:flex-start;background:rgb(247,249,251);border:0.8px solid rgb(226,232,240);border-left:4px solid #0C3A2C;border-radius:0 11px 11px 0;">
+        <span style="margin:0;font-size:15px;font-weight:800;color:#0C3A2C;flex-shrink:0;">疫苗</span>
+        <p style="margin:0;font-size:13.5px;line-height:1.7;color:#3a3d50;">mRNA / 多肽路线疫苗处于早期临床，目标是在癌前阶段激活免疫识别。</p>
+      </section>
+    </section>
+
+    <!-- 9. 提示框 -->
+    <section style="margin:16px 22px;padding:14px 16px;box-sizing:border-box;background:linear-gradient(135deg, rgba(19,122,87,0.07), rgba(19,122,87,0.02));border-left:4px solid #137A57;border-radius:0 10px 10px 0;font-size:14.5px;line-height:1.85;color:rgb(58,61,80);">
+      <strong style="color:#0C3A2C;">患者视角：</strong>以上进展目前多处于研究阶段，距离常规临床应用仍有距离。高危人群应优先通过正规筛查与遗传咨询评估风险。
+    </section>
+
+    <!-- 10. 白色阴影卡 -->
+    <section style="margin:0 22px 12px;padding:15px 15px 13px;box-sizing:border-box;background:rgb(255,255,255);border:0.8px solid rgba(0,0,0,0.06);border-radius:12px;box-shadow:rgba(12,58,44,0.05) 0px 2px 10px;">
+      <span style="margin:0 0 8px;padding:3px 9px;box-sizing:border-box;display:inline-block;background:linear-gradient(135deg, #1FAE7E, #7FD8A8);color:#fff;font-size:11px;border-radius:20px;letter-spacing:0.5px;">关键阅读</span>
+      <p style="margin:0;font-size:14px;line-height:1.8;color:#3a3d50;">理解 KRAS 突变的“驱动”本质，是看懂这三条线的共同前提：它既是早筛想抓的信号，也是抑制剂想封锁的靶点，还是疫苗想教会免疫系统识别的“通缉犯”。</p>
+    </section>
+
+    <!-- 11. 受访专家 -->
+    <section style="margin:28px 22px 0;padding:0 0 26px;box-sizing:border-box;">
+      <section style="margin:0 0 16px;padding:0 0 11px;box-sizing:border-box;display:flex;align-items:baseline;gap:11px;border-bottom:0.8px solid rgb(226,232,240);">
+        <span style="margin:0;padding:0;box-sizing:border-box;font-size:26px;background:linear-gradient(135deg, #1FAE7E, #7FD8A8);-webkit-background-clip:text;background-clip:text;color:transparent;flex-shrink:0;line-height:1;font-family:Georgia,'Noto Serif SC','Songti SC',serif;">✦</span>
+        <span style="margin:0;padding:0;box-sizing:border-box;font-size:19.5px;color:#0C3A2C;letter-spacing:0.4px;flex:1 1 0%;font-family:'Noto Serif SC','Songti SC',Georgia,serif;">受访专家</span>
+        <span style="margin:0;padding:0;box-sizing:border-box;font-size:10px;letter-spacing:1.6px;color:#A6ADBD;">PEOPLE</span>
+      </section>
+      <section style="margin:0 0 13px;padding:15px;box-sizing:border-box;display:flex;gap:13px;background:linear-gradient(135deg, rgba(19,122,87,0.05), rgba(19,122,87,0.02));border:0.8px solid rgba(19,122,87,0.12);border-radius:14px;">
+        <section data-ignore-dm="text-bg-gradient" style="margin:0;padding:0;width:52px;height:52px;flex-shrink:0;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;background:linear-gradient(135deg, #0C3A2C, #1FAE7E);box-sizing:border-box;font-family:'Noto Serif SC','Songti SC',Georgia,serif;font-weight:700;">DS</section>
+        <section style="margin:0;padding:0;box-sizing:border-box;flex:1 1 0%;min-width:0;">
+          <section style="margin:0;padding:0;box-sizing:border-box;font-size:15.5px;color:#0C3A2C;display:flex;flex-wrap:wrap;align-items:center;gap:6px;">
+            <strong>Diane Simeone</strong>
+            <span style="margin:0;padding:2px 8px;box-sizing:border-box;background:#7FD8A8;color:#0C3A2C;font-size:10px;border-radius:20px;">受访专家</span>
+          </section>
+          <p style="margin:4px 0 6px;padding:0;box-sizing:border-box;font-size:12.5px;color:#718096;line-height:1.6;">美国加州大学圣迭戈分校健康系统 Moores 癌症中心主任</p>
+          <p style="margin:0;padding:0;box-sizing:border-box;font-size:13px;line-height:1.8;color:#4A5568;text-align:justify;">PRECEDE 早筛研究的发起人之一，在 AACR 会议上提出“早筛 + 拦截”可将胰腺癌 5 年生存率从 13.7% 提升至 50%。</p>
+        </section>
+      </section>
+      <section style="margin:0 0 13px;padding:15px;box-sizing:border-box;display:flex;gap:13px;background:linear-gradient(135deg, rgba(19,122,87,0.05), rgba(19,122,87,0.02));border:0.8px solid rgba(19,122,87,0.12);border-radius:14px;">
+        <section data-ignore-dm="text-bg-gradient" style="margin:0;padding:0;width:52px;height:52px;flex-shrink:0;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;background:linear-gradient(135deg, #0C3A2C, #1FAE7E);box-sizing:border-box;font-family:'Noto Serif SC','Songti SC',Georgia,serif;font-weight:700;">AM</section>
+        <section style="margin:0;padding:0;box-sizing:border-box;flex:1 1 0%;min-width:0;">
+          <section style="margin:0;padding:0;box-sizing:border-box;font-size:15.5px;color:#0C3A2C;display:flex;flex-wrap:wrap;align-items:center;gap:6px;">
+            <strong>Anirban Maitra</strong>
+            <span style="margin:0;padding:2px 8px;box-sizing:border-box;background:#7FD8A8;color:#0C3A2C;font-size:10px;border-radius:20px;">受访专家</span>
+          </section>
+          <p style="margin:4px 0 6px;padding:0;box-sizing:border-box;font-size:12.5px;color:#718096;line-height:1.6;">美国国家癌症研究所（NCI）胰腺癌项目负责人</p>
+          <p style="margin:0;padding:0;box-sizing:border-box;font-size:13px;line-height:1.8;color:#4A5568;text-align:justify;">主张把“癌变前拦截”当作可验证的终点指标，而不是单纯延长生存期。</p>
+        </section>
+      </section>
+    </section>
+
+    <!-- ===================== foot（小胰宝固定 foot · bm 橙色） ===================== -->
+    <section style="margin:0 20px 15px;background:#0C3A2C;border-radius:16px;padding:25px;color:#fff;">
+      <p style="font-size:16px;font-weight:600;margin:0 0 12px;color:#7FD8A8;">🌿 关于小胰宝</p>
+      <p style="font-size:13px;line-height:2;margin:0 0 10px;opacity:0.9;"><strong style="color:#fff;">小胰宝</strong>是一个面向胰腺肿瘤患者及家属的开源公益项目，归属<strong>小X宝社区</strong>和<strong>天工开物基金会</strong>管理。通过社区2025蓝马甲志愿者行动，以及AI工具/应用矩阵，小胰宝以"AI+人文"方式，全心全意推动肿瘤/罕见病患者信息效率改善和关怀。</p>
+      <p style="font-size:13px;line-height:2;margin:0 0 10px;opacity:0.9;"><strong style="color:#fff;">小X宝社区</strong>立足开源社区，鼓励和吸引开放社区志愿者/贡献者，倡导使用AI技术，突破和降低病人所面临的医学和疾病、心理及营养信息差，积极推动医患信息对等，携手获得科学治疗收益。</p>
+      <p style="font-size:13px;line-height:2;margin:0;opacity:0.9;">小X宝社区志愿者们完成公益贡献<strong style="color:#7FD8A8;">8个癌种+1个罕见病</strong>的AI助手，欢迎有共同价值观的公益病友群发起人联系。</p>
+    </section>
+
+    <section style="text-align:center;margin:10px 20px 15px;">
+      <img src="https://mmbiz.qpic.cn/mmbiz_jpg/1qperl0JnD1AhzWq7ibcKBsg70ppkibibHbNMCWDZqCBxLQ9UdIQdBCNK6VTXWQm8oicQKKfjJnx9d0YJefkOibraLw/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1" alt="小胰宝社区" style="width:100%;border-radius:8px;">
+    </section>
+
+    <section style="margin:15px 20px 30px;background:#fff;border-radius:12px;padding:20px;text-align:center;border:1px solid rgba(12,58,44,0.12);">
+      <p style="font-size:13px;color:#137A57;font-weight:700;margin:0 0 8px;">📱 关注我们</p>
+      <p style="margin:0;font-size:12px;color:#3a3d50;line-height:2;">小红书 @小胰宝宝 ｜ 公众号 @小胰宝助手</p>
+      <p style="margin:0;font-size:12px;color:#3a3d50;line-height:2;">播客·小宇宙 @微光成炬 胰路同心</p>
+      <p style="margin:0;font-size:12px;color:#3a3d50;line-height:2;">官网：www.xiaoyibao.com.cn</p>
+    </section>
+
+    <section style="text-align:center;padding:0 30px 30px;">
+      <p style="font-size:32px;margin-bottom:15px;">🌿🍃</p>
+      <p style="font-size:14px;color:#2D3748;line-height:2;font-weight:300;font-family:'PingFangSC-light','PingFang SC',sans-serif;letter-spacing:2px;margin:0;">愿每一份前沿信息，</p>
+      <p style="font-size:14px;color:#2D3748;line-height:2;font-weight:300;font-family:'PingFangSC-light','PingFang SC',sans-serif;letter-spacing:2px;margin:0;">都能为你带来一点光亮与希望。</p>
+      <p style="height:15px;margin:0;"></p>
+      <p style="font-size:12px;color:#5b6478;line-height:2;font-weight:300;letter-spacing:2px;margin:0;">With love and hope,</p>
+      <p style="font-size:12px;color:#5b6478;line-height:2;font-weight:300;letter-spacing:2px;margin:0;">小胰宝志愿者团队</p>
+      <p style="font-size:12px;color:#5b6478;line-height:2;font-weight:300;letter-spacing:2px;margin:0;">AI+人文 · 胰路同心</p>
+    </section>
+
+    <section style="text-align:center;padding:10px 30px 20px;font-size:11px;color:#6b7488;line-height:1.6;border-top:1px solid rgba(12,58,44,0.12);">
+      <p style="margin:5px 0 0;">本文仅供科普参考，不构成医疗建议或投资建议。</p>
+      <p style="margin:0;">参考文献：请在此处列出引用来源</p>
+    </section>
+
+  </div>
+  </div>
+</div>
+</body>
+</html>
