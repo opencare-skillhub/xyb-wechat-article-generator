@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>actionlist 模版 · 紫色（效果预览）</title>
+<!--
+  ============================================================================
+  actionlist 系列 · 紫色
+  ----------------------------------------------------------------------------
+  设计语言提取自「诺康癌友圈」一篇胰腺癌确诊指导文章，特点：
+  44px 巨型浅色数字编号 + 英文小标 + 下划线强调 + 圆点编号列表
+  + 顶部三栏看点卡 + 行动号召收口。结构朴素、阅读节奏强，适合「按步骤做」的科普。
+
+  颜色 token（6 色共用一套结构）：
+    #2E2340      深墨色（巨型数字底/大标题文字/编号圆底）
+    #3A2C50    标题色（章节 h3、引言大字）
+    #4A4358     正文色
+    #6E6288    辅助灰蓝（英文小标、说明、卡内次要文字）
+    #5C4A7A     主色（下划线强调、圆点编号、竖条、END 装饰）
+    92,74,122 主色 rgb（备用：需要 rgba(主色,透明度) 浅底时用，当前组件未使用）
+    #E4DEF0     浅底（三栏看点卡底、巨型数字色）
+    #D2C9E6     描线（分隔线、卡片上边框、END 左右线）
+
+  配色映射见 actionlist-spec.md（蓝/紫/绿/橙/红/青 六套已定值）。
+  生成时只输出 .article 内的 <section>；预览框与 token 不进入文章。
+  ============================================================================
+-->
+<style>
+  html,body{margin:0;padding:0;}
+  body{background:#e9ebef;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;color:#2F4358;-webkit-font-smoothing:antialiased;}
+  .frame{max-width:760px;margin:0 auto;background:#fff;padding:26px 0 70px;}
+  .banner{max-width:677px;margin:0 auto 18px;padding:12px 16px;box-sizing:border-box;background:#f5f2fa;border:1px dashed #5C4A7A;border-radius:10px;font-size:13px;line-height:1.7;color:#4A4358;}
+  .banner b{color:#3A2C50;}
+  .article{max-width:677px;margin:0 auto;background:#fff;}
+  .phone{outline:1px solid #e3e6ea;border-radius:6px;overflow:hidden;}
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="banner"><b>actionlist 系列 · 紫色 · 效果预览</b>　行动清单 / 步骤指南风，6 色共用结构。替换 {{C_*}} 即可换色（见 actionlist-spec.md）。下方【】为内容占位，生成时替换为真实文案。</div>
+
+  <div class="phone">
+  <div class="article">
+
+    <!-- 0. 品牌头部（XYB 圆形 logo + 浅灰圆环描边 + 日期，六色一致） -->
+    <section style="margin:0;padding:22px 24px 0;box-sizing:border-box;background:#fff;">
+      <section style="display:flex;align-items:center;gap:12px;">
+        <span style="display:inline-block;width:52px;height:52px;border-radius:50%;background:#EEF0F3;border:0.8px solid #DFE3E8;box-sizing:border-box;padding:3px;flex-shrink:0;">
+          <img src="https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/xyb.png" alt="小胰宝" style="width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;">
+        </span>
+        <section style="flex:1;min-width:0;">
+          <p style="margin:0 0 3px;font-size:14px;font-weight:700;color:#3A2C50;letter-spacing:0.3px;">小胰宝 · 临床情报</p>
+          <p style="margin:0;font-size:12px;line-height:1.6;color:#7A6E96;">本文由患者社区整理，仅供科普参考，不构成诊疗建议。</p>
+        </section>
+        <span style="font-size:11px;color:#9AA3AD;letter-spacing:0.5px;flex-shrink:0;align-self:flex-start;padding-top:2px;">2026.10.07</span>
+      </section>
+    </section>
+
+    <!-- 1. 引言 QUOTE（上下细线 + 主色大字 + 下划线强调 + 右对齐署名） -->
+    <section style="margin:28px 24px 36px;padding:30px 24px 22px;border-top:1px solid #D2C9E6;border-bottom:1px solid #D2C9E6;">
+      <p style="font-size:11px;color:#6E6288;letter-spacing:2px;margin:0 0 16px;">QUOTE</p>
+      <p style="font-size:18px;font-weight:700;color:#3A2C50;margin:0 0 8px;line-height:1.7;letter-spacing:0.5px;">【引言大字】<span style="border-bottom:2px solid #5C4A7A;">【下划线强调词】</span>。</p>
+      <p style="text-align:right;font-size:12px;color:#6E6288;margin:14px 0 0;letter-spacing:1px;">—— 【署名】</p>
+    </section>
+
+    <!-- 2. 导语正文（下划线强调关键词） -->
+    <section style="padding:0 24px;">
+      <p style="margin-bottom:22px;font-size:15px;line-height:1.8;text-align:justify;color:#4A4358;letter-spacing:0.3px;">【导语段落】家属最关心的往往是<strong style="border-bottom:2px solid #5C4A7A;font-weight:600;color:#3A2C50;">【强调关键词】</strong>，这一点决定了后面整条路怎么走。</p>
+      <p style="margin-bottom:22px;font-size:15px;line-height:1.8;text-align:justify;color:#4A4358;letter-spacing:0.3px;">【第二段导语】把这份内容整理成<strong style="border-bottom:2px solid #5C4A7A;font-weight:600;color:#3A2C50;">【N 件事】</strong>，照着做即可。</p>
+    </section>
+
+    <!-- 3. 本文看点（三栏卡片） -->
+    <section style="padding:0 24px 36px;">
+      <p style="font-size:11px;color:#6E6288;margin:0 0 14px;letter-spacing:2px;">📌 本文看点</p>
+      <section style="display:flex;justify-content:space-between;">
+        <section style="flex:1 1 0%;background:#E4DEF0;border-top:1px solid #D2C9E6;padding:16px 10px;margin-right:8px;">
+          <p style="font-size:11px;color:#6E6288;margin:0 0 6px;">01</p>
+          <p style="font-size:13px;font-weight:700;color:#3A2C50;margin:0;line-height:1.5;">【看点一小标题】</p>
+        </section>
+        <section style="flex:1 1 0%;background:#E4DEF0;border-top:1px solid #D2C9E6;padding:16px 10px;margin-right:8px;">
+          <p style="font-size:11px;color:#6E6288;margin:0 0 6px;">02</p>
+          <p style="font-size:13px;font-weight:700;color:#3A2C50;margin:0;line-height:1.5;">【看点二小标题】</p>
+        </section>
+        <section style="flex:1 1 0%;background:#E4DEF0;border-top:1px solid #D2C9E6;padding:16px 10px;">
+          <p style="font-size:11px;color:#6E6288;margin:0 0 6px;">03</p>
+          <p style="font-size:13px;font-weight:700;color:#3A2C50;margin:0;line-height:1.5;">【看点三小标题】</p>
+        </section>
+      </section>
+    </section>
+
+    <!-- 4. 章节 01（巨型浅色数字 + 英文小标 + 标题 + 底线） -->
+    <section style="margin-top:56px;margin-bottom:32px;padding:0 24px;">
+      <section style="padding-bottom:20px;border-bottom:1px solid #D2C9E6;">
+        <p style="font-size:44px;font-weight:900;color:#E4DEF0;margin:0;line-height:1;letter-spacing:-2px;">01</p>
+        <section style="margin-top:-6px;">
+          <p style="font-size:10px;color:#5C4A7A;font-weight:500;letter-spacing:3px;margin:0 0 6px;text-transform:uppercase;">SECTION ONE</p>
+          <h3 style="font-size:20px;font-weight:800;color:#3A2C50;margin:0;letter-spacing:0.5px;line-height:1.4;">【章节一标题】</h3>
+        </section>
+      </section>
+      <p style="margin-top:24px;margin-bottom:22px;font-size:15px;line-height:1.8;text-align:justify;color:#4A4358;letter-spacing:0.3px;">【正文段落】关键提示：<strong style="border-bottom:2px solid #5C4A7A;font-weight:600;color:#3A2C50;">【强调句】</strong>，这一点务必注意。</p>
+      <!-- 圆点编号列表（深墨圆底 + 白字序号） -->
+      <section style="margin-bottom:24px;">
+        <section style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:#2E2340;color:#fff;font-size:12px;font-weight:700;border-radius:50%;flex-shrink:0;margin-top:2px;">1</span>
+          <p style="font-size:15px;color:#4A4358;margin:0;line-height:1.8;flex:1 1 0%;">【编号列表项】<strong style="color:#3A2C50;">【加粗关键词】</strong>说明。</p>
+        </section>
+        <section style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:#2E2340;color:#fff;font-size:12px;font-weight:700;border-radius:50%;flex-shrink:0;margin-top:2px;">2</span>
+          <p style="font-size:15px;color:#4A4358;margin:0;line-height:1.8;flex:1 1 0%;">【编号列表项】说明文字。</p>
+        </section>
+      </section>
+    </section>
+
+    <!-- 5. 细分隔线（全站共用组件：四段横线 + 居中植物 emoji，章节之间） -->
+    <section style="padding:0 24px;">
+      <section style="display:flex;align-items:center;margin:0 0 8px">
+        <span style="flex:1;height:4px;border-radius:4px;background:#E4DEF0;"></span><span style="flex:1;height:4px;border-radius:4px;background:#C0B2DC;"></span><span style="flex:1;height:4px;border-radius:4px;background:#5C4A7A;"></span><span style="flex:1;height:4px;border-radius:4px;background:#5C4A7A;"></span>
+        <span style="flex:0 0 auto;font-size:20px;line-height:1;margin:0 10px;">🌿</span><span style="flex:0 0 auto;font-size:20px;line-height:1;margin:0 10px;">🌿</span>
+        <span style="flex:1;height:4px;border-radius:4px;background:#5C4A7A;"></span><span style="flex:1;height:4px;border-radius:4px;background:#5C4A7A;"></span><span style="flex:1;height:4px;border-radius:4px;background:#C0B2DC;"></span><span style="flex:1;height:4px;border-radius:4px;background:#E4DEF0;"></span>
+      </section>
+    </section>
+
+    <!-- 6. 小标题（左竖条 + 主色标题） -->
+    <section style="margin-top:56px;margin-bottom:32px;padding:0 24px;">
+      <section style="padding-bottom:20px;border-bottom:1px solid #D2C9E6;">
+        <p style="font-size:44px;font-weight:900;color:#E4DEF0;margin:0;line-height:1;letter-spacing:-2px;">02</p>
+        <section style="margin-top:-6px;">
+          <p style="font-size:10px;color:#5C4A7A;font-weight:500;letter-spacing:3px;margin:0 0 6px;text-transform:uppercase;">SECTION TWO</p>
+          <h3 style="font-size:20px;font-weight:800;color:#3A2C50;margin:0;letter-spacing:0.5px;line-height:1.4;">【章节二标题】</h3>
+        </section>
+      </section>
+      <p style="font-size:15px;font-weight:800;color:#3A2C50;margin:28px 0 14px;padding-left:12px;border-left:3px solid #5C4A7A;line-height:1.4;">【小标题：左竖条 + 主色】</p>
+      <p style="margin-bottom:22px;font-size:15px;line-height:1.8;text-align:justify;color:#4A4358;letter-spacing:0.3px;">【正文段落】说明文字。</p>
+    </section>
+
+    <!-- 7. 提示条（左竖条 + 大字行动提示） -->
+    <section style="border-left:3px solid #5C4A7A;padding:16px 0 16px 24px;margin:0 24px 28px;">
+      <p style="font-size:16px;font-weight:700;color:#3A2C50;margin:0;line-height:1.7;letter-spacing:0.5px;">「【行动号召句】」</p>
+    </section>
+
+    <!-- 8. 说明条（浅竖线 + 灰蓝小字） -->
+    <section style="border-left:2px solid #D2C9E6;padding:12px 0 12px 20px;margin:0 24px 24px;">
+      <p style="font-size:13px;color:#6E6288;margin:0;line-height:1.8;text-align:justify;">【灰色小字说明】以上为公开信息整理，细节以官方为准。</p>
+    </section>
+
+    <!-- 8.5 强调变体章节（巨型数字用主色浅调 C_MAIN_TINT，作为节奏锚点） -->
+    <section style="margin-top:56px;margin-bottom:32px;padding:0 24px;">
+      <section style="padding-bottom:20px;border-bottom:1px solid #D2C9E6;">
+        <!-- 变体：数字色用 C_MAIN_TINT（主色浅调），比常规 TINT 更醒目，用于关键章节 -->
+        <p style="font-size:44px;font-weight:900;color:#C0B2DC;margin:0;line-height:1;letter-spacing:-2px;">03</p>
+        <section style="margin-top:-6px;">
+          <p style="font-size:10px;color:#5C4A7A;font-weight:500;letter-spacing:3px;margin:0 0 6px;text-transform:uppercase;">KEY STEP</p>
+          <h3 style="font-size:20px;font-weight:800;color:#3A2C50;margin:0;letter-spacing:0.5px;line-height:1.4;">【关键章节：用强调变体】</h3>
+        </section>
+      </section>
+      <p style="margin-top:24px;margin-bottom:22px;font-size:15px;line-height:1.8;text-align:justify;color:#4A4358;letter-spacing:0.3px;">【正文段落】巨型数字改用主色浅调后，这一章在长文中会成为视觉节奏锚点——仍然克制，但读者能「感觉到」这一节比别节重要。</p>
+    </section>
+
+    <!-- 9. 写在最后（∞ 收口章节） -->
+    <section style="margin-top:56px;margin-bottom:32px;padding:0 24px;">
+      <section style="padding-bottom:20px;border-bottom:1px solid #D2C9E6;">
+        <p style="font-size:44px;font-weight:900;color:#E4DEF0;margin:0;line-height:1;letter-spacing:-2px;">∞</p>
+        <section style="margin-top:-6px;">
+          <p style="font-size:10px;color:#5C4A7A;font-weight:500;letter-spacing:3px;margin:0 0 6px;text-transform:uppercase;">THE END</p>
+          <h3 style="font-size:20px;font-weight:800;color:#3A2C50;margin:0;letter-spacing:0.5px;line-height:1.4;">写在最后</h3>
+        </section>
+      </section>
+      <p style="margin-top:24px;margin-bottom:22px;font-size:15px;line-height:1.8;text-align:justify;color:#4A4358;letter-spacing:0.3px;">【收尾段落】总结一句话，落到<strong style="border-bottom:2px solid #5C4A7A;font-weight:600;color:#3A2C50;">【行动落点】</strong>。</p>
+    </section>
+
+    <!-- 10. END 收尾装饰（左右细线 + END 字） -->
+    <section style="text-align:center;margin:0 0 36px;">
+      <section style="display:flex;align-items:center;justify-content:center;">
+        <span style="height:1px;width:48px;background:#D2C9E6;margin-right:16px;"><br/></span>
+        <span style="font-size:10px;color:#6E6288;letter-spacing:4px;font-weight:500;">END</span>
+        <span style="height:1px;width:48px;background:#D2C9E6;margin-left:16px;"><br/></span>
+      </section>
+    </section>
+
+    <!-- ===================== foot（小胰宝固定 foot 五件套，结构文案不动，仅换 actionlist 配色） ===================== -->
+
+    <!-- 11. 关于小胰宝（深色卡，底 C_INK，标题与强调字 C_MAIN_TINT） -->
+    <section style="margin:24px 24px 15px;background:#2E2340;border-radius:16px;padding:25px;color:#fff;">
+      <p style="font-size:16px;font-weight:600;margin:0 0 12px;color:#C0B2DC;">🌿 关于小胰宝</p>
+      <p style="font-size:13px;line-height:2;margin:0 0 10px;opacity:0.9;"><strong style="color:#fff;">小胰宝</strong>是一个面向胰腺肿瘤患者及家属的开源公益项目，归属<strong>小X宝社区</strong>和<strong>天工开物基金会</strong>管理。通过社区2025蓝马甲志愿者行动，以及AI工具/应用矩阵，小胰宝以"AI+人文"方式，全心全意推动肿瘤/罕见病患者信息效率改善和关怀。</p>
+      <p style="font-size:13px;line-height:2;margin:0 0 10px;opacity:0.9;"><strong style="color:#fff;">小X宝社区</strong>立足开源社区，鼓励和吸引开放社区志愿者/贡献者，倡导使用AI技术，突破和降低病人所面临的医学和疾病、心理及营养信息差，积极推动医患信息对等，携手获得科学治疗收益。</p>
+      <p style="font-size:13px;line-height:2;margin:0;opacity:0.9;">小X宝社区志愿者们完成公益贡献<strong style="color:#C0B2DC;">8个癌种+1个罕见病</strong>的AI助手，欢迎有共同价值观的公益病友群发起人联系。</p>
+    </section>
+
+    <!-- 12. 尾图（统一尾图绝对地址） -->
+    <section style="text-align:center;margin:10px 24px 15px;">
+      <img src="https://mmbiz.qpic.cn/mmbiz_jpg/1qperl0JnD1AhzWq7ibcKBsg70ppkibibHbNMCWDZqCBxLQ9UdIQdBCNK6VTXWQm8oicQKKfjJnx9d0YJefkOibraLw/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1" alt="小胰宝社区" style="width:100%;border-radius:8px;">
+    </section>
+
+    <!-- 13. 关注我们 -->
+    <section style="margin:15px 24px 30px;background:#fff;border-radius:12px;padding:20px;text-align:center;border:1px solid #D2C9E6;">
+      <p style="font-size:13px;color:#5C4A7A;font-weight:700;margin:0 0 8px;">📱 关注我们</p>
+      <p style="margin:0;font-size:12px;color:#4A4358;line-height:2;">小红书 @小胰宝宝 ｜ 公众号 @小胰宝助手</p>
+      <p style="margin:0;font-size:12px;color:#4A4358;line-height:2;">播客·小宇宙 @微光成炬 胰路同心</p>
+      <p style="margin:0;font-size:12px;color:#4A4358;line-height:2;">官网：www.xiaoyibao.com.cn</p>
+    </section>
+
+    <!-- 14. 底部寄语 -->
+    <section style="text-align:center;padding:0 30px 30px;">
+      <p style="font-size:32px;margin-bottom:15px;">🌿🍃</p>
+      <p style="font-size:14px;color:#4A4358;line-height:2;font-weight:300;font-family:'PingFangSC-light','PingFang SC',sans-serif;letter-spacing:2px;margin:0;">愿每一份前沿信息，</p>
+      <p style="font-size:14px;color:#4A4358;line-height:2;font-weight:300;font-family:'PingFangSC-light','PingFang SC',sans-serif;letter-spacing:2px;margin:0;">都能为你带来一点光亮与希望。</p>
+      <p style="height:15px;margin:0;"></p>
+      <p style="font-size:12px;color:#6E6288;line-height:2;font-weight:300;letter-spacing:2px;margin:0;">With love and hope,</p>
+      <p style="font-size:12px;color:#6E6288;line-height:2;font-weight:300;letter-spacing:2px;margin:0;">小胰宝志愿者团队</p>
+      <p style="font-size:12px;color:#6E6288;line-height:2;font-weight:300;letter-spacing:2px;margin:0;">AI+人文 · 胰路同心</p>
+    </section>
+
+    <!-- 15. 免责声明（参考文献为替换区） -->
+    <section style="text-align:center;padding:10px 30px 20px;font-size:11px;color:#6E6288;line-height:1.6;border-top:1px solid #D2C9E6;">
+      <p style="margin:5px 0 0;">本文仅供科普参考，不构成医疗建议或投资建议。</p>
+      <p style="margin:0;">参考文献：请在此处列出引用来源</p>
+    </section>
+
+  </div>
+  </div>
+</div>
+</body>
+</html>
+<!--
+  ========================== 生成时实际输出区（仅 <section>） ==========================
+  将 .article 内全部 <section> 原样输出，即为可粘贴 135 编辑器「HTML 源码」的内容。
+  预览框与颜色 token 不进入最终文章。
+  =====================================================================================
+-->
